@@ -1,0 +1,78 @@
+--- elinks-0.4.0/src/protocol/http/http.c	Sat Dec  7 23:15:31 2002
++++ elinks-0.4.0.new/src/protocol/http/http.c	Tue Dec 24 21:26:46 2002
+@@ -680,8 +680,8 @@
+ 	/* Number of uncompressed bytes that could be safely get from
+ 	 * read_encoded().  We can't want to read too much, because if gzread
+ 	 * "clears" the buffer next time it will return -1. */
+-	int ret = 0;
+-	int r = 0, *length_of_block;
++	int ret = 2048;
++	int r, *length_of_block;
+ 	/* If true, all stuff was written to pipe and only uncompression is
+ 	 * wanted now. */
+ 	int finishing = 0;
+@@ -705,10 +705,9 @@
+ 		if (set_nonblocking_fd(conn->stream_pipes[1]) < 0) return NULL;
+ 	}
+ 
+-	while (r == ret) {
++	do {
+ 		if (!finishing) {
+-			int written = write(conn->stream_pipes[1], data, len);
+-
++			int written = write(conn->stream_pipes[1], data, len > 2048 ? 2048 : len);
+ 			/* When we're writing zero bytes already, we want to
+ 			 * zero ret properly for now, so that we'll go out for
+ 			 * some more data. Otherwise, read_encoded() will yield
+@@ -716,22 +715,16 @@
+ 			 * causing us to close the stream, and that's disaster
+ 			 * when more data are about to come yet. */
+ 			if (written > 0 || (!written && !len)) {
+-				ret = written;
+-				data += ret;
+-				len -= ret;
+-				if (*length_of_block > 0)
+-					*length_of_block -= ret;
++				data += written;
++				len -= written;
++				*length_of_block -= written;
+ 				if (!info->length)
+ 					finishing = 1;
+-			}
+-
+-			if (len) {
+-				/* We assume that this is because full pipe. */
+-				/* FIXME: We should probably handle errors as
+-				 * well. --pasky */
+-				ret = 4096; /* pipe capacity */
++				else if (!len)
++					return output;
+ 			}
+ 		}
++
+ 		/* finishing could be changed above ;) */
+ 		if (finishing) {
+ 			/* Granularity of the final decompression. When we were
+@@ -743,10 +736,6 @@
+ 			 * displaying feeling better? --pasky */
+ 			ret = 65536;
+ 		}
+-		if (ret < 4096) {
+-			/* Not enough data, try in next round. */
+-			return output;
+-		}
+ 
+ 		if (!conn->stream) {
+ 			conn->stream = open_encoded(conn->stream_pipes[0],
+@@ -757,9 +746,9 @@
+ 		output = (unsigned char *) mem_realloc(output, *new_len + ret);
+ 		if (!output) break;
+ 
+-		r = read_encoded(conn->stream, output + *new_len, ret);
++		r = read_encoded(conn->stream, output + *new_len, ret);		
+ 		if (r > 0) *new_len += r;
+-	}
++	} while (len || r == ret);
+ 
+ 	if (r < 0 && output) {
+ 		mem_free(output);
