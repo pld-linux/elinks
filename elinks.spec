@@ -1,15 +1,17 @@
+%define	_pre	pre1
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
+Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.4.2
-Release:	1
+Version:	0.5
+Release:	0.%{_pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
-Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
+Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
 # Source0-md5:	bb77dcd59968634477f5a6d5f07ccd5e
 Source1:	%{name}.desktop
 Source2:	links.png
@@ -27,7 +29,7 @@ BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_sysconfdir	/etc/elinks
+%define _sysconfdir /etc/elinks
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
@@ -51,7 +53,7 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_pre}
 
 %build
 rm -f missing
@@ -65,12 +67,13 @@ rm -f missing
 
 cd doc
 texi2html elinks-lua.texi
+cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
-	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
+	$RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -80,18 +83,19 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 install contrib/lua/[bcmr]*.lua $RPM_BUILD_ROOT%{_sysconfdir}
 install contrib/lua/hooks.lua.in $RPM_BUILD_ROOT%{_sysconfdir}/hooks.lua
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
-%dir %{_sysconfdir}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_applnkdir}/Network/WWW/*
 %{_pixmapsdir}/*
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}
