@@ -1,9 +1,9 @@
 Summary:	Experimantal Links (text WWW browser)
+Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
+Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.4.1
-#%%define	_pre	rc4
-#Release:	0.%{_pre}.1
 Release:	1
 Epoch:		1
 License:	GPL
@@ -32,12 +32,21 @@ purpose is to make alternative to links, until Mikulas will have some
 time to maintain it, and to test and tune various patches for Mikulas
 to be able to include them in the official links releases.
 
+%description -l es
+Links es un browser WWW modo texto, similar al Lynx. El links muestra
+tablas, hace baja archivos en segundo plano, y usa conexiones HTTP/1.1
+keepalive.
+
 %description -l pl
 Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
 elinks jednak jest dedykowana g³ównie do testowania.
 
+%description -l pt_BR
+Links é um browser WWW modo texto, similar ao Lynx. O Links exibe
+tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
+keepalive.
+
 %prep
-#%%setup -q -n %{name}-%{version}%{_pre}
 %setup -q
 
 %build
@@ -75,8 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
-%attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Network/WWW/*
-%{_mandir}/man*/*
-%{_pixmapsdir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man*/*
+%{_applnkdir}/Network/WWW/*
+%{_pixmapsdir}/*
