@@ -1,0 +1,1110 @@
+--- elinks-0.5pre4/po/pl.po.orig	2003-07-26 23:17:30.000000000 +0200
++++ elinks-0.5pre4/po/pl.po	2003-07-27 18:55:48.000000000 +0200
+@@ -5,7 +5,6 @@
+ # Wojtek Bojdo/l <wojboj@lp.net.pl>
+ # Witold Filipczyk <witekfl@poczta.onet.pl>, 2001 - 2002
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: ELinks 0.5pre0.CVS\n"
+@@ -131,7 +130,7 @@
+ "Tytu³: \"%s\""
+ 
+ #: src/bookmarks/dialogs.c:279
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "Sorry, but this bookmark is already being used by something right now.\n"
+ "\n"
+@@ -284,7 +283,7 @@
+ 
+ #: src/config/dialogs.c:125 src/config/dialogs.c:137 src/config/dialogs.c:212
+ msgid "N/A"
+-msgstr ""
++msgstr "Brak"
+ 
+ #: src/config/dialogs.c:132
+ #, c-format
+@@ -493,7 +492,7 @@
+ 
+ #: src/config/kbdbind.c:384
+ msgid "Download the current link"
+-msgstr "Pobierz dokument wskazywany przez bie¿±cy link"
++msgstr "Pobierz dokument wskazywany przez bie¿±cy odno¶nik"
+ 
+ #: src/config/kbdbind.c:385
+ msgid "Download the current image"
+@@ -539,7 +538,7 @@
+ 
+ #: src/config/kbdbind.c:395
+ msgid "Open \"Go to URL\" dialog box containing the current URL"
+-msgstr "Otwórz okienko dialogowe \"Id¼ do\" z bie¿±cym URLem"
++msgstr "Otwórz okienko dialogowe \"Id¼ do\" z bie¿±cym URL-em"
+ 
+ #: src/config/kbdbind.c:396
+ msgid "Open \"Go to URL\" dialog box containing the current link URL"
+@@ -579,7 +578,7 @@
+ 
+ #: src/config/kbdbind.c:405
+ msgid "Open the link context menu"
+-msgstr "Otwórz menu kontekstu hiper³±cza"
++msgstr "Otwórz menu kontekstowe dla odno¶nika"
+ 
+ #: src/config/kbdbind.c:406
+ msgid "Jump to link"
+@@ -608,7 +607,7 @@
+ 
+ #: src/config/kbdbind.c:416
+ msgid "Open the current link in a new window"
+-msgstr "Otwórz bie¿±cy link w nowym oknie"
++msgstr "Otwórz bie¿±cy odno¶nik w nowym oknie"
+ 
+ #: src/config/kbdbind.c:417
+ msgid "Open options manager"
+@@ -679,24 +678,20 @@
+ msgstr "Szukaj tekstu wstecz"
+ 
+ #: src/config/kbdbind.c:434
+-#, fuzzy
+ msgid "Close tab"
+ msgstr "Zamknij tab"
+ 
+ #: src/config/kbdbind.c:435
+-#, fuzzy
+ msgid "Next tab"
+ msgstr "Nastêpny tab"
+ 
+ #: src/config/kbdbind.c:436
+-#, fuzzy
+ msgid "Previous tab"
+ msgstr "Poprzedni tab"
+ 
+ #: src/config/kbdbind.c:437
+-#, fuzzy
+ msgid "Toggle displaying of links to images"
+-msgstr "Zmieñ sposób wy¶wietlania ³±czy do obrazków"
++msgstr "Zmieñ sposób wy¶wietlania odno¶ników do obrazków"
+ 
+ #: src/config/kbdbind.c:438
+ msgid "Toggle rendering of tables"
+@@ -708,7 +703,7 @@
+ 
+ #: src/config/kbdbind.c:440
+ msgid "Toggle displaying of links numbers"
+-msgstr "Prze³±cz sposób wy¶wietlania numerów hiper³±czy"
++msgstr "Prze³±cz sposób wy¶wietlania numerów odno¶ników"
+ 
+ #: src/config/kbdbind.c:441
+ msgid "Go forward in the unhistory"
+@@ -728,7 +723,7 @@
+ 
+ #: src/config/kbdbind.c:638
+ msgid "Unrecognised keymap"
+-msgstr "Nierozpozana mapa klawiszy"
++msgstr "Nierozpoznana mapa klawiszy"
+ 
+ #: src/config/kbdbind.c:640
+ msgid "Error parsing keystroke"
+@@ -828,7 +823,7 @@
+ msgstr ""
+ "Format pliku zak³adek (dotyczy i odczytu, i zapisu):\n"
+ "0 - domy¶lny format ELinksa (kompatybilny z Linksem 0.9x)\n"
+-"1 - XBEL uniwersalny format XML(BEZ WSPARCIA DLA ZNAKÓW NARODOWYCH!)"
++"1 - XBEL uniwersalny format XML (BEZ OBS£UGI ZNAKÓW NARODOWYCH!)"
+ 
+ #: src/config/options.c:890
+ msgid ""
+@@ -839,7 +834,7 @@
+ msgstr ""
+ "Format pliku zak³adek (dotyczy i odczytu, i zapisu):\n"
+ "0 - domy¶lny format ELinksa (kompatybilny z Linksem 0.9x)\n"
+-"1 - XBEL uniwersalny format XML(BEZ WSPARCIA DLA ZNAKÓW NARODOWYCH!) "
++"1 - XBEL uniwersalny format XML (BEZ OBS£UGI ZNAKÓW NARODOWYCH!) "
+ "(WY£¡CZONE)"
+ 
+ #
+@@ -885,7 +880,7 @@
+ "file. Zero means that no indentation is performed at all\n"
+ "when saving the configuration."
+ msgstr ""
+-"Szeroko¶æ jednej tabulacji w pliku konfiguracujnym\n"
++"Szeroko¶æ jednej tabulacji w pliku konfiguracyjnym\n"
+ "Zero oznacza brak wciêæ w pliku konfiguracyjnym."
+ 
+ #: src/config/options.c:920
+@@ -1123,7 +1118,7 @@
+ 
+ #: src/config/options.c:1041
+ msgid "Automatic links following"
+-msgstr "Automatyczne pod±¿anie za hiper³±czami"
++msgstr "Automatyczne pod±¿anie za odno¶nikami"
+ 
+ #: src/config/options.c:1043
+ msgid ""
+@@ -1131,7 +1126,7 @@
+ "accesskey is pressed - this is the standard behaviour, but it's\n"
+ "considered dangerous."
+ msgstr ""
+-"Automatycznie pod±¿aj za ³±czem albo wy¶lij formularz, gdy\n"
++"Automatycznie pod±¿aj za odno¶nikiem albo wy¶lij formularz, gdy\n"
+ "klawisz dostêpu zosta³ naci¶niêty - takie jest standardowe zachowanie,\n"
+ "choæ mo¿e byæ niebezpieczne."
+ 
+@@ -1193,7 +1188,7 @@
+ 
+ #: src/config/options.c:1073
+ msgid "Display style for image links"
+-msgstr "Sposób wy¶wietlania ³±czy-obrazków"
++msgstr "Sposób wy¶wietlania odno¶ników na obrazkach"
+ 
+ #: src/config/options.c:1075
+ msgid ""
+@@ -1211,7 +1206,7 @@
+ 
+ #: src/config/options.c:1081
+ msgid "Image links tagging"
+-msgstr "Tagowanie ³±czy-obrazków"
++msgstr "Tagowanie odno¶ników na obrazkach"
+ 
+ #: src/config/options.c:1083
+ msgid ""
+@@ -1220,43 +1215,43 @@
+ "1     means never if alt or title are provided (old behavior)\n"
+ "2     means always"
+ msgstr ""
+-"Kiedy otoczyæ ³±cza-obrazki:\n"
++"Kiedy otoczyæ odno¶niki na obrazkach:\n"
+ "0     - nigdy\n"
+ "1     - nigdy, je¶li alt lub title istniej± (stare zachowanie)\n"
+ "2     - zawsze"
+ 
+ #: src/config/options.c:1088
+ msgid "Image link prefix"
+-msgstr "Przedrostek ³±cza-obrazka"
++msgstr "Przedrostek odno¶nika na obrazku"
+ 
+ #: src/config/options.c:1090
+ msgid "Prefix string to use to mark image links."
+-msgstr "Przedrostek u¿ywany, ¿eby zaznaczyæ ³±cza-obrazki."
++msgstr "Przedrostek u¿ywany, ¿eby zaznaczyæ odno¶niki na obrazkach."
+ 
+ #: src/config/options.c:1092
+ msgid "Image link suffix"
+-msgstr "Przyrostek ³±cza-obrazka"
++msgstr "Przyrostek odno¶nika na obrazku"
+ 
+ #: src/config/options.c:1094
+ msgid "Suffix string to use to mark image links."
+-msgstr "Przyrostek u¿ywany, ¿eby zaznaczyæ ³±cza-obrazki."
++msgstr "Przyrostek u¿ywany, ¿eby zaznaczyæ odno¶niki na obrazkach."
+ 
+ #: src/config/options.c:1096
+ msgid "Display image links"
+-msgstr "Wy¶wietlaj ³±cza-obrazki"
++msgstr "Wy¶wietlaj odno¶niki na obrazkach"
+ 
+ #: src/config/options.c:1098
+ msgid "Display links to images."
+-msgstr "Czy wy¶wietlaæ ³±cza do obrazków?"
++msgstr "Czy wy¶wietlaæ odno¶niki do obrazków?"
+ 
+ #
+ #: src/config/options.c:1101
+ msgid "Links"
+-msgstr "Hiper³±cza"
++msgstr "Odno¶niki"
+ 
+ #: src/config/options.c:1103
+ msgid "Options for handling of links to other documents."
+-msgstr "Ustawienia dotycz±ce hiper³±czy do innych dokumentów."
++msgstr "Ustawienia dotycz±ce odno¶ników do innych dokumentów."
+ 
+ #: src/config/options.c:1105
+ msgid "Directory highlighting"
+@@ -1264,19 +1259,19 @@
+ 
+ #: src/config/options.c:1107
+ msgid "Highlight links to directories in FTP and local directory listing."
+-msgstr "Czy pod¶wietlaæ hiper³±cza do katalogów na FTP i lokalnie?"
++msgstr "Czy pod¶wietlaæ odno¶niki do katalogów na FTP i lokalnie?"
+ 
+ #: src/config/options.c:1109
+ msgid "Number links"
+-msgstr "Numerowanie hiper³±czy"
++msgstr "Numerowanie odno¶ników"
+ 
+ #: src/config/options.c:1111
+ msgid "Display numbers next to the links."
+-msgstr "Czy wy¶wietlaæ liczby z prawej strony hiper³±czy?"
++msgstr "Czy wy¶wietlaæ liczby z prawej strony odno¶ników?"
+ 
+ #: src/config/options.c:1113
+ msgid "Number keys select links"
+-msgstr "Klawisze z cyframi wybieraj± hiper³±cza"
++msgstr "Klawisze z cyframi wybieraj± odno¶niki"
+ 
+ #: src/config/options.c:1115
+ msgid ""
+@@ -1286,7 +1281,7 @@
+ "1 if document.browse.links.numbering = 1\n"
+ "2 always"
+ msgstr ""
+-"Klawisze z cyframi raczej wybieraj± hiper³±cza ni¿ stanowi± przedrostki\n"
++"Klawisze z cyframi wybieraj± odno¶niki, a nie podaj± przedrostki poleceñ\n"
+ "dla komend. To jest trójstanowe:\n"
+ "0 - nigdy\n"
+ "1 - je¶li document.browse.links.numbering = 1\n"
+@@ -1296,7 +1291,7 @@
+ #. * for now as it doesn't work.
+ #: src/config/options.c:1123
+ msgid "Wrap-around links cycling"
+-msgstr "Cykliczno¶æ hiper³±czy"
++msgstr "Cykliczno¶æ odno¶ników"
+ 
+ #. 0
+ #: src/config/options.c:1125
+@@ -1304,7 +1299,7 @@
+ "When pressing 'down' on the last link, jump at the first one, and\n"
+ "vice versa."
+ msgstr ""
+-"Gdy wci¶niêty jest 'dó³' na ostatnim hiper³±czu, skocz do pierwszego i vice "
++"Gdy wci¶niêty jest 'dó³' na ostatnim odno¶niku, skocz do pierwszego i vice "
+ "versa."
+ 
+ #: src/config/options.c:1129
+@@ -1386,7 +1381,7 @@
+ "Takie by³o dotychczasowe zachowanie, ale mo¿e ono powodowaæ problemy\n"
+ "z systemami logowania opartymi o www - czêsto, gdy odwiedzasz pewn±\n"
+ "lokacjê, serwer przekierowuje Ciê do strony logowania, je¶li nie otrzyma\n"
+-"autentykacyjnego ciasteczka, strona logowania ustala to ciasteczko\n"
++"ciasteczka uwierzytelniaj±cego, strona logowania ustala to ciasteczko\n"
+ "i odsy³a Ciê z powrotem do poprzedniej strony, ale wtedy\n"
+ "jest ju¿ zbuforowane przekierowanie do strony logowania!\n"
+ "Gdy opcja ma warto¶æ 0 ta nieprawid³owo¶æ nie zachodzi, choæ czasami\n"
+@@ -1603,19 +1598,19 @@
+ #
+ #: src/config/options.c:1224
+ msgid "Link color"
+-msgstr "Kolor hiper³±cza"
++msgstr "Kolor odno¶nika"
+ 
+ #: src/config/options.c:1226
+ msgid "Default link color."
+-msgstr "Domy¶lny kolor hiper³±cza."
++msgstr "Domy¶lny kolor odno¶nika."
+ 
+ #: src/config/options.c:1228
+ msgid "Visited-link color"
+-msgstr "Kolor odwiedzanego hiper³±cza"
++msgstr "Kolor odwiedzanego odno¶nika"
+ 
+ #: src/config/options.c:1230
+ msgid "Default visited link color."
+-msgstr "Domy¶lny kolor odwiedzanego hiper³±cza."
++msgstr "Domy¶lny kolor odwiedzanego odno¶nika."
+ 
+ #: src/config/options.c:1232
+ msgid "Directory color"
+@@ -1813,7 +1808,7 @@
+ "1 is page titles"
+ msgstr ""
+ "Co pokazywaæ w okienku dialogowym globalnej historii:\n"
+-"0 - URLe\n"
++"0 - URL-e\n"
+ "1 - tytu³y stron"
+ 
+ #: src/config/options.c:1329
+@@ -1840,7 +1835,7 @@
+ #
+ #: src/config/options.c:1342
+ msgid "HTML rendering"
+-msgstr "Renderowanie HTMLa"
++msgstr "Renderowanie HTML-a"
+ 
+ #: src/config/options.c:1344
+ msgid "Options concerning the display of HTML pages."
+@@ -1885,12 +1880,10 @@
+ msgstr "Pokazuj indeks górny (jako ^co¶)."
+ 
+ #: src/config/options.c:1363
+-#, fuzzy
+ msgid "Rendering of html link element"
+-msgstr "Renderowania elementu ³±cza html"
++msgstr "Renderowanie elementu odno¶nika html"
+ 
+ #: src/config/options.c:1365
+-#, fuzzy
+ msgid ""
+ "Html link rendering verbosity:\n"
+ "0 nothing\n"
+@@ -1972,7 +1965,7 @@
+ "Each handler usually serves family of MIME types (ie. images)."
+ msgstr ""
+ "Uchwyt dla pewnego typu MIME (jak podane w mime.type.*).\n"
+-"Ka¿dy uchwyt zwykle serwuje rodzinê typów MIME (np. images)."
++"Ka¿dy uchwyt zwykle serwuje rodzinê typów MIME (np. image)."
+ 
+ #: src/config/options.c:1411
+ msgid "Description of this handler."
+@@ -2005,13 +1998,13 @@
+ msgstr "Program"
+ 
+ #: src/config/options.c:1427
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
+ msgstr ""
+-"Zewnêtrzny viewer dla tego typu plików. '%' w ³añcuchu bêdzie\n"
+-"zostanie zast±piony nazw± pliku."
++"Zewnêtrzna przegl±darka dla tego typu plików. '%' w ³añcuchu zostanie\n"
++"zast±piony nazw± pliku."
+ 
+ #
+ #: src/config/options.c:1431
+@@ -2027,7 +2020,7 @@
+ "MIME-type matching this file extension ('*' is used here in place\n"
+ "of '.')."
+ msgstr ""
+-"Typ MIME odpowiadaj±cy temu rozszerzenu pliku ('*' jest u¿ywana tutaj\n"
++"Typ MIME odpowiadaj±cy temu rozszerzeniu pliku ('*' jest u¿ywana tutaj\n"
+ "zamiast '.')."
+ 
+ #. Start of mailcap compatibility aliases:
+@@ -2050,7 +2043,6 @@
+ msgstr "¦cie¿ka"
+ 
+ #: src/config/options.c:1451
+-#, fuzzy
+ msgid ""
+ "Mailcap search path. Colon-separated list of files.\n"
+ "Leave as \"\" to use MAILCAP environment variable or\n"
+@@ -2108,7 +2100,7 @@
+ "extension of the file name."
+ msgstr ""
+ "Opcje dla wsparcia dla plików MIME.  Pliki MIME mog± byæ u¿yte\n"
+-"do znalezienie typu zawarto¶ci pliku URLa po sprawdzeniu \n"
++"do znalezienie typu zawarto¶ci pliku URL-a po sprawdzeniu \n"
+ "rozszerzenia pliku"
+ 
+ #: src/config/options.c:1482
+@@ -2116,12 +2108,11 @@
+ msgstr "W³±cz obs³ugê mime.types."
+ 
+ #: src/config/options.c:1486
+-#, fuzzy
+ msgid ""
+ "Mimetypes search path. Colon-separated list of files.\n"
+ "Leave as \"\" to use built-in default instead."
+ msgstr ""
+-"¦cie¿ka poszukiwañ dla Mailcap. Oddzielona dwukropkami lista plików.\n"
++"¦cie¿ka poszukiwañ dla Mimetypes. Oddzielona dwukropkami lista plików.\n"
+ "Zostaw jako \"\" by u¿ywaæ warto¶ci domy¶lnych."
+ 
+ #: src/config/options.c:1491
+@@ -2263,7 +2254,7 @@
+ "0 - nie wysy³aj Referer\n"
+ "1 - wysy³aj bie¿±cy URL\n"
+ "2 - wysy³aj z góry ustalony Referer\n"
+-"3 - wysy³aj poprzedni URL (zgodne z RFC)\n"
++"3 - wysy³aj poprzedni URL (zgodne z RFC, ale niebezpieczne)\n"
+ 
+ #: src/config/options.c:1558
+ msgid "Fake referer URL"
+@@ -2404,7 +2395,7 @@
+ "Allow reading from non-regular files? (DANGEROUS - reading\n"
+ "/dev/urandom or /dev/zero can ruin your day!)"
+ msgstr ""
+-"Czy zezwoliæ na czytanie z nieregularnych plików? (NIEBEZPIECZNE - czytanie\n"
++"Czy zezwoliæ na czytanie plików innych ni¿ zwyk³e? (NIEBEZPIECZNE - czytanie\n"
+ "/dev/urandom czy /dev/zero mo¿e zepsuæ Ci dzieñ!)"
+ 
+ #
+@@ -2434,7 +2425,7 @@
+ msgstr ""
+ "Czy pokazywaæ ukryty pliki przy wy¶wietlaniu katalogów ?\n"
+ "Je¶li ustawione na 0, pliki zaczynaj±ce siê od kropki nie bêd±\n"
+-"pokzywane."
++"pokazywane."
+ 
+ #
+ #: src/config/options.c:1648
+@@ -2580,7 +2571,7 @@
+ "terminal."
+ msgstr ""
+ "Zmienia font podczas rysowania linii, w³±czaj±c oba zestawy\n"
+-"znaków. Ma sens jedynie na Linuksowym terminalu."
++"znaków. Ma sens jedynie na linuksowym terminalu."
+ 
+ #: src/config/options.c:1740
+ msgid "I/O in UTF8"
+@@ -2707,54 +2698,48 @@
+ #: src/config/options.c:1822 src/config/options.c:1879
+ #: src/config/options.c:2190 src/config/options.c:2247
+ msgid "Hotkey"
+-msgstr "\"Gor±cy\" klawisz"
++msgstr "Klawisz skrótu"
+ 
+ #: src/config/options.c:1824 src/config/options.c:2192
+ msgid "Main menu hotkey colors."
+-msgstr "Kolory \"gor±cych\" klawiszy g³ównego paska menu."
++msgstr "Kolory klawiszy skrótu g³ównego paska menu."
+ 
+ #: src/config/options.c:1826 src/config/options.c:1883
+ #: src/config/options.c:2194 src/config/options.c:2251
+ msgid "Unselected hotkey"
+-msgstr "Niewybrany \"gor±cy\" klawisz"
++msgstr "Niewybrany klawisz skrótu"
+ 
+ #: src/config/options.c:1828 src/config/options.c:2196
+-#, fuzzy
+ msgid "Main menu unselected hotkey colors."
+-msgstr "Kolory niewybranych \"gor±cych\" klawiszy g³ównego menu"
++msgstr "Kolory niewybranych klawiszy skrótu g³ównego menu."
+ 
+ #
+ #: src/config/options.c:1830 src/config/options.c:1887
+ #: src/config/options.c:2198 src/config/options.c:2255
+-#, fuzzy
+ msgid "Selected hotkey"
+-msgstr "Wybrany \"gor±cy\" klawisz"
++msgstr "Wybrany klawisz skrótu"
+ 
+ #: src/config/options.c:1832 src/config/options.c:2200
+-#, fuzzy
+ msgid "Main menu selected hotkey colors."
+-msgstr "Kolory wybranych \"gor±cych\" klawiszy g³ównego menu."
++msgstr "Kolory wybranych klawiszy skrótu g³ównego menu."
+ 
+ #: src/config/options.c:1836 src/config/options.c:2204
+ msgid "Main menu unselected hotkey default text color."
+-msgstr "Domy¶lny kolor tekstu niewybranego hotkey'a."
++msgstr "Domy¶lny kolor tekstu niewybranego klawisza skrótu."
+ 
+ #
+ #: src/config/options.c:1840 src/config/options.c:2208
+-#, fuzzy
+ msgid "Main menu unselected hotkey default background color."
+-msgstr "Domy¶lny kolor t³a niewybranego hotkey'a g³ównego menu."
++msgstr "Domy¶lny kolor t³a niewybranego klawisza skrótu g³ównego menu."
+ 
+ #: src/config/options.c:1844
+-#, fuzzy
+ msgid "Main menu selected hotkey text color."
+-msgstr "Kolory tekstu wybranego hotkey'a g³ównego menu."
++msgstr "Kolor tekstu wybranego klawisza skrótu g³ównego menu."
+ 
+ #
+ #: src/config/options.c:1848 src/config/options.c:2216
+-#, fuzzy
+ msgid "Main menu selected hotkey default background color."
+-msgstr "Domy¶lny kolor t³a wybranego hotkey'a."
++msgstr "Domy¶lny kolor t³a wybranego klawisza skrótu g³ównego menu."
+ 
+ #: src/config/options.c:1851 src/config/options.c:2219
+ msgid "Menu bar"
+@@ -2782,39 +2767,34 @@
+ msgstr "Kolory wybranych elementów menu."
+ 
+ #: src/config/options.c:1881 src/config/options.c:2249
+-#, fuzzy
+ msgid "Menu item hotkey colors."
+-msgstr "Kolory hotkey'a menu."
++msgstr "Kolory klawiszy skrótu menu."
+ 
+ #: src/config/options.c:1885
+-#, fuzzy
+ msgid "Menu item unselected hotkey colors."
+-msgstr "Kolory niewybranych hotkey'ów menu."
++msgstr "Kolory niewybranych klawiszy skrótu menu."
+ 
+ #: src/config/options.c:1889
+-#, fuzzy
+ msgid "Menu item selected hotkey colors."
+-msgstr "Kolory wybranych hotkey'ów menu."
++msgstr "Kolory wybranych klawiszy skótu menu."
+ 
+ #: src/config/options.c:1893
+ msgid "Menu item unselected hotkey default text color."
+-msgstr "Domy¶lny kolor tekstu niewybranego hotkey'a z menu."
++msgstr "Domy¶lny kolor tekstu niewybranego klawisza skrótu menu."
+ 
+ #
+ #: src/config/options.c:1897
+ msgid "Menu item unselected hotkey default background color."
+-msgstr "Domy¶lny kolor t³a niewybranego hotkey'a z menu."
++msgstr "Domy¶lny kolor t³a niewybranego klawisza skrótu menu."
+ 
+ #: src/config/options.c:1901
+-#, fuzzy
+ msgid "Menu item selected hotkey default text color."
+-msgstr "Domy¶lny Kolor tekstu wybranego hotkey'a menu."
++msgstr "Domy¶lny kolor tekstu wybranego klawisza skrótu menu."
+ 
+ #
+ #: src/config/options.c:1905
+-#, fuzzy
+ msgid "Menu item selected hotkey background color."
+-msgstr "Domy¶lny kolor t³a wybranego hotkey'a menu."
++msgstr "Domy¶lny kolor t³a wybranego klawisza skrótu menu."
+ 
+ #
+ #: src/config/options.c:1907 src/config/options.c:2275
+@@ -2997,23 +2977,19 @@
+ msgstr "Kolory paska tabów."
+ 
+ #: src/config/options.c:2119 src/config/options.c:2487
+-#, fuzzy
+ msgid "Unselected tab"
+ msgstr "Niewybrany tab"
+ 
+ #: src/config/options.c:2121 src/config/options.c:2489
+-#, fuzzy
+ msgid "Unselected tab colors."
+ msgstr "Kolory niewybranego taba."
+ 
+ #
+ #: src/config/options.c:2131 src/config/options.c:2499
+-#, fuzzy
+ msgid "Selected tab"
+ msgstr "Wybrany tab"
+ 
+ #: src/config/options.c:2133 src/config/options.c:2501
+-#, fuzzy
+ msgid "Selected tab colors."
+ msgstr "Kolory wybranego taba."
+ 
+@@ -3022,7 +2998,6 @@
+ msgstr "Szukane ³añcuchy"
+ 
+ #: src/config/options.c:2145 src/config/options.c:2513
+-#, fuzzy
+ msgid "Searched string highlight colors."
+ msgstr "Kolory pod¶wietlenia szukanych ³añcuchów."
+ 
+@@ -3048,48 +3023,41 @@
+ 
+ #: src/config/options.c:2180
+ msgid "Selected menu bar item colors."
+-msgstr "Kolory paska wybranego elemtu menu."
++msgstr "Kolory paska wybranego elementu menu."
+ 
+ #: src/config/options.c:2212
+-#, fuzzy
+ msgid "Main menu selected hotkey default text color."
+-msgstr "Domy¶lny kolor tekstu  wybranego hotkey'a g³ównego menu."
++msgstr "Domy¶lny kolor tekstu wybranego klawisza skrótu g³ównego menu."
+ 
+ #: src/config/options.c:2253
+-#, fuzzy
+ msgid "Menu unselected hotkey colors."
+-msgstr "Kolory niewybranych hotkey'ów"
++msgstr "Kolory niewybranych klawiszy skrótu menu."
+ 
+ #: src/config/options.c:2257
+-#, fuzzy
+ msgid "Menu selected hotkey colors."
+-msgstr "Kolory wybranych hotkey'ów menu"
++msgstr "Kolory wybranych klawiszu skrótu menu."
+ 
+ #: src/config/options.c:2261
+-#, fuzzy
+ msgid "Menu unselected hotkey default text color."
+-msgstr "Domy¶lny Kolor tekstu  niewybranego hotkey'a."
++msgstr "Domy¶lny kolor tekstu niewybranego klawisza skrótu menu."
+ 
+ #
+ #: src/config/options.c:2265
+-#, fuzzy
+ msgid "Menu unselected hotkey default background color."
+-msgstr "Domy¶lny kolor t³a niewybranego hotkey'a menu."
++msgstr "Domy¶lny kolor t³a niewybranego klawisza skrótu menu."
+ 
+ #: src/config/options.c:2269
+-#, fuzzy
+ msgid "Menu selected hotkey default text color."
+-msgstr "Kolory tekstu wybranego hotkey'a menu."
++msgstr "Kolor tekstu wybranego klawisza skrótu menu."
+ 
+ #
+ #: src/config/options.c:2273
+-#, fuzzy
+ msgid "Menu selected hotkey default background color."
+-msgstr "Domy¶lny kolor t³a wybranego hotkey'a menu."
++msgstr "Domy¶lny kolor t³a wybranego klawisza skrótu menu."
+ 
+ #: src/config/options.c:2292
+ msgid "Dialog generic background color"
+-msgstr "Zwyk³y kolot t³a"
++msgstr "Zwyk³y kolor t³a okna dialogowego"
+ 
+ #: src/config/options.c:2382
+ msgid "Dialog field colors."
+@@ -3113,14 +3081,14 @@
+ 
+ #: src/config/options.c:2533
+ msgid "Minimal height of listbox widget"
+-msgstr "Minimalna wysoko¶æ listboksa"
++msgstr "Minimalna wysoko¶æ listy wyboru"
+ 
+ #: src/config/options.c:2535
+ msgid ""
+ "Minimal height of the listbox widget (used e.g. for bookmarks\n"
+ "or global history)."
+ msgstr ""
+-"Minimalna wysoko¶æ listboksa (u¿ywany np. przy zak³adkach\n"
++"Minimalna wysoko¶æ listy wyboru (u¿ywanej np. przy zak³adkach\n"
+ "czy globalnej historii)."
+ 
+ #: src/config/options.c:2538
+@@ -3194,20 +3162,17 @@
+ "osi±gnie zero."
+ 
+ #: src/config/options.c:2575
+-#, fuzzy
+ msgid "Window tabs"
+ msgstr "Taby"
+ 
+ #: src/config/options.c:2577
+-#, fuzzy
+ msgid "Window tabs settings."
+ msgstr "Ustawienia tabów."
+ 
+ #
+ #: src/config/options.c:2579
+-#, fuzzy
+ msgid "Display tabs bar"
+-msgstr "Wy¶wietl paskek tabów"
++msgstr "Wy¶wietl pasek tabów"
+ 
+ #: src/config/options.c:2581
+ msgid ""
+@@ -3222,16 +3187,14 @@
+ "2 - zawsze."
+ 
+ #: src/config/options.c:2586
+-#, fuzzy
+ msgid "Wrap-around tabs cycling"
+ msgstr "Cykliczno¶æ tabów"
+ 
+ #: src/config/options.c:2588
+-#, fuzzy
+ msgid ""
+ "When moving right from the last tab, jump at the first one, and\n"
+ "vice versa."
+-msgstr "Z ostatniego taba przeskakuje na pierwszego i na odwrót."
++msgstr "Przeskakiwanie z ostatniego taba na pierwszego i na odwrót."
+ 
+ #: src/config/options.c:2593 src/config/opttypes.c:446
+ msgid "Language"
+@@ -3242,8 +3205,8 @@
+ "Language of user interface. System means that the language will\n"
+ "be extracted from the environment dynamically."
+ msgstr ""
+-"Jêzyk interfejsu u¿ytkownika. Jêzyk mo¿e byæ uzyskany ze ¶rodowiska w sposób "
+-"dynamiczny."
++"Jêzyk interfejsu u¿ytkownika. Jêzyk mo¿e byæ uzyskany ze ¶rodowiska\n"
++"w sposób dynamiczny."
+ 
+ #: src/config/options.c:2603
+ msgid ""
+@@ -3318,9 +3281,10 @@
+ "Najpierw zapisuje do 'plik.tmp', potem zmienia nazwê na 'plik'\n"
+ "pod warunkiem pomy¶lnego zapisu do pliku. Wiedz, ¿e to odnosi siê\n"
+ "do plików konfiguracyjnych, a nie pobieranych.\n"
+-"Mo¿esz chcieæ wy³±czyæ to, je¶li chcesz mieæ pliki konfigurayjne\n"
++"Mo¿esz chcieæ wy³±czyæ to, je¶li chcesz mieæ pliki konfiguracyjne\n"
+ "z egzotycznymi uprawnieniami. Bezpieczne zapisywanie plików jest\n"
+-"automatycznie wy³±czane, gdy plik konfiguracyjny jest symlinkiem."
++"automatycznie wy³±czane, gdy plik konfiguracyjny jest dowi±zaniem\n"
++"symbolicznym."
+ 
+ #. Commandline options
+ #: src/config/options.c:2646
+@@ -3336,7 +3300,7 @@
+ msgstr ""
+ "Ogranicza ELinksa, tak ¿e mo¿e on byæ u¿ywany na anonimowym\n"
+ "koncie. Bez przegl±dania lokalnych plików, bez pobierania plików.\n"
+-"U¿ywanie viewerów jest dozwolone, ale bez mo¿liwo¶ci modyfikacji\n"
++"U¿ywanie przegl±darek jest dozwolone, ale bez mo¿liwo¶ci modyfikacji\n"
+ "pozycji w tabeli skojarzeñ."
+ 
+ #
+@@ -3346,7 +3310,7 @@
+ 
+ #: src/config/options.c:2655
+ msgid "Go and submit the first form you'll stumble upon."
+-msgstr "Id¼ i wy¶lih pierwszy formularz na którym natkn±³e¶ siê na b³±d."
++msgstr "Id¼ i wy¶lij pierwszy formularz na którym natkn±³e¶ siê na b³±d."
+ 
+ #: src/config/options.c:2657
+ msgid "Clone session with given ID"
+@@ -3370,7 +3334,7 @@
+ 
+ #: src/config/options.c:2666
+ msgid "Write formatted version of given URL to stdout"
+-msgstr "Wypisanie sformatowanej wersji danego URLa na standardowe wyj¶cie"
++msgstr "Wypisanie sformatowanej wersji danego URL-a na standardowe wyj¶cie"
+ 
+ #: src/config/options.c:2668
+ msgid ""
+@@ -3414,7 +3378,7 @@
+ "This makes ELinks assume that the files it sees are HTML. This is\n"
+ "equivalent to -default-mime-type text/html."
+ msgstr ""
+-"To sprawia, ¿e Elinks przyjmuje, ¿e og³±dane pliki s± w HTMLu.\n"
++"To sprawia, ¿e Elinks przyjmuje, ¿e ogl±dane pliki s± w HTML-u.\n"
+ "Jest to równowa¿ne z -default-mime-type text/html."
+ 
+ #: src/config/options.c:2700
+@@ -3510,7 +3474,7 @@
+ "u¿ywaæ, dopóki nie jeste¶ developerem i chcesz zrobiæ parê testów.\n"
+ "Je¶li chcesz oddzielne instancje raczej u¿yj -no-connect w linii\n"
+ "komend. Wiedz, ¿e normalnie ¿adne pliki stanu nie s± zapisywane\n"
+-"na dysk, gdy ta opcja jest u¿yta. Zobach tak¿e -touch-files."
++"na dysk, gdy ta opcja jest u¿yta. Zobacz tak¿e -touch-files."
+ 
+ #: src/config/options.c:2744
+ msgid "Write the source of given URL to stdout"
+@@ -3536,7 +3500,7 @@
+ " -eval 'set protocol.file.allow_special_files = 1' file:///dev/stdin\n"
+ "U¿ywaj tego, które bardziej Ci siê podoba. Wiedz, ¿e czytanie\n"
+ "ze standardowego wej¶cia DZIA£A TYLKO RAZEM z -dump LUB -source!!\n"
+-"Chcia³bym wiedzieæ po co by¶ chia³ u¿ywaæ -source -stdin, chocia¿ ;-)"
++"Chcia³bym wiedzieæ po co by¶ chcia³ u¿ywaæ -source -stdin, chocia¿ ;-)"
+ 
+ #: src/config/options.c:2756
+ msgid "Touch files in ~/.elinks when running with -no-connect/-session-ring"
+@@ -3572,7 +3536,7 @@
+ 
+ #: src/config/opttypes.c:440
+ msgid "[0|1]"
+-msgstr ""
++msgstr "[0|1]"
+ 
+ #: src/config/opttypes.c:441
+ msgid "Integer"
+@@ -3690,11 +3654,11 @@
+ #
+ #: src/dialogs/document.c:173
+ msgid "Link"
+-msgstr "Hiper³±cze"
++msgstr "Odno¶nik"
+ 
+ #: src/dialogs/document.c:180
+ msgid "Link title"
+-msgstr "Tytu³ hiper³±cza"
++msgstr "Tytu³ odno¶nika"
+ 
+ #: src/dialogs/document.c:208 src/dialogs/document.c:255
+ #: src/dialogs/document.c:267
+@@ -3741,8 +3705,8 @@
+ "^C, q     wyj¶cie\n"
+ "^P, ^N    przewiñ góra/dó³\n"
+ "[, ]      przewiñ lewo/prawo\n"
+-"góra, dó³ zaznacz link\n"
+-"->        wybierz link\n"
++"góra, dó³ zaznacz odno¶nik\n"
++"->        wybierz odno¶nik\n"
+ "<-        powrót\n"
+ "g         przejd¼ do URL\n"
+ "G         przejd¼ do URL bazuj±cego na aktualnym\n"
+@@ -3798,10 +3762,9 @@
+ "Po³±czenia: %d po³±czeñ, %d nawi±zuj±cych po³±czenie, %d przesy³aj±cych,\n"
+ "            %d trwa³ych.\n"
+ "Pamiêæ podrêczna: %d bajtów, %d plików, %d zablokowanych, %d ³adowanych.\n"
+-"Sformatowane dokunenty: %d dokumentów, %d zablokownaych."
++"Sformatowane dokumenty: %d dokumentów, %d zablokowanych."
+ 
+ #: src/dialogs/info.c:169
+-#, fuzzy
+ msgid "No entry."
+ msgstr "Brak pozycji."
+ 
+@@ -4182,7 +4145,7 @@
+ msgstr ""
+ "Przykro mi, ale ta pozycja historii jest obecnie u¿ywana.\n"
+ "\n"
+-"Tity³: \"%s\"\n"
++"Tytu³: \"%s\"\n"
+ "URL: \"%s\"\n"
+ 
+ #: src/globhist/dialogs.c:321
+@@ -4196,7 +4159,7 @@
+ "\n"
+ "URL: \"%s\""
+ msgstr ""
+-"Usuñ pozycjê historiiCzy skasowaæ element historii \"%s\"?\n"
++"Czy skasowaæ element historii \"%s\"?\n"
+ "\n"
+ "URL: \"%s\""
+ 
+@@ -4230,7 +4193,7 @@
+ "$HOME variable set correctly and if you have write permission to your home "
+ "directory."
+ msgstr ""
+-"Nie mo¿na znale¼æ ani stworzyæ katalogu konfiguracyjnego Elinka. Sprawd¼, "
++"Nie mo¿na znale¼æ ani stworzyæ katalogu konfiguracyjnego Elinksa. Sprawd¼, "
+ "czy zmienna $HOME jest ustawiona poprawnie i czy masz prawo zapisu do "
+ "katalogu domowego."
+ 
+@@ -4242,7 +4205,7 @@
+ #: src/lowlevel/interlink.c:372 src/lowlevel/interlink.c:431
+ #, c-format
+ msgid "socket() failed: %d (%s)"
+-msgstr "b³±d socket: %d (%s)"
++msgstr "b³±d socket(): %d (%s)"
+ 
+ #: src/lowlevel/interlink.c:381
+ #, c-format
+@@ -4268,7 +4231,7 @@
+ #: src/lowlevel/select.c:346
+ #, c-format
+ msgid "%d select() failures."
+-msgstr "%d b³êdy select."
++msgstr "%d b³êdy select()."
+ 
+ #: src/lowlevel/signals.c:235
+ #, c-format
+@@ -4317,7 +4280,7 @@
+ 
+ #: src/protocol/user.c:153 src/sched/error.c:49
+ msgid "Bad URL syntax"
+-msgstr "Z³a sk³adnia URL"
++msgstr "Z³a sk³adnia URL-a"
+ 
+ #: src/protocol/user.c:154
+ msgid "Bad user protocol URL"
+@@ -4488,7 +4451,7 @@
+ "Would you like to open the file '%s' (type: %s%s%s)\n"
+ "with '%s', or display it?"
+ msgstr ""
+-"Czy chesz otworzyæ plik '%s' (typu %s%s%s)\n"
++"Czy chcesz otworzyæ plik '%s' (typu %s%s%s)\n"
+ "przy u¿yciu '%s', czy wy¶wietliæ go?"
+ 
+ #: src/sched/error.c:29
+@@ -4569,7 +4532,7 @@
+ 
+ #: src/sched/error.c:55
+ msgid "HTTP 100 (???)"
+-msgstr ""
++msgstr "HTTP 100 (???)"
+ 
+ #: src/sched/error.c:56
+ msgid "No content"
+@@ -4638,7 +4601,7 @@
+ #: src/sched/session.c:602
+ #, c-format
+ msgid "Do you want to follow redirect and post form data to url %s?"
+-msgstr "Czy chcesz i¶c za przekierowaniem i wys³aæ dane formularza do %s?"
++msgstr "Czy chcesz i¶æ za przekierowaniem i wys³aæ dane formularza do %s?"
+ 
+ #: src/sched/session.c:605
+ #, c-format
+@@ -4681,7 +4644,7 @@
+ msgstr ""
+ "Masz pusty ³añcuch w protocol.http.user_agent - to by³o domy¶lne w "
+ "przesz³o¶ci, zamienione przez ³añcuch ELinks User-Agent. Aczkolwiek, teraz "
+-"to oznacza, ¿e NIE BÊDZIE WYSY£ANYNO ¯ADEN NAG£ÓWEK User-Agent - je¶li jest "
++"to oznacza, ¿e NIE BÊDZIE WYSY£ANY ¯ADEN NAG£ÓWEK User-Agent - je¶li jest "
+ "to dok³adnie to czego chcesz, ustaw tê warto¶æ na\" \", w przeciwnym "
+ "przypadku skasuj liniê z tym ustawieniem z pliku konfiguracyjnego (je¶li nie "
+ "wiesz o co mi chodzi, po prostu to zrób), tak ¿e domy¶lne ustawienie bêdzie "
+@@ -4705,7 +4668,7 @@
+ "zapisywane w pliku konfiguracyjnym zamiast wszystkich opcji. To upraszcza "
+ "nasz± sytuacjê zdecydowanie, gdy zauwa¿ymy, ¿e pewne opcje maj± niepoprawne "
+ "domy¶lne warto¶ci lub gdy bêdziemy zmuszeni do zmiany semantyki jaki¶ "
+-"ustwieñ w subtelny sposób. Zatem, zalecamy zmieniæ warto¶æ config."
++"ustawieñ w subtelny sposób. Zatem, zalecamy zmieniæ warto¶æ config."
+ "saving_style na 3, by uzyskaæ \"w³a¶ciwe\" zachowanie. Przepraszamy za "
+ "wszelkie niedogodno¶ci."
+ 
+@@ -4775,7 +4738,7 @@
+ 
+ #: src/util/version.c:52
+ msgid "Debug"
+-msgstr ""
++msgstr "Debug"
+ 
+ #
+ #: src/util/version.c:55
+@@ -4784,7 +4747,7 @@
+ 
+ #: src/util/version.c:58
+ msgid "Own Libc Routines"
+-msgstr "W³asny Libc"
++msgstr "W³asne funkcje Libc"
+ 
+ #: src/util/version.c:61
+ msgid "No Backtrace"
+@@ -4875,7 +4838,7 @@
+ 
+ #: src/viewer/text/link.c:872
+ msgid "No link selected"
+-msgstr "Nie wybrano ¿adnego hiper³±cza"
++msgstr "Nie wybrano ¿adnego odno¶nika"
+ 
+ #: src/viewer/text/link.c:923
+ msgid "Image"
+@@ -4952,11 +4915,11 @@
+ 
+ #: src/viewer/text/view.c:735
+ msgid "Go to link"
+-msgstr "Przejd¼ do hiper³±cza"
++msgstr "Przejd¼ do odno¶nika"
+ 
+ #: src/viewer/text/view.c:735
+ msgid "Enter link number"
+-msgstr "Wprowad¼ numer hiper³±cza"
++msgstr "Wprowad¼ numer odno¶nika"
+ 
+ #: src/viewer/text/view.c:1485
+ msgid "Save error"
+@@ -4965,144 +4928,3 @@
+ #: src/viewer/text/view.c:1486
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#, fuzzy
+-#~ msgid ""
+-#~ "Content type is %s.\n"
+-#~ "Do you want to save or display this file?"
+-#~ msgstr "Czy chcesz zapisaæ lub wy¶wietliæ ten plik?"
+-
+-#, fuzzy
+-#~ msgid ""
+-#~ "Content type is %s.\n"
+-#~ "Do you want to display this file?"
+-#~ msgstr "Czy chcesz zapisaæ lub wy¶wietliæ ten plik?"
+-
+-#, fuzzy
+-#~ msgid "Options for mime.types support."
+-#~ msgstr "Ustawienia obs³ugi Mailcap"
+-
+-#~ msgid ""
+-#~ "Whether ELinks window title should be touched when ELinks is\n"
+-#~ "run in a windowing environment."
+-#~ msgstr ""
+-#~ "Czy tytu³ okna ELinksa powinien byæ zmieniany, gdy ELinks jest "
+-#~ "uruchomiony w ¶rodowisku okienkowym."
+-
+-#, fuzzy
+-#~ msgid "GlobHist"
+-#~ msgstr "Historia globalna"
+-
+-#
+-#, fuzzy
+-#~ msgid "error: host not found"
+-#~ msgstr "b³±d: nie znaleziono serwera\n"
+-
+-#, fuzzy
+-#~ msgid "Lua Error: %s"
+-#~ msgstr "B³±d Lua"
+-
+-#~ msgid " at "
+-#~ msgstr " w "
+-
+-#~ msgid "ELinks "
+-#~ msgstr "Elinks "
+-
+-#~ msgid "action"
+-#~ msgstr "akcja"
+-
+-#~ msgid "keymap"
+-#~ msgstr "mapowanie klawiatury"
+-
+-#~ msgid "handles"
+-#~ msgstr "uchwyt(ów)"
+-
+-#~ msgid "timers"
+-#~ msgstr "zegar(ów)"
+-
+-#~ msgid "connections"
+-#~ msgstr "nawi±zanych"
+-
+-#~ msgid "connecting"
+-#~ msgstr "oczekuj±cych"
+-
+-#~ msgid "transferring"
+-#~ msgstr "transferów"
+-
+-#~ msgid "keepalive"
+-#~ msgstr "¿ywych"
+-
+-#~ msgid "bytes"
+-#~ msgstr "bajtów"
+-
+-#~ msgid "files"
+-#~ msgstr "plików"
+-
+-#~ msgid "locked"
+-#~ msgstr "zablokowanych"
+-
+-#~ msgid "loading"
+-#~ msgstr "³adowanych"
+-
+-#~ msgid "Formatted document cache"
+-#~ msgstr "Sformatowane dokumenty w pamiêci podrêcznej"
+-
+-#~ msgid "This file already exists:\n"
+-#~ msgstr "Ten plik ju¿ istnieje:\n"
+-
+-#~ msgid "Content type is"
+-#~ msgstr "Typ zawarto¶ci to"
+-
+-#~ msgid "Do you want to open file with"
+-#~ msgstr "Czy chcesz ten plik otworzyæ z"
+-
+-#~ msgid "save it or display it?"
+-#~ msgstr "zapisaæ czy wy¶wietliæ?"
+-
+-#, fuzzy
+-#~ msgid "or display it?"
+-#~ msgstr "zapisaæ czy wy¶wietliæ?"
+-
+-#~ msgid "Welcome to ELinks!"
+-#~ msgstr "Witaj w programie ELinks!"
+-
+-#
+-#~ msgid " Bookmarks"
+-#~ msgstr " Zak³adki"
+-
+-#~ msgid " Cookies"
+-#~ msgstr " Ciasteczka"
+-
+-#~ msgid "User's ~manual"
+-#~ msgstr "~Podrêcznik u¿ytkownika"
+-
+-#~ msgid "~Lua Reference manual"
+-#~ msgstr "Podrêcznik ~Lua"
+-
+-#, fuzzy
+-#~ msgid "Unselected hotkey text color"
+-#~ msgstr "Kolory niewybranego elementu menu."
+-
+-#
+-#, fuzzy
+-#~ msgid "Unselected hotkey background color"
+-#~ msgstr "Kolor t³a"
+-
+-#, fuzzy
+-#~ msgid "Selected hotkey text color"
+-#~ msgstr "Kolory wybranych elementów menu."
+-
+-#
+-#, fuzzy
+-#~ msgid "Selected hotkey background color"
+-#~ msgstr "Kolor t³a"
+-
+-#~ msgid "Unselected main menu bar item hotkey colors."
+-#~ msgstr "Kolory dla \"gor±cego\" klawisza w niewybranym elemencie menu."
+-
+-#~ msgid "Unselected menu bar item hotkey colors."
+-#~ msgstr "Kolory gor±cego klawisza niewybranego elementu menu."
+-
+-#
+-#~ msgid "Cache redirect information"
+-#~ msgstr "Informacje o przekierowaniach z pamiêci podrêcznej"
