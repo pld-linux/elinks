@@ -12,21 +12,20 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.9.3
-Release:	2
+Version:	0.10.0
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	c9d1ea15b8286ba055ad5babdfb94664
+# Source0-md5:	09a199b496bcdaf54791f2010a8351b8
 Source1:	%{name}.desktop
 Source2:	links.png
 #Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-lua40.patch
-Patch3:		%{name}-locale_names.patch
-Patch4:		%{name}-content-type.patch
+Patch3:		%{name}-content-type.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,6 +36,7 @@ BuildRequires:	gpm-devel
 %{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	sed >= 4.0
 BuildRequires:	tetex
 BuildRequires:	zlib-devel
 Provides:	webclient
@@ -72,11 +72,11 @@ keepalive.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 mv -f po/{no,nb}.po
 
 %build
+%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\),\1nb,' configure.in
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
