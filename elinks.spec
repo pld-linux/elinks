@@ -2,7 +2,7 @@ Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
 Version:	0.4pre12
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
@@ -43,14 +43,15 @@ rm -f missing
 aclocal
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--without-x
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
-  $RPM_BUILD_ROOT%{_datadir}/%{name} \
-  $RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
+	$RPM_BUILD_ROOT%{_datadir}/%{name} \
+	$RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
