@@ -104,7 +104,6 @@ mv -f po/{no,nb}.po
 	--enable-exmode \
 	%{?with_leds:--enable-leds} \
 	--enable-html-highlight \
-	--disable-no-root \
 	%{!?with_idn:--without-idn} \
 	%{?with_guile:--with-guile} \
 	%{?with_perl:--with-perl} \
