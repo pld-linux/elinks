@@ -20,7 +20,6 @@ Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	78b536a9e9607ed522229b70172706a8
 Source1:	%{name}.desktop
 Source2:	links.png
-Source3:	%{name}-feature.h
 Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
 URL:		http://elinks.or.cz/
@@ -66,7 +65,6 @@ keepalive.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-cp %{SOURCE3} feature.h
 
 %build
 %{__aclocal}
