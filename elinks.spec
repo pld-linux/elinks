@@ -6,8 +6,6 @@ Version:	0.2.3
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 Source0:	http://pasky.ji.cz/elinks/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}-bm.lua
