@@ -4,5 +4,6 @@ Comment=Experimental Links www text browser
 Comment[pl]=Eksperymentalna wersja tekstowej przeglądarki WWW Links 
 Exec=elinks
 Terminal=1
+Icon=elinks.png
 Type=Application
 # vi: encoding=utf-8

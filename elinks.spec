@@ -1,24 +1,24 @@
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.3.2
+Version:	0.4pre12
 Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
-Source2:	%{name}-bm.lua
-Source3:	%{name}-hooks.lua
-Source4:	links.png
+Source2:	links.png
 Patch0:		%{name}-configure.patch
-Patch1:		%{name}-lua-config-file.patch
+Patch1:		%{name}-lua-scripts-fixes.patch
 URL:		http://elinks.pld.org.pl/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bzip2-devel
 BuildRequires:	gpm-devel
 BuildRequires:	lua-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.6a
+BuildRequires:	zlib-devel
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,28 +48,27 @@ aclocal
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Network/WWW,%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}}
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
+  $RPM_BUILD_ROOT%{_datadir}/%{name} \
+  $RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_bindir}/links		$RPM_BUILD_ROOT%{_bindir}/%{name}
-mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
-install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
-install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+
+install contrib/lua/config.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog HACKING README SITES TODO
+%doc AUTHORS BUGS ChangeLog HACKING LUA NEWS README SITES TODO
+%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/{*.lua,elinks-remote}}
+%doc contrib/conv/{*awk,*.pl,*.sh}
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
-%{_datadir}/%{name}/*
-%config(noreplace) %{_sysconfdir}/elinks-hooks.lua
 %{_pixmapsdir}/*
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}
