@@ -22,6 +22,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
+BuildRequires:	libtool
 BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7c
@@ -59,6 +60,8 @@ keepalive.
 %patch0 -p1
 
 %build
+rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -66,6 +69,7 @@ keepalive.
 %configure \
 %{!?debug:	--enable-fastmem} \
 %{?debug:	--enable-debug} \
+	--enable-leds \
 	--enable-256-colors \
 	--without-x
 %{__make}
