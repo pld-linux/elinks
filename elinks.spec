@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/{*.lua,elinks-remote}}
 %doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/{*.txt,*.texi}
+%doc doc/{*.txt,*.texi,*.html}
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
