@@ -38,12 +38,13 @@ BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 %{?with_js:BuildRequires:	js-devel}
+BuildRequires:	libidn-devel
 BuildRequires:	lua40-devel >= 4.0.1-9
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	zlib-devel
-BuildRequires:	/usr/bin/texi2html
+BuildRequires:	tetex
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
