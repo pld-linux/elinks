@@ -1,0 +1,50 @@
+src/mime/mime.c change fixes crash on empty Content-Type (due to hash lookup
+with empty ctype used as key)
+src/viewer/text/form.c change adds Content-Type header to file uploads
+(port from links-1.00pre8)
+
+--- elinks-0.9.2/src/mime/mime.c.orig	2004-07-29 12:10:10.000000000 +0200
++++ elinks-0.9.2/src/mime/mime.c	2004-11-05 23:30:59.877593784 +0100
+@@ -126,6 +126,10 @@
+ 	if (head) {
+ 		ctype = parse_http_header(head, "Content-Type", NULL);
+ 		if (ctype) {
++		if (*ctype == '\0') {
++			/* treat empty Content-Type as not present (to avoid crash) */
++			mem_free(ctype);
++		} else {
+ 			unsigned char *end = strchr(ctype, ';');
+ 			int ctypelen;
+ 
+@@ -139,6 +143,7 @@
+ 
+ 			return ctype;
+ 		}
++		}
+ 	}
+ 
+ 	/* We can't use the extension string we are getting below, because we
+--- elinks-0.9.2/src/viewer/text/form.c.orig	2004-01-08 04:44:01.000000000 +0100
++++ elinks-0.9.2/src/viewer/text/form.c	2004-11-06 00:28:36.941040256 +0100
+@@ -562,13 +562,20 @@
+ #define F_BUFLEN 1024
+ 			int fh, rd;
+ 			unsigned char buffer[F_BUFLEN];
++			unsigned char *ct;
+ 
+ 			add_to_string(data, "\"; filename=\"");
+ 			add_to_string(data, strip_file_name(sv->value));
+ 			/* It sends bad data if the file name contains ", but
+ 			   Netscape does the same */
+ 			/* FIXME: is this a reason ? --Zas */
+-			add_to_string(data, "\"\r\n\r\n");
++			add_to_string(data, "\"");
++			if ((ct = get_content_type(NULL, sv->value))) {
++				add_to_string(data, "\r\nContent-Type: ");
++				add_to_string(data, ct);
++				mem_free(ct);
++			}
++			add_to_string(data, "\r\n\r\n");
+ 
+ 			if (*sv->value) {
+ 				unsigned char *filename;
