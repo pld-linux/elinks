@@ -14,6 +14,7 @@ URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
+BuildRequires:	expat-devel
 BuildRequires:	gpm-devel
 BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
@@ -43,6 +44,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-fastmem \
 	--without-x
 %{__make}
 
