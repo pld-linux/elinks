@@ -1,21 +1,26 @@
-%define snap	20020124 
+%define snap	20020208 
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.2.2
-Release:	2
+Version:	0.2.3
+Release:	1
 License:	GPL
 Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 Source0:	http://pasky.ji.cz/elinks/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
+Source2:	%{name}-bm.lua
+Source3:	%{name}-hooks.lua
+Patch0:		%{name}-configure.patch
+Patch1:		%{name}-lua-config-file.patch
 URL:		http://pasky.ji.cz/elinks/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.6a
+BuildRequires:	lua-devel
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,6 +37,8 @@ elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
 %setup -q -n %{name}-%{snap}
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -44,6 +51,8 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -51,6 +60,8 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/links		$RPM_BUILD_ROOT%{_bindir}/%{name}
 mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
+install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
 
 gzip -9nf AUTHORS BUGS ChangeLog README SITES TODO
 
@@ -63,3 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
+%{_datadir}/%{name}/*
+%{_sysconfdir}/*
