@@ -1,15 +1,12 @@
-%define snap  20020302
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.3.0
+Version:	0.4pre7
 Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
-Source2:	%{name}-bm.lua
-Source3:	%{name}-hooks.lua
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-lua-config-file.patch
 URL:		http://elinks.pld.org.pl/
@@ -34,7 +31,7 @@ Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
 elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
-%setup -q -n %{name}-%{snap}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -56,10 +53,11 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
 mv -f $RPM_BUILD_ROOT%{_bindir}/links		$RPM_BUILD_ROOT%{_bindir}/%{name}
 mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
+mv -f $RPM_BUILD_ROOT%{_mandir}/man5/linkskeys.5	$RPM_BUILD_ROOT%{_mandir}/man5/%{name}keys.5
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
-install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
+install contrib/bm.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}-bm.lua
+install contrib/hooks.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}-hooks.lua
 
 gzip -9nf AUTHORS BUGS ChangeLog README SITES TODO
 
@@ -73,4 +71,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
 %{_datadir}/%{name}/*
-%config(noreplace) %{_sysconfdir}/elinks-hooks.lua
+%config %{_sysconfdir}/elinks-hooks.lua
