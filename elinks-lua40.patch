@@ -1,0 +1,9 @@
+diff -ruN elinks-0.9.1./contrib/lua/bm-to-elinks-bookmarks.lua elinks-0.9.1/contrib/lua/bm-to-elinks-bookmarks.lua
+--- elinks-0.9.1./contrib/lua/bm-to-elinks-bookmarks.lua	2002-12-20 22:58:30.000000000 +0100
++++ elinks-0.9.1/contrib/lua/bm-to-elinks-bookmarks.lua	2004-03-28 19:37:23.903271368 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/lua -f
++#!/usr/bin/lua40 -f
+ -- Convert bm.lua-format bookmarks to ELinks-format bookmarks.
+ -- Peter Wang, 2002-12-19
+ 
