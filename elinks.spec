@@ -3,7 +3,7 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 Epoch:		1
 License:	GPL
@@ -55,7 +55,8 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-fastmem \
+	--sysconfdir=/etc/elinks \
+    --enable-fastmem \
 	--without-x
 %{__make}
 
@@ -66,14 +67,15 @@ texi2html elinks-lua.texi
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
-	$RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
+	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+install contrib/lua/[bcmr]*.lua $RPM_BUILD_ROOT%{_sysconfdir}
+install contrib/lua/hooks.lua.in $RPM_BUILD_ROOT%{_sysconfdir}/hooks.lua
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -84,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_applnkdir}/Network/WWW/*
