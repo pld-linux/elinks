@@ -5,7 +5,7 @@ Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.5
 %define	_pre	pre10
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -16,6 +16,7 @@ Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
+Patch2:		%{name}-va-alpha.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -59,6 +60,7 @@ keepalive.
 %setup -q -n %{name}-%{version}%{_pre}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
