@@ -12,7 +12,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.9.1
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -23,6 +23,7 @@ Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
+Patch2:		%{name}-lua40.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,7 +31,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
-BuildRequires:	lua40-devel
+BuildRequires:	lua40-devel >= 4.0.1-9
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	zlib-devel
@@ -66,6 +67,7 @@ keepalive.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
