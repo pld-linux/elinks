@@ -7,4 +7,5 @@ Terminal=1
 Icon=elinks.png
 Categories=Network;WebBrowser
 Type=Application
+Encoding=UTF-8
 # vi: encoding=utf-8
