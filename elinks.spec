@@ -1,4 +1,6 @@
 #
+# TODO: review/merge DEVEL branch
+#
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
 %bcond_without	cgi	# Disable Local CGI support
@@ -13,7 +15,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.10.0
-Release:	1
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -34,7 +36,7 @@ BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
-BuildRequires:	ncurses-devel => 5.1
+BuildRequires:	ncurses-devel >= 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	sed >= 4.0
 BuildRequires:	tetex
