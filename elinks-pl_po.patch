@@ -1,0 +1,120 @@
+Index: po/pl.po
+===================================================================
+RCS file: /var/cvs/elinks/elinks/po/pl.po,v
+retrieving revision 1.202
+diff -u -r1.202 pl.po
+--- po/pl.po	15 Dec 2004 19:14:35 -0000	1.202
++++ po/pl.po	15 Dec 2004 19:38:46 -0000
+@@ -1138,9 +1138,8 @@
+ "%s"
+ 
+ #: src/config/dialogs.c:155
+-#, fuzzy
+ msgid "modified"
+-msgstr "Dane zosta³y zmodyfikowane"
++msgstr "zmodyfikowany"
+ 
+ #: src/config/dialogs.c:172
+ msgid "(expand by pressing space)"
+@@ -1165,6 +1164,9 @@
+ "\n"
+ "This value has been changed since you last saved your configuration."
+ msgstr ""
++"\n"
++"\n"
++"Ta warto¶æ uleg³a zmiane od czasu ostatniego zapisu konfiguracji."
+ 
+ #: src/config/dialogs.c:206 src/config/dialogs.c:212 src/config/dialogs.c:379
+ msgid "Description"
+@@ -2193,9 +2195,8 @@
+ msgstr "Ustawienia dotycz±ce obrazków."
+ 
+ #: src/config/options.inc:204
+-#, fuzzy
+ msgid "Display style for image tags"
+-msgstr "Sposób wy¶wietlania odno¶ników na obrazkach"
++msgstr "Sposób wy¶wietlania znaczników obrazka"
+ 
+ #: src/config/options.inc:206
+ msgid ""
+@@ -2205,24 +2206,27 @@
+ "2     means display alt/title attribute if possible, IMG if not\n"
+ "3     means display alt/title attribute if possible, filename if not\n"
+ msgstr ""
++"Sposób wy¶wietlania znaczników obrazka:\n"
++"0     zawsze wy¶wietlaj IMG\n"
++"1     zawsze wy¶wietlaj nazwê pliku\n"
++"2     je¶li mo¿liwe, wy¶wietlaj atrybuty alt/title, w przeciwnym wypadku IMG\n"
++"3     je¶li mo¿liwe, wy¶wietlaj atrybuty alt/title, w przeciwnym wypadku nazwê pliku\n"
+ 
+ #: src/config/options.inc:212
+ msgid "Maximum length for image filename"
+-msgstr ""
++msgstr "Maksymalna d³ugo¶æ nazwy pliku obraza"
+ 
+ #: src/config/options.inc:214
+-#, fuzzy
+ msgid ""
+ "Maximum length of image filename when displayed:\n"
+ "0     means always display full filename\n"
+ "1-500 means display filename with this maximal length;\n"
+ "      if it is longer, the middle is substituted by an asterisk"
+ msgstr ""
+-"Wy¶wietl [docelowa nazwa] zamiast [IMG] jako widoczny tag:\n"
+-"-1    - zawsze wy¶wietlaj [IMG]\n"
+-"0     - zawsze wy¶wietlaj pe³n± nazwê docelowego pliku\n"
+-"1-500 - wy¶wietlaj nazwê docelowego pliku o takiej maksymalnej d³ugo¶ci;\n"
+-"       je¶li nazwa jest d³u¿sza, ¶rodek jest zastêpowany gwiazdkami"
++"Maksymalna d³ugo¶æ wy¶wietlanej nazwa pliku obrazka:\n"
++"0     zawsze wy¶wietlaj pe³n± nazwê docelowego pliku\n"
++"1-500 wy¶wietlaj nazwê docelowego pliku o takiej maksymalnej d³ugo¶ci;\n"
++"      je¶li nazwa jest d³u¿sza, ¶rodek jest zastêpowany gwiazdkami"
+ 
+ #: src/config/options.inc:224
+ msgid "Image links tagging"
+@@ -2258,21 +2262,19 @@
+ 
+ #: src/config/options.inc:239
+ msgid "Maximum length for image label"
+-msgstr ""
++msgstr "Maksymalna d³ugo¶æ etykiety obrazka"
+ 
+ #: src/config/options.inc:241
+-#, fuzzy
+ msgid ""
+ "Maximum length of image label (alt/title):\n"
+ "0     means always display full label\n"
+ "1-500 means display label with this maximal length;\n"
+ "      if it is longer, the middle is substituted by an asterisk"
+ msgstr ""
+-"Wy¶wietl [docelowa nazwa] zamiast [IMG] jako widoczny tag:\n"
+-"-1    - zawsze wy¶wietlaj [IMG]\n"
+-"0     - zawsze wy¶wietlaj pe³n± nazwê docelowego pliku\n"
+-"1-500 - wy¶wietlaj nazwê docelowego pliku o takiej maksymalnej d³ugo¶ci;\n"
+-"       je¶li nazwa jest d³u¿sza, ¶rodek jest zastêpowany gwiazdkami"
++"Maksymalna d³ugo¶æ etykiety obrazka (alt/title):\n"
++"0     zawsze wy¶wietlaj pe³n± etykietê\n"
++"1-500 wy¶wietlaj eytkietê o takiej maksymalnej d³ugo¶ci;\n"
++"      je¶li nazwa jest d³u¿sza, ¶rodek jest zastêpowany gwiazdkami"
+ 
+ #: src/config/options.inc:246
+ msgid "Display links to images w/o alt"
+@@ -3211,7 +3213,6 @@
+ msgstr "Zasady przekazywania URI do zewnêtrznych poleceñ."
+ 
+ #: src/config/options.inc:714
+-#, fuzzy
+ msgid ""
+ "A rule for passing URI to an external command.\n"
+ "The format is:\n"
+@@ -3223,7 +3224,9 @@
+ "Zasada przekazywania URI do zewnêtrznego polecenia.\n"
+ "Format:\n"
+ "%c w ³añcuchu oznacza bie¿±cy URL\n"
+-"%% w ³añcuchu oznacza '%'"
++"%% w ³añcuchu oznacza '%'\n"
++"\n"
++"Nie dodawaj apostrofów lub cudzys³owiów wokó³ %c."
+ 
+ #. Keep options in alphabetical order.
+ #: src/config/options.inc:724
