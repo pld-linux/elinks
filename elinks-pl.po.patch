@@ -1,20 +1,54 @@
---- elinks-0.5rc3/po/pl.po.orig	2003-12-24 10:16:11.000000000 +0100
-+++ elinks-0.5rc3/po/pl.po	2003-12-24 10:33:47.000000000 +0100
-@@ -9,10 +9,10 @@
+--- elinks-0.5rc4/po/pl.po.orig	2003-12-24 02:30:20.000000000 +0100
++++ elinks-0.5rc4/po/pl.po	2003-12-24 15:05:38.070966952 +0100
+@@ -9,9 +9,9 @@
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: ELinks 0.5pre12.CVS\n"
-+"Project-Id-Version: ELinks 0.5rc3.CVS\n"
- "POT-Creation-Date: 2003-12-23 13:37+0100\n"
++"Project-Id-Version: ELinks 0.5rc4.CVS\n"
+ "POT-Creation-Date: 2003-12-24 02:23+0100\n"
 -"PO-Revision-Date: 2003-12-23 08:00+0200\n"
--"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
-+"PO-Revision-Date: 2003-12-24 11:00+0200\n"
-+"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
++"PO-Revision-Date: 2003-12-24 14:50+0100\n"
+ "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
- "Content-Type: text/plain; charset=ISO-8859-2\n"
-@@ -4842,7 +4842,7 @@
+@@ -530,7 +530,7 @@
+ "relative to confdir."
+ msgstr ""
+ "Nazwa pliku z konfiguracj±, z którego bêdzie czytana i do którego\n"
+-"bêdzie zapisywana konfiguracja. Powinien byæ wzglêdny (wzglêdem confdir)."
++"bêdzie zapisywana konfiguracja. Powinna byæ wzglêdna (wzglêdem confdir)."
+ 
+ #: src/config/cmdline.c:454
+ msgid "MIME type to assume for documents"
+@@ -2940,7 +2940,7 @@
+ 
+ #: src/config/options.inc:754
+ msgid "Whether to execute local CGI scripts. (DISABLED)"
+-msgstr "Czy uruchamiaæ skrypty CGI. (WY£¡CZONE)"
++msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
+ 
+ #: src/config/options.inc:758
+ msgid ""
+@@ -4255,7 +4255,7 @@
+ 
+ #: src/dialogs/menu.c:360
+ msgid "Close ~all but this"
+-msgstr "Z~amknij wszystkie za wyj±tekiem tego"
++msgstr "Z~amknij wszystkie za wyj±tkiem tego"
+ 
+ #: src/dialogs/menu.c:373
+ msgid "Open new ~tab"
+@@ -4787,7 +4787,7 @@
+ #
+ #: src/intl/gettext/libintl.c:24
+ msgid "System"
+-msgstr "System"
++msgstr "Systemowy"
+ 
+ #: src/intl/gettext/libintl.c:25
+ msgid "English"
+@@ -4841,7 +4841,7 @@
  
  #: src/intl/gettext/libintl.c:38
  msgid "Galician"
@@ -23,3 +57,28 @@
  
  #: src/intl/gettext/libintl.c:39
  msgid "German"
+@@ -5057,7 +5057,7 @@
+ msgstr "Program"
+ 
+ #: src/mime/backend/default.c:67
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
+@@ -5330,7 +5330,7 @@
+ "URI abbreviations, or smart ones, making it possible to pass\n"
+ "arguments to them like search engine keywords."
+ msgstr ""
+-"Zasady przepisywanie URI wprowadzonego w okienku dialogowym.\n"
++"Zasady przepisywania URI wprowadzonego w okienku dialogowym.\n"
+ "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
+ "rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
+ "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
+@@ -6078,6 +6078,3 @@
+ #: src/viewer/text/view.c:1528
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "Typeahead: %s [%s]"
+-#~ msgstr "Szukanie z wyprzedzeniem: %s [%s]"
