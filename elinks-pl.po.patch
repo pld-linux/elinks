@@ -1,6 +1,6 @@
 diff -burN elinks-0.9.2rc4.orig/po/pl.po elinks-0.9.2rc4/po/pl.po
 --- elinks-0.9.2rc4.orig/po/pl.po	2004-08-22 13:49:39.384216368 +0200
-+++ elinks-0.9.2rc4/po/pl.po	2004-08-22 14:25:06.252883184 +0200
++++ elinks-0.9.2rc4/po/pl.po	2004-08-22 14:33:48.887430656 +0200
 @@ -1,18 +1,18 @@
  # Polish ELinks translation.
  # Arkadiusz Sochala <jojoro@priv2.onet.pl>
@@ -358,6 +358,15 @@ diff -burN elinks-0.9.2rc4.orig/po/pl.po elinks-0.9.2rc4/po/pl.po
  
  #: src/formhist/dialogs.c:131
  msgid ""
+@@ -5135,7 +5130,7 @@
+ msgstr "Program"
+ 
+ #: src/mime/backend/default.c:67
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
 @@ -6140,7 +6135,7 @@
  
  #: src/viewer/text/search.c:1087
