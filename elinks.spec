@@ -25,6 +25,8 @@ BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_sysconfdir	/etc/elinks
+
 %description
 This is the elinks tree - intended to provide feature-rich version of
 links, however not rock-stable and dedicated mainly for testing. Its
@@ -55,8 +57,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--sysconfdir=/etc/elinks \
-    --enable-fastmem \
+	--enable-fastmem \
 	--without-x
 %{__make}
 
@@ -86,7 +87,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_applnkdir}/Network/WWW/*
