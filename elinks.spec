@@ -11,7 +11,7 @@ License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	6445fdcd652709be3fb7401e9da019f7
+# Source0-md5:	51f7a5748fc9f582e8f762de8cf1cc99
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-pl.po.patch
