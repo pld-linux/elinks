@@ -4,6 +4,7 @@
 %bcond_without	ipv6	# Disable IPv6 Support
 %bcond_without	led	# Disable LEDs
 %bcond_without	256	# Disable 256 colors support
+%bcond_without	lua # Disable Lua scripting
 #
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
@@ -11,7 +12,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.9.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -75,6 +76,7 @@ keepalive.
 %{!?debug:	--enable-fastmem} \
 %{?debug:	--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
+	%{!?with_lua:--without-lua} \
 	--with%{!?with_x:out}-x
 %{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
 %{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
@@ -97,8 +99,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install contrib/lua/[bcmr]*.lua $RPM_BUILD_ROOT%{_sysconfdir}
-install contrib/lua/hooks.lua.in $RPM_BUILD_ROOT%{_sysconfdir}/hooks.lua
+install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}
 
 %find_lang %{name}
 
@@ -115,4 +116,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}
+%{?with_lua:%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}}
