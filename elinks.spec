@@ -4,14 +4,14 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.5
-%define	_pre	pre7
-Release:	0.%{_pre}.2
+%define	_pre	pre10
+Release:	0.%{_pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	aaa151f3543cd321b05daf4d2307a7a8
+# Source0-md5:	92f8ff66b05bf7d4bac40ce7a6075043
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-pl.po.patch
@@ -23,7 +23,6 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
-BuildRequires:	libtool
 BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7c
@@ -58,12 +57,11 @@ keepalive.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 
 %build
 rm -f missing
-%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
