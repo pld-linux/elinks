@@ -1,13 +1,20 @@
-#
-# TODO: review/merge DEVEL branch
-#
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
-%bcond_without	cgi	# Disable Local CGI support
-%bcond_without	ipv6	# Disable IPv6 Support
-%bcond_without	led	# Disable LEDs
+%bcond_with	gnutls	# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	js	# Enable experimental JavaScript support (using SpiderMonkey)
 %bcond_without	256	# Disable 256 colors support
+%bcond_without	cgi	# Disable Local CGI support
+%bcond_without	guile	# Disable Guile scripting
+%bcond_without	idn	# Disable Internation Domain Names support
+%bcond_without	ipv6	# Disable IPv6 support
+%bcond_without	led	# Disable LEDs
 %bcond_without	lua	# Disable Lua scripting
+%bcond_without	openssl # Disable OpenSSL support
+%bcond_without	perl	# Disable Perl scripting
+# 
+%if %{with gnutls}
+%undefine	with_openssl
+%endif
 #
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
@@ -24,10 +31,10 @@ Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	09a199b496bcdaf54791f2010a8351b8
 Source1:	%{name}.desktop
 Source2:	links.png
-#Patch0:		%{name}-pl.po.patch
+#Patch0:		%{name}-pl_po.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-lua40.patch
-Patch3:		%{name}-content-type.patch
+Patch3:		%{name}-locale_names.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -35,17 +42,21 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
+%{?with_guile:BuildRequires: guile-devel}
+%{?with_gnutls:BuildRequires: gnutls-devel}
+%{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
+%{?with_idn:BuildRequires:	libidn-devel}
 %{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
-BuildRequires:	ncurses-devel >= 5.1
-BuildRequires:	openssl-devel >= 0.9.7d
-BuildRequires:	sed >= 4.0
-BuildRequires:	tetex
+BuildRequires:	ncurses-devel => 5.1
+%{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
+%{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	zlib-devel
+BuildRequires:	tetex
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/elinks
-%define		specflags_ia32	-fomit-frame-pointer
+%define		specflags_ia32	 -fomit-frame-pointer 
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
@@ -70,7 +81,7 @@ keepalive.
 
 %prep
 %setup -q
-#%patch0 -p1
+#%patch0 -p0
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -78,20 +89,32 @@ keepalive.
 mv -f po/{no,nb}.po
 
 %build
-%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\),\1nb,' configure.in
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
-%{!?debug:	--enable-fastmem} \
-%{?debug:	--enable-debug} \
+	%{!?debug:--enable-fastmem} \
+	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
+	%{?with_cgi:--enable-cgi} \
+	--enable-finger \
+	--enable-gopher \
+	--enable-nntp \
+	%{?with_256:--enable-256-colors} \
+	--enable-exmode \
+	%{?with_leds:--enable-leds} \
+	--enable-html-highlight \
+	--enable-no-root \
+	%{!?with_idn:--without-idn} \
+	%{?with_guile:--with-guile} \
+	%{?with_perl:--with-perl} \
 	%{!?with_lua:--without-lua} \
-	--with%{!?with_x:out}-x
-%{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
-%{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
-%{?with_cgi:echo -e "#ifdef HAVE_SETENV\n\t#define CONFIG_CGI\n#endif" >> feature.h}
+	%{!?with_js:--without-spidermonkey} \
+	%{?with_gnutls:--with-gnutls} \
+	%{!?with_openssl:--without-openssl} \
+	%{?with_x:--with-x} 
+
 %{__make}
 
 cd doc
@@ -110,7 +133,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-%{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
+install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}
 
 %find_lang %{name}
 
