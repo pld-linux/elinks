@@ -23,7 +23,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.10.3
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -93,6 +93,7 @@ mv -f po/{no,nb}.po
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-no-root \
 	HAVE_SMBCLIENT=yes \
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
