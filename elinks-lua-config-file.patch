@@ -1,0 +1,11 @@
+diff -urN aa/elinks-20020208/lua.c elinks-20020208/lua.c
+--- aa/elinks-20020208/lua.c	Sat Dec 29 18:46:59 2001
++++ elinks-20020208/lua.c	Tue Feb 12 19:55:45 2002
+@@ -468,6 +468,7 @@
+ 	lua_register(L, "edit_bookmark_dialog", l_edit_bookmark_dialog);
+ 	lua_register(L, "xdialog", l_xdialog);
+ 	do_hooks_file(L, "/etc/", "links-hooks.lua");
++	do_hooks_file(L, "/etc/", "elinks-hooks.lua");
+ 	do_hooks_file(L, links_home, "hooks.lua");
+ }
+ 
