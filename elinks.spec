@@ -36,8 +36,8 @@ BuildRequires:	gpm-devel
 BuildRequires:	lua40-devel >= 4.0.1-9
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	tetex
 BuildRequires:	zlib-devel
-BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
