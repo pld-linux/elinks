@@ -112,7 +112,7 @@ mv -f po/{no,nb}.po
 	%{!?with_js:--without-spidermonkey} \
 	%{?with_gnutls:--with-gnutls} \
 	%{!?with_openssl:--without-openssl} \
-	%{?with_x:--with-x} 
+	--with%{!?with_x:out}-x 
 
 %{__make}
 
