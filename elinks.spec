@@ -1,5 +1,6 @@
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
+%bcond_with	js	# Enable experimental JavaScript support (using SpiderMonkey)
 %bcond_without	cgi	# Disable Local CGI support
 %bcond_without	guile	# Disable Guile scripting
 %bcond_without	perl	# Disable Perl scripting
@@ -15,7 +16,7 @@ Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.10
 %define _ver	pre2
-Release:	0.%{_ver}
+Release:	0.%{_ver}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -36,6 +37,7 @@ BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
+%{?with_js:BuildRequires:	js-devel}
 BuildRequires:	lua40-devel >= 4.0.1-9
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
@@ -98,7 +100,8 @@ mv -f po/{no,nb}.po
 	--enable-no-root \
 	--with-guile \
 	--with-perl \
-	--enable-html-highlight
+	--enable-html-highlight \
+	%{?with_js:--enable-spidermonkey}
 
 %{__make}
 
