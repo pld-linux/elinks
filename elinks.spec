@@ -4,21 +4,22 @@
 %bcond_without	ipv6	# Disable IPv6 Support
 %bcond_without	led	# Disable LEDs
 %bcond_without	256	# Disable 256 colors support
-%bcond_without	lua # Disable Lua scripting
+%bcond_without	lua	# Disable Lua scripting
 #
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.9.1
-Release:	5
+Version:	0.9.2
+%define _ver	rc4
+Release:	0.%{_ver}
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
-Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	78b536a9e9607ed522229b70172706a8
+Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_ver}.tar.bz2
+# Source0-md5:	a25fe1b6ed429cac964f74896f1e24b1
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-pl.po.patch
@@ -65,7 +66,7 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_ver}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
