@@ -20,6 +20,7 @@ Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	2bd5f150ed91628bd2b64ad7d2d1edfd
+# Source0-size:	1894301
 Source1:	%{name}.desktop
 Source2:	links.png
 #Patch0:		%{name}-pl.po.patch
