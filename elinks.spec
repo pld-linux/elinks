@@ -1,6 +1,8 @@
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
 %bcond_without	cgi	# Disable Local CGI support
+%bcond_without	guile	# Disable Guile scripting
+%bcond_without	perl	# Disable Perl scripting
 %bcond_without	ipv6	# Disable IPv6 Support
 %bcond_without	led	# Disable LEDs
 %bcond_without	256	# Disable 256 colors support
@@ -11,21 +13,22 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.9.2
-%define _ver	rc7
+Version:	0.10
+%define _ver	pre0
 Release:	0.%{_ver}
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_ver}.tar.bz2
-# Source0-md5:	7ae3168f7ce847bb49155777de432fbd
+# Source0-md5:	c9b3829bd2c39da9635e948f1c7d9fe6
 Source1:	%{name}.desktop
 Source2:	links.png
 #Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-lua40.patch
 Patch3:		%{name}-locale_names.patch
+Patch4:		%{name}-configure_in.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,9 +36,11 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
+%{?with_guile:BuildRequires: guile-devel}
 BuildRequires:	lua40-devel >= 4.0.1-9
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
+%{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	zlib-devel
 BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
@@ -69,8 +74,9 @@ keepalive.
 %setup -q -n %{name}-%{version}%{_ver}
 #%patch0 -p1
 %patch1 -p1
-%patch2 -p1
+#%patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mv -f po/{no,nb}.po
 
@@ -80,14 +86,24 @@ mv -f po/{no,nb}.po
 %{__autoheader}
 %{__automake}
 %configure \
-%{!?debug:	--enable-fastmem} \
-%{?debug:	--enable-debug} \
+	%{!?debug:--enable-fastmem} \
+	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
 	%{!?with_lua:--without-lua} \
-	--with%{!?with_x:out}-x
-%{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
-%{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
-%{?with_cgi:echo -e "#ifdef HAVE_SETENV\n\t#define CONFIG_CGI\n#endif" >> feature.h}
+	--with%{!?with_x:out}-x \
+	--%{?with_cgi:en}%{!?with_cgi:dis}able-cgi \
+	--enable-gopher \
+	--enable-nntp \
+	--%{?with_256:en}%{!?with_256:dis}able-256-colors \
+	--enable-exmode \
+	--%{?with_leds:en}%{!?with_leds:dis}able-leds \
+	--enable-no-root \
+	--with-guile \
+	--with-perl 
+
+#%{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
+#%{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
+#%{?with_cgi:echo -e "#ifdef HAVE_SETENV\n\t#define CONFIG_CGI\n#endif" >> feature.h}
 %{__make}
 
 cd doc
