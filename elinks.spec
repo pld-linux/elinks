@@ -12,7 +12,6 @@
 %bcond_without	lua	# Disable Lua scripting
 %bcond_without	openssl # Disable OpenSSL support
 %bcond_without	perl	# Disable Perl scripting
-%bcond_without	smb	# Disable SMB protocol support
 # 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -51,7 +50,6 @@ BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
-%{?with_smb:BuildRequires:	samba-client}
 BuildRequires:	zlib-devel
 BuildRequires:	tetex
 Provides:	webclient
@@ -95,6 +93,7 @@ mv -f po/{no,nb}.po
 %{__autoheader}
 %{__automake}
 %configure \
+	HAVE_SMBCLIENT=yes \
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
@@ -102,7 +101,6 @@ mv -f po/{no,nb}.po
 	--enable-finger \
 	--enable-gopher \
 	--enable-nntp \
-	%{!?with_smb:--disable-smb} \
 	%{?with_256:--enable-256-colors} \
 	--enable-exmode \
 	%{?with_leds:--enable-leds} \
