@@ -1,3 +1,10 @@
+# Conditional build:
+%bcond_with	x	# Use the X Windows System
+%bcond_without	cgi	# Disable Local CGI support
+%bcond_without	ipv6	# Disable IPv6 Support
+%bcond_without	led	# Disable LEDs
+%bcond_without	256	# Disable 256 colors support
+#
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
@@ -69,9 +76,11 @@ cp %{SOURCE3} feature.h
 %configure \
 %{!?debug:	--enable-fastmem} \
 %{?debug:	--enable-debug} \
-	--enable-leds \
-	--enable-256-colors \
-	--without-x
+	%{?without_ipv6:--disable-ipv6} \
+	--with%{?without_x:out}-x
+%{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
+%{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
+%{?with_cgi:echo -e "#ifdef HAVE_SETENV\n\t#define CONFIG_CGI\n#endif" >> feature.h}
 %{__make}
 
 cd doc
