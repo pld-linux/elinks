@@ -6,13 +6,13 @@ Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://pasky.ji.cz/elinks/%{name}-%{version}.tar.bz2
+Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}-bm.lua
 Source3:	%{name}-hooks.lua
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-lua-config-file.patch
-URL:		http://pasky.ji.cz/elinks/
+URL:		http://elinks.pld.org.pl/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gpm-devel
