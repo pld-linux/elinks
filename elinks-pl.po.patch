@@ -21,7 +21,7 @@ diff -burN elinks-0.9.2rc4.orig/po/pl.po elinks-0.9.2rc4/po/pl.po
 -"PO-Revision-Date: 2004-01-04 08:00+0200\n"
 -"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
 +"PO-Revision-Date: 2004-08-22 16:00+0200\n"
-+"Last-Translator: Adam Golebiowski <adamgpld-linux.org>\n"
++"Last-Translator: Adam Golebiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=ISO-8859-2\n"
