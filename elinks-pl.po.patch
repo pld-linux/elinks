@@ -70,7 +70,7 @@ diff -burN elinks-0.9.1rc2.orig/po/pl.po elinks-0.9.1rc2/po/pl.po
  #: src/config/dialogs.c:67
  msgid "Write config success"
 -msgstr ""
-+msgstr "Zapisano konfiguracje."
++msgstr "Zapisano konfiguracjê."
  
  #: src/config/dialogs.c:68
  #, c-format
@@ -200,7 +200,7 @@ diff -burN elinks-0.9.1rc2.orig/po/pl.po elinks-0.9.1rc2/po/pl.po
 -#, fuzzy
  msgid "Show not found"
 -msgstr "Nie znaleziono serwera"
-+msgstr "Sygnalizowanie nie znaleziona"
++msgstr "Sygnalizowanie nie znalezienia"
  
  #: src/config/options.inc:305
 -#, fuzzy
