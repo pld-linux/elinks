@@ -1,7 +1,7 @@
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.4pre20
+Version:	0.4pre21
 Release:	1
 License:	GPL
 Group:		Applications/Networking
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/{*.lua,elinks-remote}}
 %doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/{bookmarks.txt,hacking.txt} 
+%doc doc/{*.txt,*.texi}
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
