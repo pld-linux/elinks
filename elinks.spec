@@ -1,7 +1,7 @@
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.4pre13
+Version:	0.4pre14
 Release:	1
 License:	GPL
 Group:		Applications/Networking
