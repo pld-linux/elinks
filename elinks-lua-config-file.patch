@@ -1,10 +1,10 @@
-diff -urN elinks-20020302/lua.c aaa/elinks-20020302/lua.c
---- elinks-20020302/lua.c	Tue Feb 12 13:18:41 2002
-+++ aaa/elinks-20020302/lua.c	Sun Mar  3 21:27:56 2002
-@@ -468,6 +468,7 @@
+--- xxx/src/lua/core.c	Wed May  8 15:55:05 2002
++++ xxx/src/lua/core.c.new	Sat May 11 22:31:49 2002
+@@ -570,7 +570,7 @@
+ 	lua_register(L, "bind_key", l_bind_key);
  	lua_register(L, "edit_bookmark_dialog", l_edit_bookmark_dialog);
  	lua_register(L, "xdialog", l_xdialog);
- 	do_hooks_file(L, "/etc/", "links-hooks.lua");
+-	do_hooks_file(L, "/etc/", "links-hooks.lua");
 +	do_hooks_file(L, "/etc/", "elinks-hooks.lua");
  	if (links_home) do_hooks_file(L, links_home, "hooks.lua");
  }
