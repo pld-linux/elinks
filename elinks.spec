@@ -34,9 +34,6 @@ elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 rm -f missing
