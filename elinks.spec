@@ -1,11 +1,13 @@
+
+%define	_pre	pre0
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.5pre0
-Release:	1
+Version:	0.5
+Release:	%{_pre}.1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
+Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	links.png
 URL:		http://elinks.or.cz/
@@ -33,7 +35,7 @@ Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
 elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_pre}
 
 %build
 rm -f missing
