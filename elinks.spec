@@ -1,8 +1,7 @@
-%define snap  20020302
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.3.0
+Version:	0.3.2
 Release:	1
 License:	GPL
 Group:		Applications/Networking
@@ -34,7 +33,7 @@ Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
 elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
-%setup -q -n %{name}-%{snap}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -61,7 +60,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
 
-gzip -9nf AUTHORS BUGS ChangeLog README SITES TODO
+gzip -9nf AUTHORS BUGS ChangeLog HACKING README SITES TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
