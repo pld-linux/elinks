@@ -28,7 +28,8 @@ BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define _sysconfdir /etc/elinks
+%define		_sysconfdir	/etc/elinks
+%define		specflags_ia32	"-fomit-frame-pointer"
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
@@ -72,7 +73,7 @@ cd ..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
-	$RPM_BUILD_ROOT{%{_sysconfdir}/%{name},%{_pixmapsdir}}
+	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
