@@ -79,14 +79,14 @@ cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
+install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 install contrib/lua/[bcmr]*.lua $RPM_BUILD_ROOT%{_sysconfdir}
@@ -105,6 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/{*.txt,*.html}
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
-%{_applnkdir}/Network/WWW/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}
