@@ -174,7 +174,7 @@
  			kill_buffer_data(rb, l);
  			if (!info->chunk_remaining && rb->len >= 1) {
  				if (rb->data[0] == 10) kill_buffer_data(rb, 1);
-@@ -846,6 +887,14 @@
+@@ -846,6 +887,20 @@
  	if (!e->last_modified && (d = parse_http_header(e->head, "Date", NULL)))
  		e->last_modified = d;
  	if (info->length == -1 || (version < 11 && info->close)) rb->close = 1;
@@ -182,8 +182,14 @@
 +	d = parse_http_header(e->head, "Content-Encoding", NULL);
 +	c->gzip = 0;
 +	if (d) {
-+		if (!strcasecmp(d, "gzip") || !strcasecmp(d, "x-gzip")) c->gzip = 1;
-+		mem_free(d);
++		if (!strcasecmp(d, "gzip") || !strcasecmp(d, "x-gzip")) {
++			mem_free(d);
++			d = parse_http_header(e->head, "Content-Type", NULL);
++			if (d) {
++				if (!strncasecmp(d, "text", 4)) c->gzip = 1;
++				 mem_free(d);
++			}
++		}
 +	}
 +#endif
  	read_http_data(c, rb);
