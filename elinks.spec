@@ -14,21 +14,20 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.10
-%define _ver	pre0
+%define _ver	pre2
 Release:	0.%{_ver}
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_ver}.tar.bz2
-# Source0-md5:	c9b3829bd2c39da9635e948f1c7d9fe6
+# Source0-md5:	fef5cd85c75d4778fd848a6c3d01c8a0
 Source1:	%{name}.desktop
 Source2:	links.png
 #Patch0:		%{name}-pl.po.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-lua40.patch
 Patch3:		%{name}-locale_names.patch
-Patch4:		%{name}-configure_in.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -76,7 +75,6 @@ keepalive.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 mv -f po/{no,nb}.po
 
@@ -99,11 +97,9 @@ mv -f po/{no,nb}.po
 	--%{?with_leds:en}%{!?with_leds:dis}able-leds \
 	--enable-no-root \
 	--with-guile \
-	--with-perl 
+	--with-perl \
+	--enable-html-highlight
 
-#%{?with_led:echo    '#define CONFIG_LEDS' >> feature.h}
-#%{?with_256:echo    '#define CONFIG_256_COLORS' >> feature.h}
-#%{?with_cgi:echo -e "#ifdef HAVE_SETENV\n\t#define CONFIG_CGI\n#endif" >> feature.h}
 %{__make}
 
 cd doc
