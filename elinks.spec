@@ -102,7 +102,7 @@ mv -f po/{no,nb}.po
 	--with-guile \
 	--with-perl \
 	--enable-html-highlight \
-	%{?with_js:--enable-spidermonkey}
+	%{!?with_js:--without-spidermonkey}
 
 %{__make}
 
