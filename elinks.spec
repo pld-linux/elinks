@@ -4,23 +4,24 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.5
-%define	_pre	pre6
+%define	_pre	pre7
 Release:	0.%{_pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	51f7a5748fc9f582e8f762de8cf1cc99
+# Source0-md5:	aaa151f3543cd321b05daf4d2307a7a8
 Source1:	%{name}.desktop
 Source2:	links.png
-Patch0:		%{name}-pl.po.patch
-Patch1:		%{name}-palette.patch
+#Patch0:		%{name}-pl.po.patch
+#Patch1:		%{name}-palette.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
@@ -56,8 +57,8 @@ keepalive.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 %{__aclocal}
@@ -65,7 +66,9 @@ keepalive.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-fastmem \
+%{!?debug:	--enable-fastmem} \
+%{?debug:	--enable-debug} \
+	--enable-256-colors \
 	--without-x
 %{__make}
 
@@ -96,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
+%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
 %attr(755,root,root) %{_bindir}/*
