@@ -1,99 +1,252 @@
---- elinks-0.9.0/po/pl.po.orig	2003-12-24 18:09:05.000000000 +0100
-+++ elinks-0.9.0/po/pl.po	2003-12-25 15:36:43.061648784 +0100
-@@ -9,9 +9,9 @@
+diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
+--- elinks-0.9.1rc1.orig/po/pl.po	2004-01-08 23:04:13.000000000 +0100
++++ elinks-0.9.1rc1/po/pl.po	2004-01-09 14:46:33.000000000 +0100
+@@ -4,14 +4,14 @@
+ # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
+ # Wojtek Bojdo/l <wojboj@lp.net.pl>
+ # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
+-# Adam Go³êbiowski <adamg@pld-linux.org>, 2003
++# Adam Go³êbiowski <adamg@pld-linux.org>, 2003-2004
+ # Miko³aj Machowski <mikmach@wp.pl>, 2003
  #
  msgid ""
  msgstr ""
--"Project-Id-Version: ELinks 0.5pre12.CVS\n"
-+"Project-Id-Version: ELinks 0.9.0\n"
- "POT-Creation-Date: 2003-12-24 17:51+0100\n"
--"PO-Revision-Date: 2003-12-23 08:00+0200\n"
-+"PO-Revision-Date: 2003-12-25 15:00+0100\n"
+ "Project-Id-Version: ELinks 0.9.0.CVS\n"
+ "POT-Creation-Date: 2004-01-08 23:00+0100\n"
+-"PO-Revision-Date: 2004-01-04 08:00+0200\n"
++"PO-Revision-Date: 2004-01-09 14:20+0200\n"
  "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -531,7 +531,7 @@
- "relative to confdir."
- msgstr ""
- "Nazwa pliku z konfiguracj±, z którego bêdzie czytana i do którego\n"
--"bêdzie zapisywana konfiguracja. Powinien byæ wzglêdny (wzglêdem confdir)."
-+"bêdzie zapisywana konfiguracja. Powinna byæ wzglêdna (wzglêdem confdir)."
+@@ -34,7 +34,7 @@
  
- #: src/config/cmdline.c:454
- msgid "MIME type to assume for documents"
-@@ -1884,13 +1884,12 @@
- msgstr "W³±cz kolor"
+ #: src/bfu/hierbox.c:447
+ msgid "Press space to expand this folder."
+-msgstr ""
++msgstr "Naci¶nij spacjê aby rozwin±æ ten folder."
  
- #: src/config/options.inc:209
+ #. if (dialog_type == EDIT_DLG_ADD) d->widgets[n - 1].fn = check_nonempty;
+ #: src/bfu/hierbox.c:449 src/bfu/hierbox.c:471 src/bfu/hierbox.c:609
+@@ -466,9 +466,9 @@
+ msgstr "(domy¶lnie: %s)"
+ 
+ #: src/config/cmdline.c:275
+-#, fuzzy, c-format
++#, c-format
+ msgid "(default: #%06lx)"
+-msgstr "(domy¶lnie: #%06x)"
++msgstr "(domy¶lnie: #%06lx)"
+ 
+ #: src/config/cmdline.c:401
+ msgid "Configuration options:\n"
+@@ -869,16 +869,18 @@
+ msgstr "B³±d zapisu do pliku"
+ 
+ #: src/config/dialogs.c:41
+-#, fuzzy
+ msgid "Write config error"
+-msgstr "B³±d konfiguracji"
++msgstr "B³±d podczas zapisywania konfiguracji"
+ 
+ #: src/config/dialogs.c:42
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "Unable to write to config file %s.\n"
+ "%s"
+-msgstr "Nie mo¿na zapisaæ do pliku konfiguracyjnego %s: %s"
++msgstr 
++""
++"Nie mo¿na zapisaæ do pliku konfiguracyjnego %s.\n"
++"%s"
+ 
+ #: src/config/dialogs.c:67
+ msgid "Write config success"
+@@ -1068,9 +1070,8 @@
+ msgstr "Skasuj znak na prawo od kursora"
+ 
+ #: src/config/kbdbind.c:401
+-#, fuzzy
+ msgid "Go to the first line of the buffer."
+-msgstr "Przejd¼ do pocz±tku strony/linii"
++msgstr "Przejd¼ do pierwszej linii buforu."
+ 
+ #: src/config/kbdbind.c:402
+ msgid "Open bookmark manager"
+@@ -1082,7 +1083,7 @@
+ 
+ #: src/config/kbdbind.c:404
+ msgid "Free unused cache entries"
+-msgstr ""
++msgstr "Zwolnij nieu¿ywane wpisy cache"
+ 
+ #: src/config/kbdbind.c:405
+ msgid "Cancel current state"
+@@ -1143,9 +1144,8 @@
+ msgstr "Przejd¼ na koniec strony/linii"
+ 
+ #: src/config/kbdbind.c:419
+-#, fuzzy
+ msgid "Go to the last line of the buffer."
+-msgstr "Przejd¼ do pocz±tku strony/linii"
++msgstr "Przejd¼ do ostatniej linii buforu."
+ 
+ #: src/config/kbdbind.c:420
+ msgid "Follow the current link"
+@@ -1332,12 +1332,11 @@
+ 
+ #: src/config/kbdbind.c:470
+ msgid "Reset form items to their initial values"
+-msgstr ""
++msgstr "Przywróæ elementom formularza ich pocz±tkowe warto¶ci"
+ 
+ #: src/config/kbdbind.c:471
+-#, fuzzy
+ msgid "Show information about the currently used resources"
+-msgstr "Poka¿ informacje na temat bie¿±cej strony"
++msgstr "Poka¿ informacje na temat aktualnie u¿ywanych zasobów"
+ 
+ #: src/config/kbdbind.c:472
+ msgid "Attempt to resume download of the current link"
+@@ -1400,14 +1399,12 @@
+ msgstr "Poka¿ okienko dialogowe ustawieñ terminala"
+ 
+ #: src/config/kbdbind.c:487
+-#, fuzzy
+ msgid "Submit form"
+-msgstr "~Prze¶lij formularz"
++msgstr "Prze¶lij formularz"
+ 
+ #: src/config/kbdbind.c:488
+-#, fuzzy
+ msgid "Submit form and reload"
+-msgstr "Prze¶lij f~ormularz i prze³aduj"
++msgstr "Prze¶lij formularz i prze³aduj"
+ 
+ #: src/config/kbdbind.c:489 src/terminal/tab.c:190 src/terminal/tab.c:226
+ msgid "Close tab"
+@@ -1955,22 +1952,20 @@
+ msgstr "Czy wy¶wietlaæ liczby z prawej strony odno¶ników?"
+ 
+ #: src/config/options.inc:241
 -#, fuzzy
  msgid ""
- "Enable use of the active link background and text color\n"
- "settings instead of the link colors from the document."
+ "This option is deprecated and will be removed very soon.\n"
+ "Please use the document.browse.search.wraparound option instead."
  msgstr ""
- "Korzysta z ustawieñ koloru tekstu i t³a aktywnego odno¶nika\n"
--"zamiast z browse.links z dokumentu."
-+"zamiast kolorów odno¶nika z dokumentu."
+ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-"U¿yj zamiast niej mime.mailcap.ask."
++"U¿yj zamiast niej document.browse.search.wraparound."
  
- #: src/config/options.inc:212
- msgid "Bold"
-@@ -2942,7 +2941,7 @@
- 
- #: src/config/options.inc:754
- msgid "Whether to execute local CGI scripts. (DISABLED)"
--msgstr "Czy uruchamiaæ skrypty CGI. (WY£¡CZONE)"
-+msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
- 
- #: src/config/options.inc:758
+ #: src/config/options.inc:246
+-#, fuzzy
  msgid ""
-@@ -4257,7 +4256,7 @@
+ "This option is deprecated and will be removed very soon.\n"
+ "Please use the document.browse.search.show_not_found option instead."
+ msgstr ""
+ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-"U¿yj zamiast niej mime.mailcap.ask."
++"U¿yj zamiast niej document.browse.search.show_not_found."
  
- #: src/dialogs/menu.c:360
- msgid "Close ~all but this"
--msgstr "Z~amknij wszystkie za wyj±tekiem tego"
-+msgstr "Z~amknij wszystkie za wyj±tkiem tego"
+ #: src/config/options.inc:249
+ msgid "Use tabindex"
+@@ -2073,7 +2068,6 @@
+ "albo koniec tekstu?"
  
- #: src/dialogs/menu.c:373
- msgid "Open new ~tab"
-@@ -4789,7 +4788,7 @@
- #
- #: src/intl/gettext/libintl.c:24
- msgid "System"
--msgstr "System"
-+msgstr "Systemowy"
+ #: src/config/options.inc:299
+-#, fuzzy
+ msgid "Wraparound"
+ msgstr "Zawijanie przy szukaniu z wyprzedzeniem"
  
- #: src/intl/gettext/libintl.c:25
- msgid "English"
-@@ -4843,7 +4842,7 @@
+@@ -2090,7 +2084,6 @@
+ msgstr "Nie znaleziono serwera"
  
- #: src/intl/gettext/libintl.c:38
- msgid "Galician"
+ #: src/config/options.inc:305
+-#, fuzzy
+ msgid ""
+ "How to handle errors when nothing is matched.\n"
+ "Currently only used for typeahead:\n"
+@@ -2098,8 +2091,8 @@
+ "1 means beep the terminal\n"
+ "2 means pop up message box"
+ msgstr ""
+-"W jaki sposób obs³ugiwaæ b³êdy, gdy szukanie z wyprzedzeniem nie natrafi\n"
+-"na ¿aden odno¶nik:\n"
++"W jaki sposób obs³ugiwaæ b³êdy, gdy nic nie znaleziono.\n"
++"Chwilowo dzia³a tylko w szukaniu z wyprzedzeniem:\n"
+ "0 - nie robiæ nic\n"
+ "1 - u¿yæ dzwonka\n"
+ "2 - wy¶wietliæ okienko dialogowe"
+@@ -3563,13 +3556,12 @@
+ msgstr "Nieodwiedzana karta"
+ 
+ #: src/config/options.inc:1102
+-#, fuzzy
+ msgid ""
+ "Tab colors for tabs that have not been\n"
+ "selected since they completed loading."
+ msgstr ""
+-"Kolory karty dla kart, które nie zosta³y do koñca za³adowane\n"
+-"lub nie zosta³y wybrane od zakoñczenia ³adowania."
++"Kolory zak³adek dla zak³adek, które nie by³y wybrane\n"
++"od ich za³adowania."
+ 
+ #: src/config/options.inc:1105
+ msgid "Unselected tab"
+@@ -3800,7 +3792,7 @@
+ 
+ #: src/config/options.inc:1223
+ msgid "Show a message box when file is saved sucessfully"
 -msgstr ""
-+msgstr "Galijski"
++msgstr "Wy¶wietl okienko z informacj± gdy plik zostanie zapisany"
  
- #: src/intl/gettext/libintl.c:39
- msgid "German"
-@@ -5059,7 +5058,7 @@
- msgstr "Program"
- 
- #: src/mime/backend/default.c:67
--#, c-format
-+#, no-c-format
+ #: src/config/options.inc:1225
  msgid ""
- "External viewer for this file type. '%' in this string will be\n"
- "substituted by a file name."
-@@ -5332,7 +5331,7 @@
- "URI abbreviations, or smart ones, making it possible to pass\n"
- "arguments to them like search engine keywords."
+@@ -3808,6 +3800,9 @@
+ "will make sure that a box confirming success of the operation will\n"
+ "pop up."
  msgstr ""
--"Zasady przepisywanie URI wprowadzonego w okienku dialogowym.\n"
-+"Zasady przepisywania URI wprowadzonego w okienku dialogowym.\n"
- "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
- "rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
- "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
-@@ -6080,6 +6079,3 @@
- #: src/viewer/text/view.c:1528
- msgid "Error writing to file"
- msgstr "B³±d zapisu do pliku"
--
--#~ msgid "Typeahead: %s [%s]"
--#~ msgstr "Szukanie z wyprzedzeniem: %s [%s]"
++"Gdy naci¶niesz przycisk [ Save ] w którym¶ z mened¿erów, ta opcja\n"
++"sprawi, ¿e po poprawnym zakoñczeniu operacji pojawi siê okienko\n"
++"z informacj±"
+ 
+ #: src/config/options.inc:1230
+ msgid "Sessions"
+@@ -3855,9 +3850,8 @@
+ "zak³adek."
+ 
+ #: src/config/options.inc:1249
+-#, fuzzy
+ msgid "Homepage URI"
+-msgstr "Strona kodowa"
++msgstr "URI strony domowej"
+ 
+ #: src/config/options.inc:1251
+ msgid ""
+@@ -4203,7 +4197,7 @@
+ msgstr "Kopiowanie"
+ 
+ #: src/dialogs/info.c:134
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "ELinks %s\n"
+ "\n"
+@@ -4219,7 +4213,7 @@
+ "\n"
+ "\n"
+ "(C) 1999 - 2002 Mikulas Patocka\n"
+-"(C) 2001 - 2003 Petr Baudis\n"
++"(C) 2001 - 2004 Petr Baudis i inni\n"
+ "\n"
+ "Niniejszy program jest oprogramowaniem wolnodostêpnym; mo¿esz go "
+ "rozprowadzaæ dalej i/lub modyfikowaæ na warunkach GPL GNU, wydanej przez "
+@@ -4702,7 +4696,7 @@
+ 
+ #: src/formhist/dialogs.c:127
+ msgid "Form not saved"
+-msgstr ""
++msgstr "Formularz nie zosta³ zapisany"
+ 
+ #: src/formhist/dialogs.c:128
+ msgid ""
