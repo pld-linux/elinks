@@ -52,6 +52,9 @@ keepalive.
 %setup -q
 
 %build
+newoptflags="%{optflags} -Os -fomit-frame-pointer"
+%define optflags $newoptflags
+
 rm -f missing
 %{__aclocal}
 %{__autoconf}
