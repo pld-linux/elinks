@@ -57,7 +57,7 @@ tablas, hace baja archivos en segundo plano, y usa conexiones HTTP/1.1
 keepalive.
 
 %description -l pl
-Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
+Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki WWW - links.
 elinks jednak jest dedykowana g³ównie do testowania.
 
 %description -l pt_BR
