@@ -1,5 +1,5 @@
 Summary:	Experimantal Links (text WWW browser)
-Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
+Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
 Version:	0.3.2
 Release:	1
