@@ -1,0 +1,23 @@
+diff -urN aaa/elinks-0.4pre7/src/document/html/parser.c elinks-0.4pre7/src/document/html/parser.c
+--- aaa/elinks-0.4pre7/src/document/html/parser.c	Fri May 10 19:50:42 2002
++++ elinks-0.4pre7/src/document/html/parser.c	Tue May 28 15:25:31 2002
+@@ -624,7 +624,18 @@
+ 		if (!d_opt->images && !format.link) return;
+ 		if (usemap) al = stracpy("[USEMAP]");
+ 		else if (ismap) al = stracpy("[ISMAP]");
+-		else al = stracpy("[IMG]");
++		else{
++			unsigned char *s = get_attr_val(a, "src");
++			int r;
++			if( s ){
++				for( r = strlen(s)-1; r >= 0; --r )
++					if( dir_sep( s[r] ) )
++						break;
++				al = stracpy( s + ++r );
++				mem_free( s );
++			}
++			else al = stracpy("[IMG]");
++		}
+ 	}
+ 	if (format.image) mem_free(format.image), format.image = NULL;
+ 	if (al) {
