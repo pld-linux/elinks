@@ -12,7 +12,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.9.2
-%define _ver	rc7
+%define	_ver	rc7
 Release:	1
 Epoch:		1
 License:	GPL
@@ -42,7 +42,7 @@ Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/elinks
-%define		specflags_ia32	 -fomit-frame-pointer 
+%define		specflags_ia32	-fomit-frame-pointer
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
