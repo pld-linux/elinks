@@ -21,20 +21,19 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.10.0
-Release:	0.1
+Version:	0.10.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	09a199b496bcdaf54791f2010a8351b8
+# Source0-md5:	ff730be29416dabdbbf2a2fa6ac8b298
 Source1:	%{name}.desktop
 Source2:	links.png
-#Patch0:		%{name}-pl_po.patch
-Patch1:		%{name}-home_etc.patch
-Patch2:		%{name}-lua40.patch
-Patch3:		%{name}-locale_names.patch
+Patch0:		%{name}-home_etc.patch
+Patch1:		%{name}-lua40.patch
+Patch2:		%{name}-locale_names.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -56,7 +55,7 @@ Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/elinks
-%define		specflags_ia32	 -fomit-frame-pointer 
+%define		specflags_ia32	-fomit-frame-pointer 
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
@@ -81,10 +80,9 @@ keepalive.
 
 %prep
 %setup -q
-#%patch0 -p0
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 mv -f po/{no,nb}.po
 
@@ -133,7 +131,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}
+%{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
 
 %find_lang %{name}
 
