@@ -50,7 +50,6 @@ BuildRequires:	gpm-devel
 %{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
 BuildRequires:	ncurses-devel => 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
-%{?with_openssl:BuildRequires:	openssl2-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	zlib-devel
 BuildRequires:	tetex
