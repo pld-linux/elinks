@@ -42,7 +42,7 @@ elinks jednak jest dedykowana g³ównie do testowania.
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
