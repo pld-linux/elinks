@@ -2,7 +2,7 @@ Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
 Version:	0.4pre21
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.6a
 BuildRequires:	zlib-devel
+BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +45,10 @@ rm -f missing
 	--without-x
 %{__make}
 
+cd doc
+texi2html elinks-lua.texi
+cd ..
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
@@ -55,7 +60,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install contrib/lua/config.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,9 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/{*.lua,elinks-remote}}
+%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/{*.txt,*.texi,*.html}
+%doc doc/{*.txt,*.html}
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
