@@ -1,8 +1,11 @@
-diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
---- elinks-0.9.1rc1.orig/po/pl.po	2004-01-08 23:04:13.000000000 +0100
-+++ elinks-0.9.1rc1/po/pl.po	2004-01-09 14:46:33.000000000 +0100
-@@ -4,14 +4,14 @@
- # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
+--- elinks-0.9.1rc1/po/pl.po.orig	2004-01-08 23:04:13.000000000 +0100
++++ elinks-0.9.1rc1/po/pl.po	2004-01-09 21:57:58.502049656 +0100
+@@ -1,17 +1,17 @@
+ # Polish ELinks translation.
+ # Arkadiusz Sochala <jojoro@priv2.onet.pl>
+ # Grzegorz Golawski <grzegol@pld.org.pl>
+-# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
++# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2004
  # Wojtek Bojdo/l <wojboj@lp.net.pl>
  # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
 -# Adam Go³êbiowski <adamg@pld-linux.org>, 2003
@@ -11,10 +14,11 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  #
  msgid ""
  msgstr ""
- "Project-Id-Version: ELinks 0.9.0.CVS\n"
+-"Project-Id-Version: ELinks 0.9.0.CVS\n"
++"Project-Id-Version: ELinks 0.9.1-rc1\n"
  "POT-Creation-Date: 2004-01-08 23:00+0100\n"
 -"PO-Revision-Date: 2004-01-04 08:00+0200\n"
-+"PO-Revision-Date: 2004-01-09 14:20+0200\n"
++"PO-Revision-Date: 2004-01-09 21:30+0100\n"
  "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
@@ -39,7 +43,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/cmdline.c:401
  msgid "Configuration options:\n"
-@@ -869,16 +869,18 @@
+@@ -869,29 +869,31 @@
  msgstr "B³±d zapisu do pliku"
  
  #: src/config/dialogs.c:41
@@ -62,6 +66,22 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/dialogs.c:67
  msgid "Write config success"
+-msgstr ""
++msgstr "Plik konfiguracyjny zapisany"
+ 
+ #: src/config/dialogs.c:68
+ #, c-format
+ msgid "Options were saved successfully to config file %s."
+-msgstr ""
++msgstr "Opcje zosta³y poprawnie zapisane w pliku konfiguracyjnym %s."
+ 
+ #: src/config/dialogs.c:72
+ msgid "Do not show anymore"
+-msgstr ""
++msgstr "Nie pokazuj wiêcej"
+ 
+ #: src/config/dialogs.c:131
+ msgid "(expand by pressing space)"
 @@ -1068,9 +1070,8 @@
  msgstr "Skasuj znak na prawo od kursora"
  
@@ -108,7 +128,15 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/kbdbind.c:472
  msgid "Attempt to resume download of the current link"
-@@ -1400,14 +1399,12 @@
+@@ -1393,21 +1392,19 @@
+ 
+ #: src/config/kbdbind.c:485
+ msgid "Select current highlighted item"
+-msgstr "Wybierz biê¿±co pod¶wietlon± pozycjê"
++msgstr "Wybierz bie¿±co pod¶wietlon± pozycjê"
+ 
+ #: src/config/kbdbind.c:486
+ msgid "Show terminal options dialog"
  msgstr "Poka¿ okienko dialogowe ustawieñ terminala"
  
  #: src/config/kbdbind.c:487
@@ -150,7 +178,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/options.inc:249
  msgid "Use tabindex"
-@@ -2073,7 +2068,6 @@
+@@ -2073,24 +2068,20 @@
  "albo koniec tekstu?"
  
  #: src/config/options.inc:299
@@ -158,15 +186,27 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  msgid "Wraparound"
  msgstr "Zawijanie przy szukaniu z wyprzedzeniem"
  
-@@ -2090,7 +2084,6 @@
- msgstr "Nie znaleziono serwera"
+ #: src/config/options.inc:301
+-#, fuzzy
+ msgid "Wrap around when searching. Currently only used for typeahead."
+ msgstr ""
+-"Zacznij szukaæ od pocz±tku, gdy szukanie z wyprzedzeniem dojdzie\n"
+-"do koñca dokumentu."
++"Zawijanie przy szukaniu; aktualnie u¿ywane tylko przy szukaniu\n"
++"z wyprzedzeniem."
+ 
+ #: src/config/options.inc:303
+-#, fuzzy
+ msgid "Show not found"
+-msgstr "Nie znaleziono serwera"
++msgstr "Sygnalizowanie nie znalezienia"
  
  #: src/config/options.inc:305
 -#, fuzzy
  msgid ""
  "How to handle errors when nothing is matched.\n"
  "Currently only used for typeahead:\n"
-@@ -2098,8 +2091,8 @@
+@@ -2098,8 +2089,8 @@
  "1 means beep the terminal\n"
  "2 means pop up message box"
  msgstr ""
@@ -177,7 +217,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  "0 - nie robiæ nic\n"
  "1 - u¿yæ dzwonka\n"
  "2 - wy¶wietliæ okienko dialogowe"
-@@ -3563,13 +3556,12 @@
+@@ -3563,13 +3554,12 @@
  msgstr "Nieodwiedzana karta"
  
  #: src/config/options.inc:1102
@@ -193,7 +233,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/options.inc:1105
  msgid "Unselected tab"
-@@ -3800,7 +3792,7 @@
+@@ -3800,7 +3790,7 @@
  
  #: src/config/options.inc:1223
  msgid "Show a message box when file is saved sucessfully"
@@ -202,7 +242,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/options.inc:1225
  msgid ""
-@@ -3808,6 +3800,9 @@
+@@ -3808,6 +3798,9 @@
  "will make sure that a box confirming success of the operation will\n"
  "pop up."
  msgstr ""
@@ -212,7 +252,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/options.inc:1230
  msgid "Sessions"
-@@ -3855,9 +3850,8 @@
+@@ -3855,9 +3848,8 @@
  "zak³adek."
  
  #: src/config/options.inc:1249
@@ -223,7 +263,18 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/config/options.inc:1251
  msgid ""
-@@ -4203,7 +4197,7 @@
+@@ -3866,6 +3858,10 @@
+ "Set to \"\" if the environment variable WWW_HOME should be used\n"
+ "used as homepage URI instead."
+ msgstr ""
++"URI do pokazania po uruchomieniu kiedy nie podano ¿adnego URI\n"
++"z linii poleceñ lub kiedy wywo³ano akcjê goto-url-home.\n"
++"Ustaw na \"\" je¶li jako URI strony domowej ma byæ u¿ywana zmienna\n"
++"¶rodowiskowa WWW_HOME."
+ 
+ #
+ #: src/config/options.inc:1257
+@@ -4203,7 +4199,7 @@
  msgstr "Kopiowanie"
  
  #: src/dialogs/info.c:134
@@ -232,7 +283,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  msgid ""
  "ELinks %s\n"
  "\n"
-@@ -4219,7 +4213,7 @@
+@@ -4219,7 +4215,7 @@
  "\n"
  "\n"
  "(C) 1999 - 2002 Mikulas Patocka\n"
@@ -241,7 +292,7 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  "\n"
  "Niniejszy program jest oprogramowaniem wolnodostêpnym; mo¿esz go "
  "rozprowadzaæ dalej i/lub modyfikowaæ na warunkach GPL GNU, wydanej przez "
-@@ -4702,7 +4696,7 @@
+@@ -4702,7 +4698,7 @@
  
  #: src/formhist/dialogs.c:127
  msgid "Form not saved"
@@ -250,3 +301,19 @@ diff -burN elinks-0.9.1rc1.orig/po/pl.po elinks-0.9.1rc1/po/pl.po
  
  #: src/formhist/dialogs.c:128
  msgid ""
+@@ -5109,7 +5105,7 @@
+ msgstr "Program"
+ 
+ #: src/mime/backend/default.c:67
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
+@@ -6159,6 +6155,3 @@
+ #: src/viewer/text/view.c:1217
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "Typeahead error handling"
+-#~ msgstr "Obs³uga b³êdów szukania z wyprzedzeniem"
