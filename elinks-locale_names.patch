@@ -4,8 +4,8 @@
  dnl Gettext grey zone. Beware.
  dnl ===================================================================
  
--ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it leet lt nl no pl pt pt_BR ro ru sk sv tr uk"
-+ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it leet lt nb nl pl pt pt_BR ro ru sk sv tr uk"
+-ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it lt nl no pl pt pt_BR ro ru sk sv tr uk"
++ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it lt nb nl pl pt pt_BR ro ru sk sv tr uk"
  
  AM_GNU_GETTEXT
  
@@ -15,8 +15,8 @@
  
  
  
--ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it leet lt nl no pl pt pt_BR ro ru sk sv tr uk"
-+ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it leet lt nb nl pl pt pt_BR ro ru sk sv tr uk"
+-ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it lt nl no pl pt pt_BR ro ru sk sv tr uk"
++ALL_LINGUAS="be bg ca cs da de el es et fi fr gl hr hu id is it lt nb nl pl pt pt_BR ro ru sk sv tr uk"
  
  
  # Make sure we can run config.sub.
