@@ -1,64 +1,54 @@
---- elinks-0.5pre10/po/pl.po.orig	2003-11-15 18:06:13.000000000 +0100
-+++ elinks-0.5pre10/po/pl.po	2003-11-22 00:36:46.149469496 +0100
+--- elinks-0.5pre11/po/pl.po.orig	2003-12-06 23:59:02.000000000 +0100
++++ elinks-0.5pre11/po/pl.po	2003-12-10 00:56:07.237862240 +0100
 @@ -7,9 +7,9 @@
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: ELinks 0.5pre7.CVS\n"
-+"Project-Id-Version: ELinks 0.5pre10.CVS\n"
- "POT-Creation-Date: 2003-11-15 17:53+0100\n"
--"PO-Revision-Date: 2003-11-14 07:00+0200\n"
-+"PO-Revision-Date: 2003-11-22 00:30+0100\n"
++"Project-Id-Version: ELinks 0.5pre11.CVS\n"
+ "POT-Creation-Date: 2003-12-06 23:56+0100\n"
+-"PO-Revision-Date: 2003-12-03 02:06+0200\n"
++"PO-Revision-Date: 2003-12-10 00:50+0100\n"
  "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -2118,24 +2118,20 @@
+@@ -2237,7 +2237,7 @@
  
- #
- #: src/config/options.inc:538
--#, fuzzy
- msgid "Plain rendering"
--msgstr "Renderowanie HTML-a"
-+msgstr "Proste renderowanie"
- 
- #: src/config/options.inc:540
--#, fuzzy
- msgid "Options concerning the display of plain text pages."
--msgstr "Ustawienia dotycz±ce wy¶wietlania stron HTML."
-+msgstr "Ustawienia dotycz±ce wy¶wietlania stron czysto tekstowych."
- 
- #: src/config/options.inc:542
--#, fuzzy
- msgid "Display URIs"
--msgstr "Wy¶wietl"
-+msgstr "Wy¶wietlanie URI"
- 
- #: src/config/options.inc:544
--#, fuzzy
+ #: src/config/options.inc:543
  msgid "Display URIs in the document as links."
--msgstr "Sposób wy¶wietlania odno¶ników na obrazkach"
+-msgstr "Wy¶wietlanie URI w dokumencie jako odno¶niki."
 +msgstr "Wy¶wietlanie URI w dokumencie jako odno¶ników."
  
  #. Keep options in alphabetical order.
- #: src/config/options.inc:550
-@@ -3313,14 +3309,12 @@
- msgstr "Przeskakiwanie z ostatniego taba na pierwszego i na odwrót."
+ #: src/config/options.inc:549
+@@ -2593,22 +2593,19 @@
+ "skrypty CGI."
  
- #: src/config/options.inc:1766
+ #: src/config/options.inc:725
 -#, fuzzy
- msgid "Confirm tab closing"
--msgstr "Potwierdzenie chêci wys³ania"
-+msgstr "Potwierdzanie zamykania tabów"
+ msgid "Local CGI specific options. (DISABLED)"
+-msgstr "Ustawienia dotycz±ce lokalnych skryptów CGI."
++msgstr "Opcje dotycz±ce lokalnych CGI. (WY£¡CZONE)"
  
- #: src/config/options.inc:1768
+ #: src/config/options.inc:729
 -#, fuzzy
- msgid "When closing a tab show confirmation dialog."
--msgstr "Otwórz okno dialogowe potwierdzania zakoñczenia dzia³ania"
-+msgstr "Wy¶wietlaj okno dialogowe potwierdzania zamkniêcia taba."
+ msgid "Whether to execute local CGI scripts. (DISABLED)"
+-msgstr "Czy uruchamiaæ skrypty CGI."
++msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
  
- #: src/config/options.inc:1772 src/config/opttypes.c:396
- msgid "Language"
-@@ -3570,7 +3564,7 @@
+ #: src/config/options.inc:733
+-#, fuzzy
+ msgid ""
+ "Colon separated list of directories, where CGI scripts are stored. (DISABLED)"
+ msgstr ""
+-"Oddzielona dwukropkami lista katalogów, z których mo¿na wykonywaæ\n"
+-"skrypty CGI."
++"Oddzielona dwukropkami lista katalogów, w których s± umieszczone skrypty\n"
++"CGI. (WY£¡CZONE)"
+ 
+ #
+ #: src/config/options.inc:736
+@@ -3724,7 +3721,7 @@
  msgstr ""
  "Uruchom ELinksa jako oddzieln± instancjê zamiast do³±czaæ siê\n"
  "do istniej±cej instancji. Wiedz, ¿e ¿adne pliki stanu\n"
@@ -66,15 +56,22 @@
 +"(zak³adki, historia itp.) nie s± zapisywane na dysk, gdy\n"
  "ta opcja jest u¿ywana. Zobacz tak¿e -touch-files."
  
- #: src/config/options.inc:1907
-@@ -5353,9 +5347,8 @@
- msgstr "Zbyt du¿o bajtów przeczytanych z itrm!"
+ #: src/config/options.inc:1979
+@@ -4206,7 +4203,7 @@
  
- #: src/terminal/tab.c:193
--#, fuzzy
- msgid "Do you really want to close the current tab?"
--msgstr "Czy na pewno chcesz wyj¶æ z ELinksa?"
-+msgstr "Czy na pewno chcesz zamkn±æ aktualnego taba?"
+ #: src/dialogs/menu.c:117
+ msgid "Close ~all but this"
+-msgstr ""
++msgstr "Z~amknij wszystkie oprócz tego"
  
- #: src/viewer/dump/dump.c:77
- #, c-format
+ #: src/dialogs/menu.c:199
+ msgid "Exit ELinks"
+@@ -4897,7 +4894,7 @@
+ msgstr "Program"
+ 
+ #: src/mime/backend/default.c:67
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
