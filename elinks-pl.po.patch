@@ -1,18 +1,24 @@
---- elinks-0.5pre11/po/pl.po.orig	2003-12-06 23:59:02.000000000 +0100
-+++ elinks-0.5pre11/po/pl.po	2003-12-10 00:56:07.237862240 +0100
-@@ -7,9 +7,9 @@
+diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
+--- elinks-0.5pre12.orig/po/pl.po	2003-12-13 14:38:36.000000000 +0100
++++ elinks-0.5pre12/po/pl.po	2003-12-13 14:46:22.000000000 +0100
+@@ -4,13 +4,14 @@
+ # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
+ # Wojtek Bojdo/l <wojboj@lp.net.pl>
+ # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
++# Adam Go³êbiowski <adamg@pld-linux.org>, 2003
  #
  msgid ""
  msgstr ""
--"Project-Id-Version: ELinks 0.5pre7.CVS\n"
-+"Project-Id-Version: ELinks 0.5pre11.CVS\n"
- "POT-Creation-Date: 2003-12-06 23:56+0100\n"
--"PO-Revision-Date: 2003-12-03 02:06+0200\n"
-+"PO-Revision-Date: 2003-12-10 00:50+0100\n"
- "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
+ "Project-Id-Version: ELinks 0.5pre7.CVS\n"
+ "POT-Creation-Date: 2003-12-12 23:58+0100\n"
+-"PO-Revision-Date: 2003-12-09 11:00+0200\n"
+-"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
++"PO-Revision-Date: 2003-12-13 12:00+0200\n"
++"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -2237,7 +2237,7 @@
+ "Content-Type: text/plain; charset=ISO-8859-2\n"
+@@ -2237,7 +2238,7 @@
  
  #: src/config/options.inc:543
  msgid "Display URIs in the document as links."
@@ -21,34 +27,28 @@
  
  #. Keep options in alphabetical order.
  #: src/config/options.inc:549
-@@ -2593,22 +2593,19 @@
- "skrypty CGI."
+@@ -2594,17 +2595,17 @@
  
  #: src/config/options.inc:725
--#, fuzzy
  msgid "Local CGI specific options. (DISABLED)"
--msgstr "Ustawienia dotycz±ce lokalnych skryptów CGI."
+-msgstr "Ustawienia dotycz±ce lokalnych skryptów CGI. (WY£¡CZONE)"
 +msgstr "Opcje dotycz±ce lokalnych CGI. (WY£¡CZONE)"
  
  #: src/config/options.inc:729
--#, fuzzy
  msgid "Whether to execute local CGI scripts. (DISABLED)"
--msgstr "Czy uruchamiaæ skrypty CGI."
+-msgstr "Czy uruchamiaæ skrypty CGI. (WY£¡CZONE)"
 +msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
  
  #: src/config/options.inc:733
--#, fuzzy
  msgid ""
  "Colon separated list of directories, where CGI scripts are stored. (DISABLED)"
  msgstr ""
 -"Oddzielona dwukropkami lista katalogów, z których mo¿na wykonywaæ\n"
--"skrypty CGI."
-+"Oddzielona dwukropkami lista katalogów, w których s± umieszczone skrypty\n"
-+"CGI. (WY£¡CZONE)"
++"Oddzielona dwukropkami lista katalogów, w których s± umieszczone\n"
+ "skrypty CGI. (WY£¡CZONE)"
  
  #
- #: src/config/options.inc:736
-@@ -3724,7 +3721,7 @@
+@@ -3721,7 +3722,7 @@
  msgstr ""
  "Uruchom ELinksa jako oddzieln± instancjê zamiast do³±czaæ siê\n"
  "do istniej±cej instancji. Wiedz, ¿e ¿adne pliki stanu\n"
@@ -57,16 +57,24 @@
  "ta opcja jest u¿ywana. Zobacz tak¿e -touch-files."
  
  #: src/config/options.inc:1979
-@@ -4206,7 +4203,7 @@
+@@ -4211,7 +4212,7 @@
  
- #: src/dialogs/menu.c:117
- msgid "Close ~all but this"
+ #: src/dialogs/menu.c:325
+ msgid "Go for~ward"
 -msgstr ""
-+msgstr "Z~amknij wszystkie oprócz tego"
++msgstr "Nastêpny"
  
- #: src/dialogs/menu.c:199
- msgid "Exit ELinks"
-@@ -4897,7 +4894,7 @@
+ #: src/dialogs/menu.c:331 src/dialogs/menu.c:387
+ msgid "Bookm~ark document"
+@@ -4274,7 +4275,6 @@
+ msgstr "Zapisz UR~L jako"
+ 
+ #: src/dialogs/menu.c:385
+-#, fuzzy
+ msgid "Sa~ve formatted document"
+ msgstr "Zapisz sformatowany dokument"
+ 
+@@ -4918,7 +4918,7 @@
  msgstr "Program"
  
  #: src/mime/backend/default.c:67
