@@ -1,13 +1,16 @@
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
+%bcond_with	gnutls	# Enable GNUTLS SSL support
 %bcond_with	js	# Enable experimental JavaScript support (using SpiderMonkey)
+%bcond_without	256	# Disable 256 colors support
 %bcond_without	cgi	# Disable Local CGI support
 %bcond_without	guile	# Disable Guile scripting
-%bcond_without	perl	# Disable Perl scripting
-%bcond_without	ipv6	# Disable IPv6 Support
+%bcond_without	idn	# Disable Internation Domain Names support
+%bcond_without	ipv6	# Disable IPv6 support
 %bcond_without	led	# Disable LEDs
-%bcond_without	256	# Disable 256 colors support
 %bcond_without	lua	# Disable Lua scripting
+%bcond_without	openssl # Disable OpenSSL support
+%bcond_without	perl	# Disable Perl scripting
 #
 Summary:	Experimantal Links (text WWW browser)
 Summary(es):	El links es un browser para modo texto, similar a lynx
@@ -37,11 +40,12 @@ BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
+%{?with_gnutls:BuildRequires: gnutls-devel}
 %{?with_js:BuildRequires:	js-devel}
-BuildRequires:	libidn-devel
-BuildRequires:	lua40-devel >= 4.0.1-9
+%{?with_idn:BuildRequires:	libidn-devel}
+%{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
 BuildRequires:	ncurses-devel => 5.1
-BuildRequires:	openssl-devel >= 0.9.7d
+%{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	zlib-devel
 BuildRequires:	tetex
@@ -90,19 +94,23 @@ mv -f po/{no,nb}.po
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
-	%{!?with_lua:--without-lua} \
-	--with%{!?with_x:out}-x \
-	--%{?with_cgi:en}%{!?with_cgi:dis}able-cgi \
+	%{?with_cgi:--enable-cgi} \
+	--enable-finger \
 	--enable-gopher \
 	--enable-nntp \
-	--%{?with_256:en}%{!?with_256:dis}able-256-colors \
+	%{?with_256:--enable-256-colors} \
 	--enable-exmode \
-	--%{?with_leds:en}%{!?with_leds:dis}able-leds \
-	--enable-no-root \
-	--with-guile \
-	--with-perl \
+	%{?with_leds:--enable-leds} \
 	--enable-html-highlight \
-	%{!?with_js:--without-spidermonkey}
+	--enable-no-root \
+	%{!?with_idn:--without-idn} \
+	%{?with_guile:--with-guile} \
+	%{?with_perl:--with-perl} \
+	%{!?with_lua:--without-lua} \
+	%{!?with_js:--without-spidermonkey} \
+	%{?with_gnutls:--with-gnutls} \
+	%{!?with_openssl:--without-openssl} \
+	%{?with_x:--with-x} 
 
 %{__make}
 
