@@ -1,6 +1,5 @@
-diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
---- elinks-0.5pre12.orig/po/pl.po	2003-12-13 14:38:36.000000000 +0100
-+++ elinks-0.5pre12/po/pl.po	2003-12-13 14:46:22.000000000 +0100
+--- elinks-0.5pre12/po/pl.po.orig	2003-12-13 00:01:34.000000000 +0100
++++ elinks-0.5pre12/po/pl.po	2003-12-14 01:15:29.474989384 +0100
 @@ -4,13 +4,14 @@
  # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
  # Wojtek Bojdo/l <wojboj@lp.net.pl>
@@ -9,7 +8,8 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  #
  msgid ""
  msgstr ""
- "Project-Id-Version: ELinks 0.5pre7.CVS\n"
+-"Project-Id-Version: ELinks 0.5pre7.CVS\n"
++"Project-Id-Version: ELinks 0.5pre12.CVS\n"
  "POT-Creation-Date: 2003-12-12 23:58+0100\n"
 -"PO-Revision-Date: 2003-12-09 11:00+0200\n"
 -"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
@@ -18,6 +18,24 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=ISO-8859-2\n"
+@@ -158,7 +159,7 @@
+ 
+ #: src/bfu/leds.c:67
+ msgid "LEDs (visual indicators) options."
+-msgstr "Ustawienie dotycz±ce LEDów (wska¼ników)"
++msgstr "Ustawienia dotycz±ce LEDów (wska¼ników)"
+ 
+ #
+ #: src/bfu/leds.c:69 src/config/options.inc:1798 src/config/options.inc:1805
+@@ -2219,7 +2220,7 @@
+ "of documents down so no horizontal scrolling is needed."
+ msgstr ""
+ "Je¶li ustawione nie nie honoruj nie ³ami±cych spacji (encji nbsp),\n"
+-"ale pozwól zawiajaæ tekst. To mo¿e pomóc utrzymaæ szeroko¶æ dokumentów\n"
++"ale pozwól zawijaæ tekst. To mo¿e pomóc utrzymaæ szeroko¶æ dokumentów\n"
+ "tak, ¿eby nie by³o potrzebne przewijanie w poziomie."
+ 
+ #
 @@ -2237,7 +2238,7 @@
  
  #: src/config/options.inc:543
@@ -27,12 +45,7 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  
  #. Keep options in alphabetical order.
  #: src/config/options.inc:549
-@@ -2594,17 +2595,17 @@
- 
- #: src/config/options.inc:725
- msgid "Local CGI specific options. (DISABLED)"
--msgstr "Ustawienia dotycz±ce lokalnych skryptów CGI. (WY£¡CZONE)"
-+msgstr "Opcje dotycz±ce lokalnych CGI. (WY£¡CZONE)"
+@@ -2598,13 +2599,13 @@
  
  #: src/config/options.inc:729
  msgid "Whether to execute local CGI scripts. (DISABLED)"
@@ -66,6 +79,15 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  
  #: src/dialogs/menu.c:331 src/dialogs/menu.c:387
  msgid "Bookm~ark document"
+@@ -4255,7 +4256,7 @@
+ 
+ #: src/dialogs/menu.c:375
+ msgid "Go ~forward"
+-msgstr ""
++msgstr "Nastêpny"
+ 
+ #: src/dialogs/menu.c:377
+ msgid "~History"
 @@ -4274,7 +4275,6 @@
  msgstr "Zapisz UR~L jako"
  
@@ -74,7 +96,16 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  msgid "Sa~ve formatted document"
  msgstr "Zapisz sformatowany dokument"
  
-@@ -4918,7 +4918,7 @@
+@@ -4647,6 +4647,8 @@
+ "If you want to save passwords for this URL, enable it by the \"Toggle saving"
+ "\" button."
+ msgstr ""
++"Nie ma zapisanych informacji dla tego URL-a.\n"
++"Aby zapisaæ has³a dla tego URL-a, nale¿y je w³±czyæ przyciskiem \"Prze³±cz zapisywanie\"."
+ 
+ #: src/formhist/dialogs.c:172
+ msgid "Toggle saving"
+@@ -4918,7 +4920,7 @@
  msgstr "Program"
  
  #: src/mime/backend/default.c:67
@@ -83,3 +114,28 @@ diff -burN elinks-0.5pre12.orig/po/pl.po elinks-0.5pre12/po/pl.po
  msgid ""
  "External viewer for this file type. '%' in this string will be\n"
  "substituted by a file name."
+@@ -5124,7 +5126,7 @@
+ msgstr ""
+ "Zasady przepisywanie URI wprowadzonego w okienku dialogowym.\n"
+ "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
+-"rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowdzonego\n"
++"rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
+ "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
+ "dzia³aj± tylko jako skróty URI lub inteligentne, takie do których\n"
+ "mo¿na dodawaæ argumenty, np. s³owa kluczowe dla wyszukiwarek."
+@@ -5183,7 +5185,7 @@
+ "Zast±pienie URI dla inteligentnych przedrostków.\n"
+ "%c w ³añcuchu oznacza bie¿±cy URL\n"
+ "%s w ³añcuchu oznacza ca³y argument do inteligentnego przedrostka\n"
+-"%0,%1,...,%9 oznacza argunent 0, 1, ..., 9\n"
++"%0,%1,...,%9 oznacza argument 0, 1, ..., 9\n"
+ "%% w ³añcuchu oznacza '%'"
+ 
+ #. name:
+@@ -5865,6 +5867,3 @@
+ #: src/viewer/text/view.c:1496
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "Save formatted ~document"
+-#~ msgstr "Zapisz sformatowany ~dokument"
