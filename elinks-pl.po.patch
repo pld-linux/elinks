@@ -1,141 +1,238 @@
---- elinks-0.5pre12/po/pl.po.orig	2003-12-13 00:01:34.000000000 +0100
-+++ elinks-0.5pre12/po/pl.po	2003-12-14 01:15:29.474989384 +0100
-@@ -4,13 +4,14 @@
- # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003
- # Wojtek Bojdo/l <wojboj@lp.net.pl>
- # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
-+# Adam Go³êbiowski <adamg@pld-linux.org>, 2003
- #
- msgid ""
- msgstr ""
--"Project-Id-Version: ELinks 0.5pre7.CVS\n"
-+"Project-Id-Version: ELinks 0.5pre12.CVS\n"
- "POT-Creation-Date: 2003-12-12 23:58+0100\n"
--"PO-Revision-Date: 2003-12-09 11:00+0200\n"
+diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
+--- elinks-0.5rc1.orig/po/pl.po	2003-12-23 17:14:57.000000000 +0100
++++ elinks-0.5rc1/po/pl.po	2003-12-23 17:27:36.000000000 +0100
+@@ -12,7 +12,7 @@
+ "Project-Id-Version: ELinks 0.5pre12.CVS\n"
+ "POT-Creation-Date: 2003-12-22 04:36+0100\n"
+ "PO-Revision-Date: 2003-12-13 13:00+0200\n"
 -"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
-+"PO-Revision-Date: 2003-12-13 12:00+0200\n"
 +"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=ISO-8859-2\n"
-@@ -158,7 +159,7 @@
+@@ -520,9 +520,8 @@
+ "wypadku jako wzglêdna do katalogu domowego."
  
- #: src/bfu/leds.c:67
- msgid "LEDs (visual indicators) options."
--msgstr "Ustawienie dotycz±ce LEDów (wska¼ników)"
-+msgstr "Ustawienia dotycz±ce LEDów (wska¼ników)"
- 
- #
- #: src/bfu/leds.c:69 src/config/options.inc:1798 src/config/options.inc:1805
-@@ -2219,7 +2220,7 @@
- "of documents down so no horizontal scrolling is needed."
- msgstr ""
- "Je¶li ustawione nie nie honoruj nie ³ami±cych spacji (encji nbsp),\n"
--"ale pozwól zawiajaæ tekst. To mo¿e pomóc utrzymaæ szeroko¶æ dokumentów\n"
-+"ale pozwól zawijaæ tekst. To mo¿e pomóc utrzymaæ szeroko¶æ dokumentów\n"
- "tak, ¿eby nie by³o potrzebne przewijanie w poziomie."
- 
- #
-@@ -2237,7 +2238,7 @@
- 
- #: src/config/options.inc:543
- msgid "Display URIs in the document as links."
--msgstr "Wy¶wietlanie URI w dokumencie jako odno¶niki."
-+msgstr "Wy¶wietlanie URI w dokumencie jako odno¶ników."
- 
- #. Keep options in alphabetical order.
- #: src/config/options.inc:549
-@@ -2598,13 +2599,13 @@
- 
- #: src/config/options.inc:729
- msgid "Whether to execute local CGI scripts. (DISABLED)"
--msgstr "Czy uruchamiaæ skrypty CGI. (WY£¡CZONE)"
-+msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
- 
- #: src/config/options.inc:733
- msgid ""
- "Colon separated list of directories, where CGI scripts are stored. (DISABLED)"
- msgstr ""
--"Oddzielona dwukropkami lista katalogów, z których mo¿na wykonywaæ\n"
-+"Oddzielona dwukropkami lista katalogów, w których s± umieszczone\n"
- "skrypty CGI. (WY£¡CZONE)"
- 
- #
-@@ -3721,7 +3722,7 @@
- msgstr ""
- "Uruchom ELinksa jako oddzieln± instancjê zamiast do³±czaæ siê\n"
- "do istniej±cej instancji. Wiedz, ¿e ¿adne pliki stanu\n"
--"(zak³adki, historia itp.) nie s± zapisywane na dysk,\n"
-+"(zak³adki, historia itp.) nie s± zapisywane na dysk, gdy\n"
- "ta opcja jest u¿ywana. Zobacz tak¿e -touch-files."
- 
- #: src/config/options.inc:1979
-@@ -4211,7 +4212,7 @@
- 
- #: src/dialogs/menu.c:325
- msgid "Go for~ward"
--msgstr ""
-+msgstr "Nastêpny"
- 
- #: src/dialogs/menu.c:331 src/dialogs/menu.c:387
- msgid "Bookm~ark document"
-@@ -4255,7 +4256,7 @@
- 
- #: src/dialogs/menu.c:375
- msgid "Go ~forward"
--msgstr ""
-+msgstr "Nastêpny"
- 
- #: src/dialogs/menu.c:377
- msgid "~History"
-@@ -4274,7 +4275,6 @@
- msgstr "Zapisz UR~L jako"
- 
- #: src/dialogs/menu.c:385
+ #: src/config/cmdline.c:438
 -#, fuzzy
- msgid "Sa~ve formatted document"
- msgstr "Zapisz sformatowany dokument"
+ msgid "Configuration file name"
+-msgstr "System konfiguracyjny"
++msgstr "Nazwa pliku konfiguracyjnego"
  
-@@ -4647,6 +4647,8 @@
- "If you want to save passwords for this URL, enable it by the \"Toggle saving"
- "\" button."
- msgstr ""
-+"Nie ma zapisanych informacji dla tego URL-a.\n"
-+"Aby zapisaæ has³a dla tego URL-a, nale¿y je w³±czyæ przyciskiem \"Prze³±cz zapisywanie\"."
- 
- #: src/formhist/dialogs.c:172
- msgid "Toggle saving"
-@@ -4918,7 +4920,7 @@
- msgstr "Program"
- 
- #: src/mime/backend/default.c:67
--#, c-format
-+#, no-c-format
+ #: src/config/cmdline.c:440
  msgid ""
- "External viewer for this file type. '%' in this string will be\n"
- "substituted by a file name."
-@@ -5124,7 +5126,7 @@
+@@ -530,6 +529,9 @@
+ "which all the configuration shall be written. It should be\n"
+ "relative to confdir."
  msgstr ""
- "Zasady przepisywanie URI wprowadzonego w okienku dialogowym.\n"
- "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
--"rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowdzonego\n"
-+"rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
- "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
- "dzia³aj± tylko jako skróty URI lub inteligentne, takie do których\n"
- "mo¿na dodawaæ argumenty, np. s³owa kluczowe dla wyszukiwarek."
-@@ -5183,7 +5185,7 @@
- "Zast±pienie URI dla inteligentnych przedrostków.\n"
- "%c w ³añcuchu oznacza bie¿±cy URL\n"
- "%s w ³añcuchu oznacza ca³y argument do inteligentnego przedrostka\n"
--"%0,%1,...,%9 oznacza argunent 0, 1, ..., 9\n"
-+"%0,%1,...,%9 oznacza argument 0, 1, ..., 9\n"
- "%% w ³añcuchu oznacza '%'"
++"Nazwa pliku konfiguracyjnego, z którego bêdzie czytana, i do\n"
++"do którego bêdzie zapisywana konfiguracja. Nazwa powinna wzglêdna\n"
++"do katalogu konfiguracyjnego"
  
- #. name:
-@@ -5865,6 +5867,3 @@
- #: src/viewer/text/view.c:1496
- msgid "Error writing to file"
- msgstr "B³±d zapisu do pliku"
--
--#~ msgid "Save formatted ~document"
--#~ msgstr "Zapisz sformatowany ~dokument"
+ #: src/config/cmdline.c:444
+ msgid "MIME type to assume for documents"
+@@ -714,9 +716,8 @@
+ "Chcia³bym wiedzieæ po co by¶ chcia³(a) u¿ywaæ -source -stdin, chocia¿ ;-)"
+ 
+ #: src/config/cmdline.c:534
+-#, fuzzy
+ msgid "Do not number links in dump output"
+-msgstr "Strona kodowa u¿ywana przy zrzutach."
++msgstr "Nie numeruj odno¶ników podczas zrzucania dokumentu "
+ 
+ #: src/config/cmdline.c:536
+ msgid ""
+@@ -724,6 +725,9 @@
+ "the dumped document) in the -dump output; this was the default behaviour\n"
+ "until 0.5pre12. Note that this really affects only --dump, nothing else."
+ msgstr ""
++"Zapobiega numerowaniu odno¶ników (i pokazywaniu ich listy na koñcu\n"
++"zrzuconego dokumentu) podczas u¿ywania opcji --dump. Takie zachowanie by³o\n"
++"domy¶lne a¿ do wersji 0.5pre12. Pamiêtaj, ¿e to ma wp³yw tylko na opcjê --dump"
+ 
+ #: src/config/cmdline.c:540
+ msgid "Touch files in ~/.elinks when running with -no-connect/-session-ring"
+@@ -1019,9 +1023,8 @@
+ msgstr "Otwórz menad¿era pamiêci podrêcznej"
+ 
+ #: src/config/kbdbind.c:387
+-#, fuzzy
+ msgid "Cancel current state"
+-msgstr "Nie mo¿na zbadaæ stanu gniazda"
++msgstr "Przerwij aktualny stan"
+ 
+ #: src/config/kbdbind.c:388
+ msgid "Open cookie manager"
+@@ -1067,12 +1070,9 @@
+ msgid "Begin editing"
+ msgstr "Zacznij edycjê"
+ 
+-#
+-#. FIXME
+ #: src/config/kbdbind.c:399
+-#, fuzzy
+ msgid "Expand item"
+-msgstr "Rozszerz kolumny tabeli"
++msgstr "Rozszerz pozycjê"
+ 
+ #: src/config/kbdbind.c:400
+ msgid "Go to the end of the page/line"
+@@ -1172,11 +1172,9 @@
+ msgid "Go at a specified mark"
+ msgstr "Przejd¼ do podanego znacznika"
+ 
+-#
+ #: src/config/kbdbind.c:428
+-#, fuzzy
+ msgid "Mark item"
+-msgstr "Pod¶wietlone elementy menu"
++msgstr "Zaznacz element"
+ 
+ #: src/config/kbdbind.c:429
+ msgid "Activate the menu"
+@@ -1187,9 +1185,8 @@
+ msgstr "Przesuñ do nastêpnej ramki"
+ 
+ #: src/config/kbdbind.c:431
+-#, fuzzy
+ msgid "Move to the next item"
+-msgstr "Przesuñ do nastêpnej ramki"
++msgstr "Przesuñ do nastêpnej pozycji"
+ 
+ #: src/config/kbdbind.c:432
+ msgid "Open a new tab"
+@@ -1244,9 +1241,8 @@
+ msgstr "Zakoñcz bez potwierdzenia"
+ 
+ #: src/config/kbdbind.c:446
+-#, fuzzy
+ msgid "Redraw the terminal"
+-msgstr "Zmieñ rozmiar terminala"
++msgstr "Przerysuj okno terminala"
+ 
+ #: src/config/kbdbind.c:447
+ msgid "Reload the current page"
+@@ -1333,9 +1329,8 @@
+ msgstr "Przejd¼ naprzód w \"antyhistorii\""
+ 
+ #: src/config/kbdbind.c:468
+-#, fuzzy
+ msgid "Collapse item"
+-msgstr "Up³ynê³o"
++msgstr "Zwiñ pozycjê"
+ 
+ #: src/config/kbdbind.c:469
+ msgid "Move cursor upwards"
+@@ -1935,7 +1930,6 @@
+ msgstr "Czy wy¶wietlaæ liczby z prawej strony odno¶ników?"
+ 
+ #: src/config/options.inc:233
+-#, fuzzy
+ msgid "Wraparound typeahead"
+ msgstr "Zawijanie szukania z wyprzedzeniem"
+ 
+@@ -1951,7 +1945,6 @@
+ msgstr "Obs³uga b³êdów szukania z wyprzedzeniem"
+ 
+ #: src/config/options.inc:239
+-#, fuzzy
+ msgid ""
+ "How to handle errors when typeahead doesn't match any links:\n"
+ "0 means do nothing\n"
+@@ -2790,28 +2783,24 @@
+ "U¿yj \" \" je¶li nie chcesz wysy³ania ¿adnej informacji o przegl±darce."
+ 
+ #: src/config/options.inc:666
+-#, fuzzy
+ msgid "HTTPS"
+-msgstr "HTTP"
++msgstr "HTTPS"
+ 
+ #: src/config/options.inc:668
+-#, fuzzy
+ msgid "HTTPS-specific options."
+-msgstr "Ustawienia dotycz±ce protoko³u HTTP."
++msgstr "Ustawienia dotycz±ce protoko³u HTTPS."
+ 
+ #: src/config/options.inc:672
+-#, fuzzy
+ msgid "HTTPS proxy configuration."
+-msgstr "Konfiguracja proxy dla protoko³u HTTP."
++msgstr "Konfiguracja proxy dla protoko³u HTTPS."
+ 
+ #: src/config/options.inc:676
+-#, fuzzy
+ msgid ""
+ "Host and port-number (host:port) of the HTTPS CONNECT proxy, or blank.\n"
+ "If it's blank, HTTPS_PROXY environment variable is checked as well."
+ msgstr ""
+-"Host i numer portu (host:port) serwera proxy HTTP, lub puste.\n"
+-"Je¶li puste sprawdzana jest zmienna ¶rodowiskowa HTTP_PROXY."
++"Host i numer portu (host:port) serwera proxy HTTPS, lub puste.\n"
++"Je¶li puste sprawdzana jest zmienna ¶rodowiskowa HTTPS_PROXY."
+ 
+ #: src/config/options.inc:680
+ msgid "FTP"
+@@ -3034,7 +3023,6 @@
+ msgstr "Typ ramek"
+ 
+ #: src/config/options.inc:807
+-#, fuzzy
+ msgid ""
+ "Terminal type; matters mostly only when drawing frames and\n"
+ "dialog box borders:\n"
+@@ -3049,7 +3037,8 @@
+ "0 - prosty terminal, tylko znaki ASCII\n"
+ "1 - VT100, prosty ale przeno¶ny\n"
+ "2 - Linux, podwójne ramki i inne dobrodziejstwa\n"
+-"3 - KOI-8"
++"3 - KOI-8\n"
++"4 - FreeBSD"
+ 
+ #: src/config/options.inc:815
+ msgid "Switch fonts for line drawing"
+@@ -4049,13 +4038,12 @@
+ 
+ #
+ #: src/cookies/dialogs.c:76
+-#, fuzzy
+ msgid "Domain"
+-msgstr "~Dokumentacja"
++msgstr "Domena"
+ 
+ #: src/cookies/dialogs.c:78
+ msgid "Expires"
+-msgstr ""
++msgstr "Wygasa"
+ 
+ #: src/cookies/dialogs.c:80
+ #, fuzzy
+@@ -4645,9 +4633,9 @@
+ msgstr "pozosta³y czas"
+ 
+ #: src/dialogs/status.c:204
+-#, fuzzy, c-format
++#, c-format
+ msgid "Typeahead: %s [%s]"
+-msgstr "Szukanie z wyprzedzeniem: %s (-> %s)"
++msgstr "Szukanie z wyprzedzeniem: %s [ %s]"
+ 
+ #: src/dialogs/status.c:295
+ msgid "Untitled"
+@@ -5064,7 +5052,6 @@
+ "U¿yj zamiast niej mime.mailcap.ask."
+ 
+ #: src/mime/backend/mailcap.c:152
+-#, fuzzy
+ msgid ""
+ "This option is deprecated and will be removed very soon.\n"
+ "Please use mime.mailcap.description option instead."
+@@ -5212,7 +5199,7 @@
+ "URI abbreviations, or smart ones, making it possible to pass\n"
+ "arguments to them like search engine keywords."
+ msgstr ""
+-"Zasady przepisywanie URI wprowadzonego w okienku dialogowym.\n"
++"Zasady przepisywania URI wprowadzonego w okienku dialogowym.\n"
+ "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
+ "rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
+ "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
