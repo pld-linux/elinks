@@ -1,18 +1,18 @@
---- elinks-0.5rc4/po/pl.po.orig	2003-12-24 02:30:20.000000000 +0100
-+++ elinks-0.5rc4/po/pl.po	2003-12-24 15:05:38.070966952 +0100
+--- elinks-0.9.0/po/pl.po.orig	2003-12-24 18:09:05.000000000 +0100
++++ elinks-0.9.0/po/pl.po	2003-12-25 15:36:43.061648784 +0100
 @@ -9,9 +9,9 @@
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: ELinks 0.5pre12.CVS\n"
-+"Project-Id-Version: ELinks 0.5rc4.CVS\n"
++"Project-Id-Version: ELinks 0.9.0\n"
  "POT-Creation-Date: 2003-12-24 17:51+0100\n"
 -"PO-Revision-Date: 2003-12-23 08:00+0200\n"
-+"PO-Revision-Date: 2003-12-24 14:50+0100\n"
++"PO-Revision-Date: 2003-12-25 15:00+0100\n"
  "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -530,7 +530,7 @@
+@@ -531,7 +531,7 @@
  "relative to confdir."
  msgstr ""
  "Nazwa pliku z konfiguracj±, z którego bêdzie czytana i do którego\n"
@@ -21,7 +21,22 @@
  
  #: src/config/cmdline.c:454
  msgid "MIME type to assume for documents"
-@@ -2940,7 +2940,7 @@
+@@ -1884,13 +1884,12 @@
+ msgstr "W³±cz kolor"
+ 
+ #: src/config/options.inc:209
+-#, fuzzy
+ msgid ""
+ "Enable use of the active link background and text color\n"
+ "settings instead of the link colors from the document."
+ msgstr ""
+ "Korzysta z ustawieñ koloru tekstu i t³a aktywnego odno¶nika\n"
+-"zamiast z browse.links z dokumentu."
++"zamiast kolorów odno¶nika z dokumentu."
+ 
+ #: src/config/options.inc:212
+ msgid "Bold"
+@@ -2942,7 +2941,7 @@
  
  #: src/config/options.inc:754
  msgid "Whether to execute local CGI scripts. (DISABLED)"
@@ -30,7 +45,7 @@
  
  #: src/config/options.inc:758
  msgid ""
-@@ -4255,7 +4255,7 @@
+@@ -4257,7 +4256,7 @@
  
  #: src/dialogs/menu.c:360
  msgid "Close ~all but this"
@@ -39,7 +54,7 @@
  
  #: src/dialogs/menu.c:373
  msgid "Open new ~tab"
-@@ -4787,7 +4787,7 @@
+@@ -4789,7 +4788,7 @@
  #
  #: src/intl/gettext/libintl.c:24
  msgid "System"
@@ -48,7 +63,7 @@
  
  #: src/intl/gettext/libintl.c:25
  msgid "English"
-@@ -4841,7 +4841,7 @@
+@@ -4843,7 +4842,7 @@
  
  #: src/intl/gettext/libintl.c:38
  msgid "Galician"
@@ -57,7 +72,7 @@
  
  #: src/intl/gettext/libintl.c:39
  msgid "German"
-@@ -5057,7 +5057,7 @@
+@@ -5059,7 +5058,7 @@
  msgstr "Program"
  
  #: src/mime/backend/default.c:67
@@ -66,7 +81,7 @@
  msgid ""
  "External viewer for this file type. '%' in this string will be\n"
  "substituted by a file name."
-@@ -5330,7 +5330,7 @@
+@@ -5332,7 +5331,7 @@
  "URI abbreviations, or smart ones, making it possible to pass\n"
  "arguments to them like search engine keywords."
  msgstr ""
@@ -75,7 +90,7 @@
  "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
  "rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
  "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
-@@ -6078,6 +6078,3 @@
+@@ -6080,6 +6079,3 @@
  #: src/viewer/text/view.c:1528
  msgid "Error writing to file"
  msgstr "B³±d zapisu do pliku"
