@@ -33,7 +33,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
-BuildRequires:	lua40-devel >= 4.0.1-9
+%{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	tetex
@@ -106,7 +106,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}
+%{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
 
 %find_lang %{name}
 
