@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=elinks
 Comment=Experimental Links www text browser
+Comment[pl]=Eksperymentalna wersja tekstowej przeglądarki WWW Links 
 Exec=elinks
 Terminal=1
 Type=Application
+# vi: encoding=utf-8
