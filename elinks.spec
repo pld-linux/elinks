@@ -20,15 +20,15 @@ Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is the elinks tree - intended to provide feature-rich version of links,
-however not rock-stable and dedicated mainly for testing.  Its purpuose is to
-make alternative to links, until Mikulas will have some time to maintain it, and
-to test and tune various patches for Mikulas to be able to include them in the
-official links releases.
+This is the elinks tree - intended to provide feature-rich version of
+links, however not rock-stable and dedicated mainly for testing. Its
+purpose is to make alternative to links, until Mikulas will have some
+time to maintain it, and to test and tune various patches for Mikulas
+to be able to include them in the official links releases.
 
 %description -l pl
-Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links. elinks
-jednak jest dedykowana g³ównie do testowania.
+Bogata w opcje i mo¿liwo¶ci wersja tekstowej przegl±darki www - links.
+elinks jednak jest dedykowana g³ównie do testowania.
 
 %prep
 %setup -q -n %{name}-%{snap}
@@ -47,8 +47,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_bindir}/links		$RPM_BUILD_ROOT%{_bindir}/%{name}
-mv $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
+mv -f $RPM_BUILD_ROOT%{_bindir}/links		$RPM_BUILD_ROOT%{_bindir}/%{name}
+mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 
