@@ -57,11 +57,10 @@ keepalive.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}

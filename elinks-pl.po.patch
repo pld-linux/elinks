@@ -1,146 +1,80 @@
---- elinks-0.5pre7/po/pl.po.orig	2003-10-12 22:37:02.000000000 +0200
-+++ elinks-0.5pre7/po/pl.po	2003-10-19 20:06:31.647318968 +0200
-@@ -5,12 +5,11 @@
- # Wojtek Bojdo/l <wojboj@lp.net.pl>
- # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
+--- elinks-0.5pre10/po/pl.po.orig	2003-11-15 18:06:13.000000000 +0100
++++ elinks-0.5pre10/po/pl.po	2003-11-22 00:36:46.149469496 +0100
+@@ -7,9 +7,9 @@
  #
--#, fuzzy
  msgid ""
  msgstr ""
--"Project-Id-Version: ELinks 0.5pre0.CVS\n"
-+"Project-Id-Version: ELinks 0.5pre7.CVS\n"
- "POT-Creation-Date: 2003-10-12 22:33+0200\n"
--"PO-Revision-Date: 2003-10-10 23:13+0200\n"
-+"PO-Revision-Date: 2003-10-19 19:37+0200\n"
+-"Project-Id-Version: ELinks 0.5pre7.CVS\n"
++"Project-Id-Version: ELinks 0.5pre10.CVS\n"
+ "POT-Creation-Date: 2003-11-15 17:53+0100\n"
+-"PO-Revision-Date: 2003-11-14 07:00+0200\n"
++"PO-Revision-Date: 2003-11-22 00:30+0100\n"
  "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -835,7 +834,7 @@
- msgstr ""
- "Format pliku zak³adek (dotyczy i odczytu, i zapisu):\n"
- "0 - domy¶lny format ELinksa (kompatybilny z Linksem 0.9x)\n"
--"1 - XBEL uniwersalny format XML(BEZ OBS£UGI ZNAKÓW NARODOWYCH!)"
-+"1 - XBEL uniwersalny format XML (BEZ OBS£UGI ZNAKÓW NARODOWYCH!)"
- 
- #: src/config/options.c:902
- msgid ""
-@@ -846,7 +845,7 @@
- msgstr ""
- "Format pliku zak³adek (dotyczy i odczytu, i zapisu):\n"
- "0 - domy¶lny format ELinksa (kompatybilny z Linksem 0.9x)\n"
--"1 - XBEL uniwersalny format XML(BEZ OBS£UGI ZNAKÓW NARODOWYCH!) (WY£¡CZONE)"
-+"1 - XBEL uniwersalny format XML (BEZ OBS£UGI ZNAKÓW NARODOWYCH!) (WY£¡CZONE)"
+@@ -2118,24 +2118,20 @@
  
  #
- #: src/config/options.c:908
-@@ -1004,11 +1003,11 @@
- #
- #: src/config/options.c:992
- msgid "Maximum connections per host"
--msgstr "Maksymalna ilo¶æ po³±czeñ z jednym hostem"
-+msgstr "Maksymalna liczba po³±czeñ z jednym hostem"
+ #: src/config/options.inc:538
+-#, fuzzy
+ msgid "Plain rendering"
+-msgstr "Renderowanie HTML-a"
++msgstr "Proste renderowanie"
  
- #: src/config/options.c:994
- msgid "Maximum number of concurrent connections to a given host."
--msgstr "Maksymalna ilo¶æ równoczesnych po³±czeñ z danym hostem."
-+msgstr "Maksymalna liczba równoczesnych po³±czeñ z danym hostem."
+ #: src/config/options.inc:540
+-#, fuzzy
+ msgid "Options concerning the display of plain text pages."
+-msgstr "Ustawienia dotycz±ce wy¶wietlania stron HTML."
++msgstr "Ustawienia dotycz±ce wy¶wietlania stron czysto tekstowych."
  
- #
- #: src/config/options.c:996
-@@ -1951,7 +1950,7 @@
- "1 is page titles"
+ #: src/config/options.inc:542
+-#, fuzzy
+ msgid "Display URIs"
+-msgstr "Wy¶wietl"
++msgstr "Wy¶wietlanie URI"
+ 
+ #: src/config/options.inc:544
+-#, fuzzy
+ msgid "Display URIs in the document as links."
+-msgstr "Sposób wy¶wietlania odno¶ników na obrazkach"
++msgstr "Wy¶wietlanie URI w dokumencie jako odno¶ników."
+ 
+ #. Keep options in alphabetical order.
+ #: src/config/options.inc:550
+@@ -3313,14 +3309,12 @@
+ msgstr "Przeskakiwanie z ostatniego taba na pierwszego i na odwrót."
+ 
+ #: src/config/options.inc:1766
+-#, fuzzy
+ msgid "Confirm tab closing"
+-msgstr "Potwierdzenie chêci wys³ania"
++msgstr "Potwierdzanie zamykania tabów"
+ 
+ #: src/config/options.inc:1768
+-#, fuzzy
+ msgid "When closing a tab show confirmation dialog."
+-msgstr "Otwórz okno dialogowe potwierdzania zakoñczenia dzia³ania"
++msgstr "Wy¶wietlaj okno dialogowe potwierdzania zamkniêcia taba."
+ 
+ #: src/config/options.inc:1772 src/config/opttypes.c:396
+ msgid "Language"
+@@ -3570,7 +3564,7 @@
  msgstr ""
- "Co pokazywaæ w okienku dialogowym globalnej historii:\n"
--"0 - URLe\n"
-+"0 - URL-e\n"
- "1 - tytu³y stron"
+ "Uruchom ELinksa jako oddzieln± instancjê zamiast do³±czaæ siê\n"
+ "do istniej±cej instancji. Wiedz, ¿e ¿adne pliki stanu\n"
+-"(zak³adki, historia itp.) nie s± zapisywane na dysk,\n"
++"(zak³adki, historia itp.) nie s± zapisywane na dysk, gdy\n"
+ "ta opcja jest u¿ywana. Zobacz tak¿e -touch-files."
  
- #: src/config/options.c:1409
-@@ -2024,7 +2023,7 @@
+ #: src/config/options.inc:1907
+@@ -5353,9 +5347,8 @@
+ msgstr "Zbyt du¿o bajtów przeczytanych z itrm!"
  
- #: src/config/options.c:1443
- msgid "Rendering of html link element"
--msgstr "Renderowania elementu odno¶nika html"
-+msgstr "Renderowanie elementu odno¶nika html"
+ #: src/terminal/tab.c:193
+-#, fuzzy
+ msgid "Do you really want to close the current tab?"
+-msgstr "Czy na pewno chcesz wyj¶æ z ELinksa?"
++msgstr "Czy na pewno chcesz zamkn±æ aktualnego taba?"
  
- #: src/config/options.c:1445
- msgid ""
-@@ -2148,7 +2147,7 @@
- "External viewer for this file type. '%' in this string will be\n"
- "substituted by a file name."
- msgstr ""
--"Zewnêtrzny viewer dla tego typu plików. '%' w ³añcuchu bêdzie\n"
-+"Zewnêtrzna przegl±darka dla tego typu plików. '%' w ³añcuchu bêdzie\n"
- "zostanie zast±piony nazw± pliku."
- 
- #
-@@ -3519,7 +3518,7 @@
- 
- #: src/config/options.c:2809
- msgid "Set config dir to given string"
--msgstr ""
-+msgstr "Ustawienie katalogu konfiguracyjnego na dany ³añcuch"
- 
- #: src/config/options.c:2811
- msgid ""
-@@ -3528,6 +3527,10 @@
- "a '/' its used as an absolute path. Else it is assumed to\n"
- "be relative to your HOME dir."
- msgstr ""
-+"Ustawienie katalogu konfiguracyjnego na dan± ¶cie¿kê. ELinks bêdzie\n"
-+"czyta³ stamt±d pliki konfiguracyjne i tam zapisywa³. Je¶li ¶cie¿ka\n"
-+"zaczyna siê od '/', jest traktowana jako bezwzglêdna, w przeciwnym\n"
-+"wypadku jako wzglêdna w stosunku do katalogu domowego."
- 
- #: src/config/options.c:2816
- msgid "MIME type to assume for documents"
-@@ -3583,7 +3586,7 @@
- "This makes ELinks assume that the files it sees are HTML. This is\n"
- "equivalent to -default-mime-type text/html."
- msgstr ""
--"To sprawia, ¿e Elinks przyjmuje, ¿e og³±dane pliki s± w HTML-u.\n"
-+"To sprawia, ¿e Elinks przyjmuje, ¿e ogl±dane pliki s± w HTML-u.\n"
- "Jest to równowa¿ne z -default-mime-type text/html."
- 
- #: src/config/options.c:2854
-@@ -3679,7 +3682,7 @@
- "u¿ywaæ, dopóki nie jeste¶ developerem i chcesz zrobiæ parê testów.\n"
- "Je¶li chcesz oddzielne instancje raczej u¿yj -no-connect w linii\n"
- "komend. Wiedz, ¿e normalnie ¿adne pliki stanu nie s± zapisywane\n"
--"na dysk, gdy ta opcja jest u¿yta. Zobach tak¿e -touch-files."
-+"na dysk, gdy ta opcja jest u¿yta. Zobacz tak¿e -touch-files."
- 
- #: src/config/options.c:2898
- msgid "Write the source of given URL to stdout"
-@@ -3968,7 +3971,7 @@
- "Po³±czenia: %d po³±czeñ, %d nawi±zuj±cych po³±czenie, %d przesy³aj±cych,\n"
- "            %d trwa³ych.\n"
- "Pamiêæ podrêczna: %d bajtów, %d plików, %d zablokowanych, %d ³adowanych.\n"
--"Sformatowane dokumenty: %d dokumentów, %d zablokownaych."
-+"Sformatowane dokumenty: %d dokumentów, %d zablokowanych."
- 
- #: src/dialogs/info.c:169
- msgid "No entry."
-@@ -4690,7 +4693,7 @@
- "Would you like to open the file '%s' (type: %s%s%s)\n"
- "with '%s', or display it?"
- msgstr ""
--"Czy chesz otworzyæ plik '%s' (typu %s%s%s)\n"
-+"Czy chcesz otworzyæ plik '%s' (typu %s%s%s)\n"
- "przy u¿yciu '%s', czy wy¶wietliæ go?"
- 
- #: src/sched/error.c:29
-@@ -5153,11 +5156,11 @@
- 
- #: src/viewer/text/search.c:856
- msgid "Search hit bottom, continuing at top."
--msgstr ""
-+msgstr "Szukanie dobi³o do koñca, kontynuacja od góry."
- 
- #: src/viewer/text/search.c:862
- msgid "Search hit top, continuing at bottom."
--msgstr ""
-+msgstr "Szukanie dobi³o do góry, kontynuacja od koñca."
- 
- #: src/viewer/text/search.c:884
+ #: src/viewer/dump/dump.c:77
  #, c-format
