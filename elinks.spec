@@ -9,13 +9,16 @@ Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-lua-config-file.patch
+Patch2:		%{name}-hooks-fix.patch
 URL:		http://elinks.pld.org.pl/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bzip2-devel
 BuildRequires:	gpm-devel
+BuildRequires:	lua-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.6a
-BuildRequires:	lua-devel
+BuildRequires:	zlib-devel
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,6 +37,7 @@ elinks jednak jest dedykowana g³ównie do testowania.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
@@ -56,7 +60,7 @@ mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{na
 mv -f $RPM_BUILD_ROOT%{_mandir}/man5/linkskeys.5	$RPM_BUILD_ROOT%{_mandir}/man5/%{name}keys.5
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
-install contrib/bm.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}-bm.lua
+install contrib/bm.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/bm.lua
 install contrib/hooks.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}-hooks.lua
 
 gzip -9nf AUTHORS BUGS ChangeLog README SITES TODO
