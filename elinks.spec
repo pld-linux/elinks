@@ -15,9 +15,9 @@ URL:		http://elinks.pld.org.pl/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gpm-devel
+BuildRequires:	lua-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.6a
-BuildRequires:	lua-devel
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,14 +60,12 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
 
-gzip -9nf AUTHORS BUGS ChangeLog HACKING README SITES TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS BUGS ChangeLog HACKING README SITES TODO
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
