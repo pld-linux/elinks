@@ -2,13 +2,14 @@ Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
 Version:	0.3.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.pld.org.pl/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}-bm.lua
 Source3:	%{name}-hooks.lua
+Source4:	links.png
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-lua-config-file.patch
 URL:		http://elinks.pld.org.pl/
@@ -47,9 +48,8 @@ aclocal
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
-install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
-install -d $RPM_BUILD_ROOT%{_sysconfdir}
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Network/WWW,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -59,6 +59,7 @@ mv -f $RPM_BUILD_ROOT%{_mandir}/man1/links.1	$RPM_BUILD_ROOT%{_mandir}/man1/%{na
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}
+install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,3 +72,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 %{_datadir}/%{name}/*
 %config(noreplace) %{_sysconfdir}/elinks-hooks.lua
+%{_pixmapsdir}/*
