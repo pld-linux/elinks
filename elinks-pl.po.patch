@@ -1,6 +1,7 @@
---- elinks-0.9.1rc1/po/pl.po.orig	2004-01-08 23:04:13.000000000 +0100
-+++ elinks-0.9.1rc1/po/pl.po	2004-01-09 21:57:58.502049656 +0100
-@@ -1,17 +1,17 @@
+diff -burN elinks-0.9.1rc2.orig/po/pl.po elinks-0.9.1rc2/po/pl.po
+--- elinks-0.9.1rc2.orig/po/pl.po	2004-01-17 20:17:04.696355256 +0100
++++ elinks-0.9.1rc2/po/pl.po	2004-01-17 20:29:52.177680360 +0100
+@@ -1,18 +1,18 @@
  # Polish ELinks translation.
  # Arkadiusz Sochala <jojoro@priv2.onet.pl>
  # Grzegorz Golawski <grzegol@pld.org.pl>
@@ -9,25 +10,27 @@
  # Wojtek Bojdo/l <wojboj@lp.net.pl>
  # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2003
 -# Adam Go³êbiowski <adamg@pld-linux.org>, 2003
-+# Adam Go³êbiowski <adamg@pld-linux.org>, 2003-2004
++# Adam Go³êbiowski <adamg@pld-linux.org>, 2003,2004
  # Miko³aj Machowski <mikmach@wp.pl>, 2003
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: ELinks 0.9.0.CVS\n"
-+"Project-Id-Version: ELinks 0.9.1-rc1\n"
- "POT-Creation-Date: 2004-01-08 23:00+0100\n"
++"Project-Id-Version: ELinks 0.9.1.rc2.CVS\n"
+ "POT-Creation-Date: 2004-01-09 13:39+0100\n"
 -"PO-Revision-Date: 2004-01-04 08:00+0200\n"
-+"PO-Revision-Date: 2004-01-09 21:30+0100\n"
- "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
+-"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
++"PO-Revision-Date: 2004-01-17 20:30+0200\n"
++"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=ISO-8859-2\n"
 @@ -34,7 +34,7 @@
  
  #: src/bfu/hierbox.c:447
  msgid "Press space to expand this folder."
 -msgstr ""
-+msgstr "Naci¶nij spacjê aby rozwin±æ ten folder."
++msgstr "Naci¶nij spacjê aby rozwin±æ ten katalog."
  
  #. if (dialog_type == EDIT_DLG_ADD) d->widgets[n - 1].fn = check_nonempty;
  #: src/bfu/hierbox.c:449 src/bfu/hierbox.c:471 src/bfu/hierbox.c:609
@@ -50,7 +53,7 @@
 -#, fuzzy
  msgid "Write config error"
 -msgstr "B³±d konfiguracji"
-+msgstr "B³±d podczas zapisywania konfiguracji"
++msgstr "B³±d zapisu konfiguracji"
  
  #: src/config/dialogs.c:42
 -#, fuzzy, c-format
@@ -67,7 +70,7 @@
  #: src/config/dialogs.c:67
  msgid "Write config success"
 -msgstr ""
-+msgstr "Plik konfiguracyjny zapisany"
++msgstr "Zapisano konfiguracje."
  
  #: src/config/dialogs.c:68
  #, c-format
@@ -109,7 +112,7 @@
 -#, fuzzy
  msgid "Go to the last line of the buffer."
 -msgstr "Przejd¼ do pocz±tku strony/linii"
-+msgstr "Przejd¼ do ostatniej linii buforu."
++msgstr "Przejd¼ do ostatniej linii buforu"
  
  #: src/config/kbdbind.c:420
  msgid "Follow the current link"
@@ -151,7 +154,7 @@
 -msgstr "Prze¶lij f~ormularz i prze³aduj"
 +msgstr "Prze¶lij formularz i prze³aduj"
  
- #: src/config/kbdbind.c:489 src/terminal/tab.c:190 src/terminal/tab.c:226
+ #: src/config/kbdbind.c:489 src/terminal/tab.c:191 src/terminal/tab.c:227
  msgid "Close tab"
 @@ -1955,22 +1952,20 @@
  msgstr "Czy wy¶wietlaæ liczby z prawej strony odno¶ników?"
@@ -190,16 +193,14 @@
 -#, fuzzy
  msgid "Wrap around when searching. Currently only used for typeahead."
  msgstr ""
--"Zacznij szukaæ od pocz±tku, gdy szukanie z wyprzedzeniem dojdzie\n"
--"do koñca dokumentu."
-+"Zawijanie przy szukaniu; aktualnie u¿ywane tylko przy szukaniu\n"
-+"z wyprzedzeniem."
+ "Zacznij szukaæ od pocz±tku, gdy szukanie z wyprzedzeniem dojdzie\n"
+ "do koñca dokumentu."
  
  #: src/config/options.inc:303
 -#, fuzzy
  msgid "Show not found"
 -msgstr "Nie znaleziono serwera"
-+msgstr "Sygnalizowanie nie znalezienia"
++msgstr "Sygnalizowanie nie znaleziona"
  
  #: src/config/options.inc:305
 -#, fuzzy
@@ -247,7 +248,7 @@
  "pop up."
  msgstr ""
 +"Gdy naci¶niesz przycisk [ Save ] w którym¶ z mened¿erów, ta opcja\n"
-+"sprawi, ¿e po poprawnym zakoñczeniu operacji pojawi siê okienko\n"
++"sprawi, ¿e po zakoñczeniu operacji pojawi siê to okienko\n"
 +"z informacj±"
  
  #: src/config/options.inc:1230
@@ -259,7 +260,7 @@
 -#, fuzzy
  msgid "Homepage URI"
 -msgstr "Strona kodowa"
-+msgstr "URI strony domowej"
++msgstr "Strona domowa."
  
  #: src/config/options.inc:1251
  msgid ""
@@ -310,10 +311,3 @@
  msgid ""
  "External viewer for this file type. '%' in this string will be\n"
  "substituted by a file name."
-@@ -6159,6 +6155,3 @@
- #: src/viewer/text/view.c:1217
- msgid "Error writing to file"
- msgstr "B³±d zapisu do pliku"
--
--#~ msgid "Typeahead error handling"
--#~ msgstr "Obs³uga b³êdów szukania z wyprzedzeniem"
