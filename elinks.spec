@@ -1,4 +1,4 @@
-%define snap	20020208 
+%define snap	20020208
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
 Name:		elinks
