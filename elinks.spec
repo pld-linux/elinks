@@ -1,16 +1,14 @@
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.4pre18
-Release:	2
+Version:	0.4pre19
+Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	links.png
-Patch0:		%{name}-configure.patch
-Patch1:		%{name}-lua-scripts-fixes.patch
-Patch2:		%{name}-gzip_fallback.patch
+#Patch0:		%{name}-configure.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
