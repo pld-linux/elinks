@@ -65,14 +65,12 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install contrib/bm.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/bm.lua
 install contrib/hooks.lua $RPM_BUILD_ROOT%{_sysconfdir}/%{name}-hooks.lua
 
-gzip -9nf AUTHORS BUGS ChangeLog README SITES TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS BUGS ChangeLog README SITES TODO
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/WWW/*
 %{_mandir}/man*/*
