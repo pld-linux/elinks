@@ -17,9 +17,11 @@ BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 BuildRequires:	gpm-devel
+BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRequires:	zlib-devel
+BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,11 +60,12 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-lua \
-	--disable-ipv6 \
 	--enable-fastmem \
 	--without-x
 %{__make}
+
+cd doc
+texi2html elinks-lua.texi
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -75,17 +78,20 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/WWW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
+install contrib/lua/[bcmr]*.lua $RPM_BUILD_ROOT%{_sysconfdir}
+install contrib/lua/hooks.lua.in $RPM_BUILD_ROOT%{_sysconfdir}/hooks.lua
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*}
+%doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{*.txt,*.html}
-#%dir %{_sysconfdir}
-#%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_applnkdir}/Network/WWW/*
