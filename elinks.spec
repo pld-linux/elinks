@@ -14,8 +14,7 @@ Source0:	http://elinks.or.cz/download/%{name}-%{version}%{_pre}.tar.bz2
 # Source0-md5:	aaa151f3543cd321b05daf4d2307a7a8
 Source1:	%{name}.desktop
 Source2:	links.png
-#Patch0:		%{name}-pl.po.patch
-#Patch1:		%{name}-palette.patch
+Patch0:		%{name}-pl.po.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -57,8 +56,7 @@ keepalive.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-#%patch0 -p1
-#%patch1 -p1
+%patch0 -p1
 
 %build
 %{__aclocal}
