@@ -41,7 +41,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 %{?with_gnutls:BuildRequires: gnutls-devel}
-%{?with_js:BuildRequires:	js-devel}
+%{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_lua:BuildRequires:	lua40-devel >= 4.0.1-9}
 BuildRequires:	ncurses-devel => 5.1
