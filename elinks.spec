@@ -31,7 +31,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 BuildRequires:	lua40-devel
 BuildRequires:	ncurses-devel => 5.1
-BuildRequires:	openssl-devel >= 0.9.7c
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	zlib-devel
 BuildRequires:	/usr/bin/texi2html
 Provides:	webclient
