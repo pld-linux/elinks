@@ -1,8 +1,8 @@
-%define snap	20020101 
+%define snap	20020124 
 Summary:	Experimantal Links (text WWW browser)
 Summary(pl):	Eksperymentalne Links (tekstowa przegl±darka WWW)
 Name:		elinks
-Version:	0.2.1
+Version:	0.2.2
 Release:	1
 License:	GPL
 Group:		Applications/Networking
