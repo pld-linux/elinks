@@ -1,11 +1,15 @@
-diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
---- elinks-0.5rc1.orig/po/pl.po	2003-12-23 17:14:57.000000000 +0100
-+++ elinks-0.5rc1/po/pl.po	2003-12-23 17:27:36.000000000 +0100
-@@ -12,7 +12,7 @@
- "Project-Id-Version: ELinks 0.5pre12.CVS\n"
+--- elinks-0.5rc1/po/pl.po.orig	2003-12-22 04:41:22.000000000 +0100
++++ elinks-0.5rc1/po/pl.po	2003-12-24 03:15:57.647175296 +0100
+@@ -9,10 +9,10 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: ELinks 0.5pre12.CVS\n"
++"Project-Id-Version: ELinks 0.5rc1.CVS\n"
  "POT-Creation-Date: 2003-12-22 04:36+0100\n"
- "PO-Revision-Date: 2003-12-13 13:00+0200\n"
+-"PO-Revision-Date: 2003-12-13 13:00+0200\n"
 -"Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
++"PO-Revision-Date: 2003-12-24 03:01+0100\n"
 +"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
@@ -112,6 +116,15 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  
  #: src/config/kbdbind.c:447
  msgid "Reload the current page"
+@@ -1294,7 +1290,7 @@
+ 
+ #: src/config/kbdbind.c:458
+ msgid "Select current highlighted item"
+-msgstr ""
++msgstr "Wybierz aktualnie pod¶wietlony element"
+ 
+ #: src/config/kbdbind.c:459 src/terminal/tab.c:187
+ msgid "Close tab"
 @@ -1333,9 +1329,8 @@
  msgstr "Przejd¼ naprzód w \"antyhistorii\""
  
@@ -123,7 +136,7 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  
  #: src/config/kbdbind.c:469
  msgid "Move cursor upwards"
-@@ -1935,7 +1930,6 @@
+@@ -1935,12 +1930,10 @@
  msgstr "Czy wy¶wietlaæ liczby z prawej strony odno¶ników?"
  
  #: src/config/options.inc:233
@@ -131,7 +144,12 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  msgid "Wraparound typeahead"
  msgstr "Zawijanie szukania z wyprzedzeniem"
  
-@@ -1951,7 +1945,6 @@
+ #: src/config/options.inc:235
+-#, fuzzy
+ msgid "Wrap around when searching for the next link matching a typeahead."
+ msgstr ""
+ "Zawiñ je¶li szukanie nastêpnego odno¶nika jest zgodne\n"
+@@ -1951,7 +1944,6 @@
  msgstr "Obs³uga b³êdów szukania z wyprzedzeniem"
  
  #: src/config/options.inc:239
@@ -139,7 +157,7 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  msgid ""
  "How to handle errors when typeahead doesn't match any links:\n"
  "0 means do nothing\n"
-@@ -2790,28 +2783,24 @@
+@@ -2790,28 +2782,24 @@
  "U¿yj \" \" je¶li nie chcesz wysy³ania ¿adnej informacji o przegl±darce."
  
  #: src/config/options.inc:666
@@ -173,7 +191,16 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  
  #: src/config/options.inc:680
  msgid "FTP"
-@@ -3034,7 +3023,6 @@
+@@ -2950,7 +2938,7 @@
+ 
+ #: src/config/options.inc:753
+ msgid "Whether to execute local CGI scripts. (DISABLED)"
+-msgstr "Czy uruchamiaæ skrypty CGI. (WY£¡CZONE)"
++msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
+ 
+ #: src/config/options.inc:757
+ msgid ""
+@@ -3034,7 +3022,6 @@
  msgstr "Typ ramek"
  
  #: src/config/options.inc:807
@@ -181,7 +208,7 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  msgid ""
  "Terminal type; matters mostly only when drawing frames and\n"
  "dialog box borders:\n"
-@@ -3049,7 +3037,8 @@
+@@ -3049,7 +3036,8 @@
  "0 - prosty terminal, tylko znaki ASCII\n"
  "1 - VT100, prosty ale przeno¶ny\n"
  "2 - Linux, podwójne ramki i inne dobrodziejstwa\n"
@@ -191,7 +218,7 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  
  #: src/config/options.inc:815
  msgid "Switch fonts for line drawing"
-@@ -4049,13 +4038,12 @@
+@@ -4049,18 +4037,16 @@
  
  #
  #: src/cookies/dialogs.c:76
@@ -206,8 +233,23 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
 +msgstr "Wygasa"
  
  #: src/cookies/dialogs.c:80
- #, fuzzy
-@@ -4645,9 +4633,9 @@
+-#, fuzzy
+ msgid "Secure"
+-msgstr "akt"
++msgstr "Bezpieczne"
+ 
+ #: src/cookies/dialogs.c:131 src/dialogs/download.c:414 src/dialogs/edit.c:100
+ #: src/formhist/dialogs.c:171 src/globhist/dialogs.c:188
+@@ -4267,7 +4253,7 @@
+ 
+ #: src/dialogs/menu.c:360
+ msgid "Close ~all but this"
+-msgstr "Z~amknij wszystkie za wyj±tekiem tego"
++msgstr "Z~amknij wszystkie za wyj±tkiem tego"
+ 
+ #: src/dialogs/menu.c:373
+ msgid "Open new ~tab"
+@@ -4645,9 +4631,9 @@
  msgstr "pozosta³y czas"
  
  #: src/dialogs/status.c:204
@@ -219,7 +261,16 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  
  #: src/dialogs/status.c:295
  msgid "Untitled"
-@@ -5064,7 +5052,6 @@
+@@ -4938,7 +4924,7 @@
+ msgstr "Program"
+ 
+ #: src/mime/backend/default.c:67
+-#, c-format
++#, no-c-format
+ msgid ""
+ "External viewer for this file type. '%' in this string will be\n"
+ "substituted by a file name."
+@@ -5064,7 +5050,6 @@
  "U¿yj zamiast niej mime.mailcap.ask."
  
  #: src/mime/backend/mailcap.c:152
@@ -227,7 +278,7 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  msgid ""
  "This option is deprecated and will be removed very soon.\n"
  "Please use mime.mailcap.description option instead."
-@@ -5212,7 +5199,7 @@
+@@ -5212,7 +5197,7 @@
  "URI abbreviations, or smart ones, making it possible to pass\n"
  "arguments to them like search engine keywords."
  msgstr ""
@@ -236,3 +287,68 @@ diff -burN elinks-0.5rc1.orig/po/pl.po elinks-0.5rc1/po/pl.po
  "Mo¿liwe jest zdefiniowanie zestawu przedrostków, które zostan±\n"
  "rozwiniête je¶li bêd± pasowa³y do ³añcucha znaków wprowadzonego\n"
  "w okienku dialogowym. Przedrostki mog± byæ \"g³upie\", tzn.\n"
+@@ -5964,64 +5949,3 @@
+ #: src/viewer/text/view.c:1528
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "URL: \"%s\""
+-#~ msgstr "URL: \"%s\""
+-
+-#~ msgid ""
+-#~ "Name: %s\n"
+-#~ "Type: %s\n"
+-#~ "Value: %s\n"
+-#~ "\n"
+-#~ "Description:\n"
+-#~ "%s"
+-#~ msgstr ""
+-#~ "Nazwa: %s\n"
+-#~ "Typ: %s\n"
+-#~ "Warto¶æ: %s\n"
+-#~ "\n"
+-#~ "Opis:\n"
+-#~ "%s"
+-
+-#~ msgid ""
+-#~ "Name: %s\n"
+-#~ "Type: %s\n"
+-#~ "\n"
+-#~ "Description:\n"
+-#~ "%s"
+-#~ msgstr ""
+-#~ "Nazwa: %s\n"
+-#~ "Typ: %s\n"
+-#~ "\n"
+-#~ "Opis:\n"
+-#~ "%s"
+-
+-#~ msgid "This option is deprecated and will be removed very soon.\n"
+-#~ msgstr "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-
+-#~ msgid ""
+-#~ "Server: %s\n"
+-#~ "Name: %s\n"
+-#~ "Value: %s\n"
+-#~ "Domain: %s\n"
+-#~ "Expires: %s\n"
+-#~ "Secure: %s"
+-#~ msgstr ""
+-#~ "Serwer: %s\n"
+-#~ "Nazwa: %s\n"
+-#~ "Warto¶æ: %s\n"
+-#~ "Domena: %s\n"
+-#~ "Wa¿ne do: %s\n"
+-#~ "Bezpieczeñstwo: %s"
+-
+-#~ msgid "unknown"
+-#~ msgstr "nieznany"
+-
+-#~ msgid ""
+-#~ "Title: %s\n"
+-#~ "URL: %s\n"
+-#~ "Last visit time: %s"
+-#~ msgstr ""
+-#~ "Tytu³: %s\n"
+-#~ "URL: %s\n"
+-#~ "Ostatnio odwiedzane: %s"
