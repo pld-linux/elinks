@@ -1,0 +1,24 @@
+This fixes Host header when URI contains ':' after host part.
+
+--- elinks-0.5pre4/src/protocol/http/http.c.orig	2003-07-26 00:04:01.000000000 +0200
++++ elinks-0.5pre4/src/protocol/http/http.c	2003-08-03 02:13:49.000000000 +0200
+@@ -316,7 +316,18 @@
+ add_uri_host_to_string(struct string *header, struct uri *uri)
+ {
+ #ifdef IPV6
+-	if (strchr(uri->host, ':') != strrchr(uri->host, ':')) {
++	int cl = NULL,cr = NULL, i;
++	for(i=0; i<uri->hostlen; i++)
++		if(uri->host[i] == ':') {
++			cl = uri->host + i;
++			break;
++		}
++	for(i=uri->hostlen-1; i >= 0; i--)
++		if(uri->host[i] == ':') {
++			cr = uri->host + i;
++			break;
++		}
++	if (cl != cr) {
+ 		/* IPv6 address */
+ 		add_char_to_string(header, '[');
+ 		add_bytes_to_string(header, uri->host, uri->hostlen);
