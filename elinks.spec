@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog LUA NEWS README SITES TODO
+%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{completion.tcsh,keybind*,wipe-out-ssl*,lua/{*.lua,elinks-remote}}
 %doc contrib/conv/{*awk,*.pl,*.sh}
 %doc doc/{bookmarks.txt,hacking.txt} 
