@@ -1,0 +1,61 @@
+Index: configure.in
+===================================================================
+RCS file: /home/cvs/elinks/elinks/configure.in,v
+retrieving revision 1.479.2.17
+retrieving revision 1.479.2.19
+diff -u -r1.479.2.17 -r1.479.2.19
+--- configure.in	6 Apr 2005 15:32:08 -0000	1.479.2.17
++++ configure.in	7 Apr 2005 13:17:01 -0000	1.479.2.19
+@@ -2,7 +2,7 @@
+ 
+ AC_INIT(src/main.c)
+ 
+-AM_INIT_AUTOMAKE(elinks, 0.10.4)
++AM_INIT_AUTOMAKE(elinks, 0.10.4.CVS)
+ AM_CONFIG_HEADER(config.h)
+ 
+ AC_PROG_MAKE_SET
+@@ -556,6 +556,17 @@
+ AC_SUBST(LUA_CFLAGS)
+ 
+ dnl ===================================================================
++dnl Check for Lua version
++dnl ===================================================================
++
++if test "$cf_result" = yes; then
++	AC_MSG_CHECKING([for LUA 5 or better])
++	AC_TRY_LINK([#include <lualib.h>], [lua_State *L = lua_open(0); lua_pushboolean(L, 1); lua_close(L); return 0;],
++		    [AC_DEFINE(HAVE_LUA5, 1, [We have LUA5])], )
++fi
++	
++
++dnl ===================================================================
+ dnl Check for Ruby, optional even if installed.
+ dnl ===================================================================
+ 
+Index: src/scripting/lua/core.c
+===================================================================
+RCS file: /home/cvs/elinks/elinks/src/scripting/lua/core.c,v
+retrieving revision 1.173.4.9
+retrieving revision 1.173.4.11
+diff -u -r1.173.4.9 -r1.173.4.11
+--- src/scripting/lua/core.c	6 Apr 2005 11:12:56 -0000	1.173.4.9
++++ src/scripting/lua/core.c	7 Apr 2005 13:18:31 -0000	1.173.4.11
+@@ -1,5 +1,5 @@
+ /* Lua interface (scripting engine) */
+-/* $Id$ */
++/* $Id$ */
+ 
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
+@@ -569,8 +569,10 @@
+ 	/* Convert to an appropriate Lua type */
+ 	switch (opt->type) {
+ 	case OPT_BOOL:
++#ifdef HAVE_LUA5
+ 		lua_pushboolean(S, opt->value.number);
+ 		break;
++#endif
+ 	case OPT_INT:
+ 	case OPT_LONG:
+ 		lua_pushnumber(S, opt->value.number);
