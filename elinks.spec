@@ -36,6 +36,7 @@ Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-locale_names.patch
 Patch3:		%{name}-lua40-fix.patch
+Patch4:		%{name}-pl.po-update.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -86,6 +87,7 @@ keepalive.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p0
+%patch4 -p1
 
 mv -f po/{no,nb}.po
 
@@ -152,4 +154,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
-%{?with_lua:%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}}
+%{?with_lua:%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}}
