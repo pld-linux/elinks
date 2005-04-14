@@ -1,0 +1,659 @@
+--- elinks-0.10.4/po/pl.po.orig	2005-04-06 17:48:55.000000000 +0200
++++ elinks-0.10.4/po/pl.po	2005-04-14 18:47:55.247775456 +0200
+@@ -9,9 +9,9 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: ELinks 0.11.CVS\n"
++"Project-Id-Version: ELinks 0.10.4\n"
+ "POT-Creation-Date: 2005-04-06 17:48+0200\n"
+-"PO-Revision-Date: 2005-03-24 16:20+0100\n"
++"PO-Revision-Date: 2005-04-14 14:44+0200\n"
+ "Last-Translator: Witold Filipczyk <witekfl@pld-linux.org>\n"
+ "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "MIME-Version: 1.0\n"
+@@ -6792,9 +6792,9 @@
+ msgstr "Poka¿ ~nag³ówek"
+ 
+ #: src/sched/download.c:1018
+-#, fuzzy, c-format
++#, c-format
+ msgid "Would you like to display the file '%s' (type: %s)?"
+-msgstr "Co chcesz zrobiæ z plikiem '%s' (typu %s%s%s)?"
++msgstr "Czy chcesz wy¶wietliæ plik '%s' (typu %s)?"
+ 
+ #: src/sched/download.c:1034 src/sched/download.c:1048
+ msgid "What to do?"
+@@ -7532,632 +7532,3 @@
+ #: src/viewer/text/view.c:1280
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "%d handle"
+-#~ msgid_plural "%d handles"
+-#~ msgstr[0] "%d uchwyt"
+-#~ msgstr[1] "%d uchwytów"
+-
+-#~ msgid "%d timer"
+-#~ msgid_plural "%d timers"
+-#~ msgstr[0] "%d zegar"
+-#~ msgstr[1] "%d zegarów"
+-
+-#~ msgid "%d connection"
+-#~ msgid_plural "%d connections"
+-#~ msgstr[0] "%d po³±czenie"
+-#~ msgstr[1] "%d po³±czeñ"
+-
+-#~ msgid "%d connecting"
+-#~ msgid_plural "%d connecting"
+-#~ msgstr[0] "%d ³±cz±ce siê"
+-#~ msgstr[1] "%d ³±cz±cych siê"
+-
+-#~ msgid "%d transferring"
+-#~ msgid_plural "%d transferring"
+-#~ msgstr[0] "%d przesy³aj±ce"
+-#~ msgstr[1] "%d przysy³aj±cych"
+-
+-#~ msgid "%d keepalive"
+-#~ msgid_plural "%d keepalive"
+-#~ msgstr[0] "%d trwa³e"
+-#~ msgstr[1] "%d trwa³ych"
+-
+-#~ msgid "%d byte"
+-#~ msgid_plural "%d bytes"
+-#~ msgstr[0] "%d bajt"
+-#~ msgstr[1] "%d bajtów"
+-
+-#~ msgid "%d file"
+-#~ msgid_plural "%d files"
+-#~ msgstr[0] "%d plik"
+-#~ msgstr[1] "%d plików"
+-
+-#~ msgid "%d locked"
+-#~ msgid_plural "%d locked"
+-#~ msgstr[0] "%d zablokowany"
+-#~ msgstr[1] "%d zablokowanych"
+-
+-#
+-#~ msgid "%d loading"
+-#~ msgid_plural "%d loading"
+-#~ msgstr[0] "%d pobierany"
+-#~ msgstr[1] "%d pobieranych"
+-
+-#
+-#~ msgid "%d formatted"
+-#~ msgid_plural "%d formatted"
+-#~ msgstr[0] "%d sformatowany"
+-#~ msgstr[1] "%d sformatowanych"
+-
+-#~ msgid "%d refreshing"
+-#~ msgid_plural "%d refreshing"
+-#~ msgstr[0] "%d od¶wie¿aj±cy"
+-#~ msgstr[1] "%d od¶wie¿aj±cych"
+-
+-#~ msgid "%d terminal"
+-#~ msgid_plural "%d terminals"
+-#~ msgstr[0] "%d terminal"
+-#~ msgstr[1] "%d terminali"
+-
+-#~ msgid "%d session"
+-#~ msgid_plural "%d sessions"
+-#~ msgstr[0] "%d sesja"
+-#~ msgstr[1] "%d sesji"
+-
+-#~ msgid "%d byte overhead"
+-#~ msgid_plural "%d bytes overhead"
+-#~ msgstr[0] "%d bajtów na kupie"
+-#~ msgstr[1] "%d bajtów na kupie"
+-
+-#~ msgid "Program ('%' will be replaced by the filename)"
+-#~ msgstr "Program ('%' zostanie zast±pione nazw± pliku)"
+-
+-#~ msgid "The file will be opened with the program '%s'."
+-#~ msgstr "Plik zostanie otwarty przy u¿yciu programu '%s'."
+-
+-#~ msgid "Delete"
+-#~ msgstr "Usuñ"
+-
+-#~ msgid "Add"
+-#~ msgstr "Dodaj"
+-
+-#~ msgid ""
+-#~ "Keystroke should be written in the format: [Prefix-]Key\n"
+-#~ "Prefix: Shift, Ctrl, Alt\n"
+-#~ "Key: a,b,c,...,1,2,3,...,Space,Up,PageDown,Tab,Enter,Insert,F5,..."
+-#~ msgstr ""
+-#~ "Skrót klawiszowy powinien byæ zapisany w nastêpuj±cym formacie: "
+-#~ "[Przedrostek-]Klawisz\n"
+-#~ "Przedrostek: Shift, Ctrl, Alt\n"
+-#~ "Klawisz: a,b,c,...,1,2,3,...,Space,Up,PageDown,Tab,Enter,Insert,F5,..."
+-
+-#
+-#~ msgid "master"
+-#~ msgstr "g³ówny"
+-
+-#~ msgid "slave"
+-#~ msgstr "podrzêdny"
+-
+-#~ msgid ""
+-#~ "Resources: %d handles, %d timers.\n"
+-#~ "Connections: %d connections, %d connecting, %d transferring, %d "
+-#~ "keepalive.\n"
+-#~ "Memory cache: %d bytes, %d files, %d locked, %d loading.\n"
+-#~ "Document cache: %d formatted, %d locked, %d refreshing.\n"
+-#~ "Interlinking: %s terminal, %d terminals, %d sessions."
+-#~ msgstr ""
+-#~ "Zasoby: %d uchwyt(ów), %d zegar(ów).\n"
+-#~ "Po³±czenia: %d po³±czeñ, %d nawi±zuj±cych po³±czenie, %d przesy³aj±cych,\n"
+-#~ "            %d trwa³ych.\n"
+-#~ "Pamiêæ podrêczna: %d bajtów, %d plików, %d zablokowanych, %d ³adowanych.\n"
+-#~ "Sformatowane dokumenty: %d dokumentów, %d zablokowanych, %d z "
+-#~ "od¶wierzaniem.\n"
+-#~ "Po³±czenia wewnêtrzne: %s terminal, %d terminali, %d sesji."
+-
+-#~ msgid "Memory allocated: %ld bytes, %ld bytes overhead (%0.2f%%)."
+-#~ msgstr "Zaalokowane: %ld bajtów, %ld bajtów \"na górze\" (%0.2f%%)."
+-
+-#
+-#~ msgid "Bookmark"
+-#~ msgstr "Zak³adka"
+-
+-#~ msgid ""
+-#~ "The proxy configuration encountered an error.\n"
+-#~ "This usually means that either an environment\n"
+-#~ "variable with proxy info or a proxy scripting\n"
+-#~ "hook did not provide proxy configuration info\n"
+-#~ "in the correct format."
+-#~ msgstr ""
+-#~ "Konfiguracja proxy napotka³a b³±d.\n"
+-#~ "Zazwyczaj oznacza to, ¿e zmienna ¶rodowiska\n"
+-#~ "zawieraj±ca informacje o proxy lub zaczepienia\n"
+-#~ "skryptowe nie dostarczy³y informacji o konfiguracji\n"
+-#~ "proxy w odpowiednim formacie."
+-
+-#~ msgid "Cannot stat the file"
+-#~ msgstr "B³±d przy wykonywaniu stat()"
+-
+-#~ msgid ""
+-#~ "Options for handling of the accesskey attribute of the active\n"
+-#~ "HTML elements."
+-#~ msgstr "Ustawienia obs³ugi atrybutu accesskey aktywnego elementu HTML."
+-
+-#~ msgid "Whether to navigate links using tabindex."
+-#~ msgstr "Czy do przemieszczania siê po odno¶nikach u¿ywaæ tabindex?"
+-
+-#~ msgid "~New window"
+-#~ msgstr "~Nowe okno"
+-
+-#~ msgid "UTF-8 I/0"
+-#~ msgstr "I/O w UTF-8"
+-
+-#~ msgid "Scrollbar selected"
+-#~ msgstr "Pasek przewijania wybrany"
+-
+-#~ msgid ""
+-#~ "Whether to display a digital clock in the status bar.\n"
+-#~ "Note that the LED indicators must be enabled for this\n"
+-#~ "to take effect."
+-#~ msgstr ""
+-#~ "Czy w³±czyæ wy¶wietlanie cyfrowego zegara. Wiedz, ¿e\n"
+-#~ "wska¼niki LED powinny byæ w³±czone by zmiana ta odnios³a skutek"
+-
+-#~ msgid ""
+-#~ "Whether to display a digital clock in the status bar.\n"
+-#~ "Note that the LED indicators (DISABLED) must be enabled\n"
+-#~ "for this to take any effect."
+-#~ msgstr ""
+-#~ "Czy w³±czyæ wy¶wietlanie cyfrowego zegara. Wiedz, ¿e\n"
+-#~ "wska¼niki LED (WY£¡CZONE) powinny byæ w³±czone by\n"
+-#~ "zmiana ta odnios³a skutek."
+-
+-#~ msgid "Sorry, but folder \"%s\" cannot be deleted."
+-#~ msgstr "Przykro mi, ale folder \"%s\" nie mo¿e byæ usuniêty."
+-
+-#~ msgid "Sorry, but folder \"%s\" is being used by something else."
+-#~ msgstr "Przykro mi, ale folder \"%s\" jest u¿ywany przez co¶ innego."
+-
+-#~ msgid ""
+-#~ "ID of session (ELinks instance) which we want to clone.\n"
+-#~ "This is internal ELinks option, you don't want to use it."
+-#~ msgstr ""
+-#~ "ID sesji (instancji ELinksa), któr± chcemy sklonowaæ.\n"
+-#~ "To jest wewnêtrzna opcja ELinksa, nie bêdziesz chcia³ jej u¿ywaæ."
+-
+-#~ msgid ""
+-#~ "Write a plain-text version of the given HTML document to\n"
+-#~ "stdout."
+-#~ msgstr ""
+-#~ "Zapisz wersjê czysto tekstow± danego dokumentu HTML\n"
+-#~ "na standardowe wyj¶cie."
+-
+-#~ msgid "Assume the file is HTML"
+-#~ msgstr "Przyjmij, ¿e plik jest HTML"
+-
+-#
+-#~ msgid "Look up specified host."
+-#~ msgstr "Szukaj podanego hosta."
+-
+-#~ msgid ""
+-#~ "Prevents numbering of links in the -dump output; this was the\n"
+-#~ "default behaviour until 0.5pre12.\n"
+-#~ "Note that this really affects only -dump, nothing else."
+-#~ msgstr ""
+-#~ "Zapobiega numerowaniu odno¶ników przy zrzutach (-dump); to by³o\n"
+-#~ "domy¶lne zachowanie przed 0.5pre12.\n"
+-#~ "Pamiêtaj, ¿e dotyczy to tylko -dump, niczego innego."
+-
+-#~ msgid ""
+-#~ "Whether to try to connect to a host over IPv6 (DISABLED).\n"
+-#~ "Note that you could have also forced a given protocol\n"
+-#~ "to be used on a per-connection basis by using an URL\n"
+-#~ "in the style of i.e. http6://elinks.or.cz/."
+-#~ msgstr ""
+-#~ "Czy próbowaæ po³±czyæ siê z serwerem przy pomocy IPv6 (WY£¡CZONE)?\n"
+-#~ "Pamiêtaj, ¿e mo¿esz tak¿e wymusiæ dany protokó³ przy po³±czeniu\n"
+-#~ "u¿ywaj±c URL-a w stylu np. http6://elinks.or.cz/."
+-
+-#~ msgid ""
+-#~ "Enable searching with regular expressions.\n"
+-#~ "0 for plain text searching.\n"
+-#~ "1 for basic regular expression searches. (DISABLED)\n"
+-#~ "2 for extended regular expression searches. (DISABLED)"
+-#~ msgstr ""
+-#~ "W³±cz szukanie z u¿yciem wyra¿eñ regularnych.\n"
+-#~ "0 - zwyk³e szukanie.\n"
+-#~ "1 - szukanie z u¿yciem prostych wyra¿eñ regularnych. (WY£¡CZONE)\n"
+-#~ "2 - szukanie z u¿yciem rozszerzonych wyra¿eñ regularnych. (WY£¡CZONE)"
+-
+-#~ msgid "Border type"
+-#~ msgstr "Typ ramek"
+-
+-#~ msgid "I/O in UTF8"
+-#~ msgstr "I/O in UTF8"
+-
+-#
+-#~ msgid "Enable transparency"
+-#~ msgstr "Przezroczysto¶æ"
+-
+-#~ msgid "Use underline"
+-#~ msgstr "U¿yj podkre¶lenia"
+-
+-#~ msgid "Load/save cookies from/to disk?"
+-#~ msgstr "Czy wczytywaæ/zapisywaæ ciasteczka z dysku/na dysk?"
+-
+-#~ msgid ""
+-#~ "Do you want to accept a cookie from %s?\n"
+-#~ "\n"
+-#~ "Name: %s\n"
+-#~ "Value: %s\n"
+-#~ "Domain: %s\n"
+-#~ "Expires: %s\n"
+-#~ "Secure: %s\n"
+-#~ msgstr ""
+-#~ "Czy akceptujesz ciasteczko z %s?\n"
+-#~ "\n"
+-#~ "Nazwa: %s\n"
+-#~ "Warto¶æ: %s\n"
+-#~ "Domena: %s\n"
+-#~ "Wa¿ne do: %s\n"
+-#~ "Bezpieczeñstwo: %s\n"
+-
+-#~ msgid "Use ^[[11m"
+-#~ msgstr "U¿ywaj ^[[11m"
+-
+-#~ msgid "Block the cursor"
+-#~ msgstr "Kursor blokowy"
+-
+-#~ msgid ""
+-#~ "A script embedded in the current document raised the following%s%s%s%s: \n"
+-#~ "\n"
+-#~ "%s\n"
+-#~ "\n"
+-#~ "%s\n"
+-#~ ".%*s^%*s."
+-#~ msgstr ""
+-#~ "Skrypt zawarty w bie¿±cym dokumencie spowodowa³ %s%s%s%s: \n"
+-#~ "\n"
+-#~ "%s\n"
+-#~ "\n"
+-#~ "%s\n"
+-#~ ".%*s^%*s."
+-
+-#~ msgid "Forms memory"
+-#~ msgstr "Zapamiêtywanie formularzy"
+-
+-#~ msgid "accept() failed: %d (%s)"
+-#~ msgstr "b³±d accept(): %d (%s)"
+-
+-#~ msgid "socket() failed: %d (%s)"
+-#~ msgstr "b³±d socket(): %d (%s)"
+-
+-#~ msgid "bind() failed: %d (%s)"
+-#~ msgstr "b³±d bind(): %d (%s)"
+-
+-#~ msgid "listen() failed: %d (%s)"
+-#~ msgstr "b³±d listen(): %d (%s)"
+-
+-#~ msgid "connect() failed: %d (%s)"
+-#~ msgstr "b³±d connect(): %d (%s)"
+-
+-#~ msgid ""
+-#~ "Mimetypes search path. Colon-separated list of files.\n"
+-#~ "Leave as \"\" to use built-in default instead."
+-#~ msgstr ""
+-#~ "¦cie¿ka poszukiwañ dla Mimetypes. Oddzielona dwukropkami lista plików.\n"
+-#~ "Zostaw jako \"\" by u¿ywaæ warto¶ci domy¶lnych."
+-
+-#~ msgid "Local CGI specific options. (DISABLED)"
+-#~ msgstr "Ustawienia dotycz±ce lokalnych skryptów CGI. (WY£¡CZONE)"
+-
+-#~ msgid ""
+-#~ "Colon separated list of directories, where CGI scripts are stored. "
+-#~ "(DISABLED)"
+-#~ msgstr ""
+-#~ "Oddzielona dwukropkami lista katalogów, z których mo¿na wykonywaæ\n"
+-#~ "skrypty CGI. (WY£¡CZONE)"
+-
+-#~ msgid "Whether to execute local CGI scripts. (DISABLED)"
+-#~ msgstr "Czy uruchamiaæ lokalne skrypty CGI. (WY£¡CZONE)"
+-
+-#~ msgid ""
+-#~ "Use EPSV instead of EPRT (passive vs active mode, IPv6 only).\n"
+-#~ "Works only with IPv6 enabled, so nothing interesting for you."
+-#~ msgstr ""
+-#~ "U¿ywaj EPSV zamiast EPRT (tryb pasywny kontra aktywny, tylko IPv6).\n"
+-#~ "Dzia³a tylko z w³±czonym IPv6, wiêc nic ciekawego dla Ciebie."
+-
+-#~ msgid "Ok"
+-#~ msgstr "Ok"
+-
+-#
+-#~ msgid "User"
+-#~ msgstr "U¿ytkownik"
+-
+-#~ msgid "Could not create file %s: %s"
+-#~ msgstr "Nie mo¿na utworzyæ pliku %s: %s"
+-
+-#~ msgid "Leet"
+-#~ msgstr "Leet"
+-
+-#~ msgid "Don't attempt to create and/or use home rc directory (~/.elinks)."
+-#~ msgstr "Nie próbuj tworzyæ ani u¿ywaæ domowego katalogu rc (~/.elinks)."
+-
+-#
+-#~ msgid "Expand table columns"
+-#~ msgstr "Rozszerz kolumny tabeli"
+-
+-#~ msgid ""
+-#~ "This option is no longer in effect. It is obsoleted by changes\n"
+-#~ "to always expand table columns."
+-#~ msgstr ""
+-#~ "Ta opcja nie jest ju¿ u¿ywana. Zosta³a wyparta przez zmianê,\n"
+-#~ "aby zawsze rozszerzaæ kolumny tabeli."
+-
+-#~ msgid ""
+-#~ "Options for mailcap support. (Deprecated. Please use\n"
+-#~ "mime.mailcap instead)"
+-#~ msgstr ""
+-#~ "Opcje dla wsparcia mailcap. (Przestarza³e. U¿yj zamiast tego\n"
+-#~ "mime.mailcap)"
+-
+-#~ msgid ""
+-#~ "Allocated      : %ld bytes\n"
+-#~ "Truly allocated: %ld bytes (x%0.2f)\n"
+-#~ "Cache size     : %ld bytes\n"
+-#~ msgstr ""
+-#~ "Zaalokowane               : %ld bajtów\n"
+-#~ "Naprawdê zaalokowane      : %ld bajtów (x%0.2f)\n"
+-#~ "Rozmiar pamiêci podrêcznej: %ld bajtów\n"
+-
+-#~ msgid "Memory info"
+-#~ msgstr "Informacje o pamiêci"
+-
+-#~ msgid "~Memory info"
+-#~ msgstr "Infor~macje o pamiêci"
+-
+-#~ msgid "Is the current link bookmarked"
+-#~ msgstr "Czy bie¿±cy odno¶nik jest dodany do zak³adek"
+-
+-#~ msgid "Is the current location bookmarked"
+-#~ msgstr "Czy bie¿±ca lokacja jest dodana do zak³adek"
+-
+-#~ msgid "Is the current link is the history"
+-#~ msgstr "Czy bie¿±cy odno¶nik jest histori±"
+-
+-#~ msgid "Number of cached formatted pages."
+-#~ msgstr "Ilo¶æ sformatowanych dokumentów."
+-
+-#~ msgid "Sorry, but bookmark's folder \"%s\" cannot be deleted."
+-#~ msgstr "Przykro mi, ale folder zak³adek \"%s\" nie mo¿e byæ usuniêty."
+-
+-#~ msgid "Sorry, but bookmark's folder \"%s\" is being used by something else."
+-#~ msgstr ""
+-#~ "Przykro mi, ale folder zak³adek \"%s\" jest u¿ywany przez co¶ innego."
+-
+-#~ msgid "Delete bookmark's folder"
+-#~ msgstr "Usuñ folder zak³adek"
+-
+-#~ msgid "Begin editing"
+-#~ msgstr "Zacznij edycjê"
+-
+-#~ msgid "Save as"
+-#~ msgstr "Zapisz jako"
+-
+-#~ msgid "Save formatted document"
+-#~ msgstr "Zapisz sformatowany dokument"
+-
+-#~ msgid "Sorry, but cookie's folder \"%s\" cannot be deleted."
+-#~ msgstr "Przykro mi, ale folder ciasteczek \"%s\" nie mo¿e byæ usuniêty."
+-
+-#~ msgid "Sorry, but cookie's folder \"%s\" is being used by something else."
+-#~ msgstr ""
+-#~ "Przykro mi, ale folder ciasteczek \"%s\" jest u¿ywany przez co¶ innego."
+-
+-#~ msgid ""
+-#~ "Handler for certain MIME types (as specified in mime.type.*).\n"
+-#~ "Each handler usually serves family of MIME types (ie. images)."
+-#~ msgstr ""
+-#~ "Program obs³ugi dla pewnych typów MIME (jak podano w mime.type.*).\n"
+-#~ "Ka¿dy program obs³ugi zwykle s³u¿y rodzinie typów MIME (np. obrazkom)."
+-
+-#~ msgid "Enable dumb prefixes."
+-#~ msgstr "W³±czenie g³upich przedrostków."
+-
+-#~ msgid "Enable smart prefixes."
+-#~ msgstr "W³±czenie inteligentnych przedrostków."
+-
+-#~ msgid "Dumb prefixes."
+-#~ msgstr "G³upie przedrostki."
+-
+-#~ msgid "Smart prefixes."
+-#~ msgstr "Inteligentne przedrostki."
+-
+-#~ msgid "This version of ELinks does not contain finger protocol support"
+-#~ msgstr "Ta wersja ELinksa nie zawiera wsparcia dla protoko³u finger"
+-
+-#~ msgid ""
+-#~ "Enable to make table rendering expand table columns so cells\n"
+-#~ "are more correctly vertically aligned with respect to the background\n"
+-#~ "colors, but less correctly vertically aligned with respect to the\n"
+-#~ "overall layout. Only useful if you also have\n"
+-#~ "document.colors.use_document_colors set to 2. Experimental."
+-#~ msgstr ""
+-#~ "W³±cz tê opcjê, aby rozszerzyæ kolumny tabeli tak by komórki by³y\n"
+-#~ "lepiej dopasowane do koloru t³a w pionie, ale s³abiej pasowa³y do\n"
+-#~ "ogólnego layoutu. U¿yteczne tylko wtedy, gdy\n"
+-#~ "document.colors.use_document_colors jest ustawione na 2. Eksperymentalne."
+-
+-#, fuzzy
+-#~ msgid "Move downwards one link"
+-#~ msgstr "Przesuñ w dó³ o stronê"
+-
+-#~ msgid "ID tag"
+-#~ msgstr "tag ID"
+-
+-#~ msgid "ELinks %s - Text WWW browser\n"
+-#~ msgstr "ELinks %s - Tekstowa przegl±darka WWW\n"
+-
+-#~ msgid "Check if ELinks is currently running"
+-#~ msgstr "Sprawdzenie czy ELinks jest ju¿ uruchomiony"
+-
+-#~ msgid ""
+-#~ "Checks if ELinks is currently running by trying to connect the interlink "
+-#~ "socket."
+-#~ msgstr ""
+-#~ "Sprawdza czy ELinks jest ju¿ uruchomiony próbuj±c po³±czyæ siê do gniazda "
+-#~ "wewnêtrznej komunikacji."
+-
+-#~ msgid ""
+-#~ "Mozilla compliant support for controlling an already running instance\n"
+-#~ "of ELinks by openning URLs and tabs:\n"
+-#~ "  -remote 'openURL(http://elinks.or.cz)'"
+-#~ msgstr ""
+-#~ "Zgodna z Mozill± obs³uga kontrolowania ju¿ dzia³aj±cej instancji ELinksa\n"
+-#~ "poprzez otwieranie URL-i i tabów:\n"
+-#~ "  -remote 'openURL(http://elinks.or.cz)'"
+-
+-#~ msgid "Delete keybinding"
+-#~ msgstr "Skasuj przypisanie"
+-
+-#~ msgid ""
+-#~ "This item is not a keybinding. Try to press a space in order to get to "
+-#~ "the keybindings themselves."
+-#~ msgstr ""
+-#~ "To nie jest przypisanie. Naci¶nij spacjê, ¿eby otrzymaæ przypisanie."
+-
+-#~ msgid "Really delete the keybinding \"%s\" (action \"%s\", keymap \"%s\")?"
+-#~ msgstr ""
+-#~ "Czy na pewno skasowaæ przypisanie \"%s\" (akcja \"%s\", mapa klawiatury "
+-#~ "\"%s\"?"
+-
+-#~ msgid "Move the current tab one step back"
+-#~ msgstr "Przesuñ bie¿±c± kartê o krok w ty³"
+-
+-#~ msgid "Scroll margin"
+-#~ msgstr "Margines przy przewijaniu"
+-
+-#~ msgid "Scroll step"
+-#~ msgstr "Krok przy przewijaniu"
+-
+-#
+-#~ msgid "Default document codepage."
+-#~ msgstr "Domy¶lna strona kodowa dokumentu."
+-
+-#~ msgid "Pop up goto dialog on startup when there's no homepage set."
+-#~ msgstr ""
+-#~ "Gdy nie ma ustawionej strony domowej wy¶wietlaj okienko wpisywania adresu."
+-
+-#~ msgid "%ld bytes of memory allocated."
+-#~ msgstr "%ld bajtów przydzielonej pamiêci."
+-
+-#~ msgid "Could not get terminal size"
+-#~ msgstr "Nie mo¿na okre¶liæ rozmiaru terminala"
+-
+-#~ msgid "hit ENTER to"
+-#~ msgstr "wci¶nij ENTER aby"
+-
+-#~ msgid "post to"
+-#~ msgstr "wys³aæ do"
+-
+-#~ msgid "Number out of range"
+-#~ msgstr "Liczba poza dozwolonym zakresem"
+-
+-#~ msgid "Bad user protocol URL"
+-#~ msgstr "B³êdny URL dla protoko³u u¿ytkownika"
+-
+-#~ msgid "Read document from stdin"
+-#~ msgstr "Czytaj dokument ze standardowego wej¶cia"
+-
+-#~ msgid ""
+-#~ "Open stdin as an HTML document - this is fully equivalent to:\n"
+-#~ " -eval 'set protocol.file.allow_special_files = 1' file:///dev/stdin\n"
+-#~ "Use whichever suits you more ;-). Note that reading document from\n"
+-#~ "stdin WORKS ONLY WHEN YOU USE -dump OR -source!! (I would like to\n"
+-#~ "know why you would use -source -stdin, though ;-)"
+-#~ msgstr ""
+-#~ "Otwórz standardowe wej¶cie jako dokument HTML - jest to równowa¿ne z:\n"
+-#~ " -eval 'set protocol.file.allow_special_files = 1' file:///dev/stdin\n"
+-#~ "U¿ywaj tego, które bardziej Ci siê podoba. Wiedz, ¿e czytanie\n"
+-#~ "ze standardowego wej¶cia DZIA£A TYLKO RAZEM z -dump LUB -source!!\n"
+-#~ "Chcia³bym wiedzieæ po co by¶ chcia³(a) u¿ywaæ -source -stdin, chocia¿ ;-)"
+-
+-#~ msgid "(default: #%06lx)"
+-#~ msgstr "(domy¶lnie: #%06lx)"
+-
+-#~ msgid "Set config dir to given string"
+-#~ msgstr "Ustawienie katalogu konfiguracyjnego na dany ³añcuch"
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the document.browse.search.wraparound option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej document.browse.search.wraparound."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the document.browse.search.show_not_found option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej document.browse.search.show_not_found."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the mime.default_type option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i wkrótce zostanie usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.default_type."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use ui.colors.color.dialog.generic.background instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej ui.colors.color.dialog.generic.background."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use ui.colors.mono.dialog.generic.background instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej ui.colors.mono.dialog.generic.background."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the mime.mailcap.enable option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i wkrótce zostanie usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.mailcap.enable."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the mime.mailcap.path option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.mailcap.path."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the mime.mailcap.ask option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.mailcap.ask."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use mime.mailcap.description option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.mailcap.description."
+-
+-#~ msgid ""
+-#~ "This option is deprecated and will be removed very soon.\n"
+-#~ "Please use the mime.mailcap.prioritize option instead."
+-#~ msgstr ""
+-#~ "Ta opcja jest przedawniona i zostanie wkrótce usuniêta.\n"
+-#~ "U¿yj zamiast niej mime.mailcap.prioritize."
+-
+-#~ msgid "Typeahead error handling"
+-#~ msgstr "Obs³uga b³êdów szukania z wyprzedzeniem"
