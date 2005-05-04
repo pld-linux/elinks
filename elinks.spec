@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
 %bcond_with	gnutls	# Enable GNUTLS SSL support (disables openssl)
-%bcond_with	js	# Enable experimental JavaScript support (using SpiderMonkey)
 %bcond_without	256	# Disable 256 colors support
 %bcond_without	cgi	# Disable Local CGI support
 %bcond_without	guile	# Disable Guile scripting
 %bcond_without	idn	# Disable Internation Domain Names support
 %bcond_without	ipv6	# Disable IPv6 support
+%bcond_without	js	# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
 %bcond_without	led	# Disable LEDs
 %bcond_without	lua	# Disable Lua scripting
 %bcond_without	openssl # Disable OpenSSL support
@@ -22,21 +22,20 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.10.4
+Version:	0.10.5
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	0bcc8324f70dba46503af15023c8ee0f
+# Source0-md5:	d19fea8cddd1c64ae890319650dce1ff
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-locale_names.patch
-Patch3:		%{name}-lua40-fix.patch
-Patch4:		%{name}-pl.po-update.patch
+#Patch3:		%{name}-pl.po-update.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -86,8 +85,6 @@ keepalive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p0
-%patch4 -p1
 
 mv -f po/{no,nb}.po
 
