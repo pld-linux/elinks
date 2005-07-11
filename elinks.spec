@@ -23,7 +23,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.10.5
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -44,7 +44,7 @@ BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
-%{?with_gnutls:BuildRequires: gnutls-devel}
+%{?with_gnutls:BuildRequires: gnutls-devel >= 1.2.5}
 %{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_lua:BuildRequires:	lua50-devel}
