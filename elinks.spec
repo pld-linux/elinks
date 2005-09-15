@@ -22,14 +22,14 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.10.5
-Release:	3
+Version:	0.10.6
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://elinks.or.cz/download.html
 Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	d19fea8cddd1c64ae890319650dce1ff
+# Source0-md5:	f539c07a7b0e19e8f1c6f35f7d406841
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -114,7 +114,10 @@ mv -f po/{no,nb}.po
 	%{!?with_js:--without-spidermonkey} \
 	%{?with_gnutls:--with-gnutls} \
 	%{!?with_openssl:--without-openssl} \
-	--with%{!?with_x:out}-x 
+	--with%{!?with_x:out}-x
+# xterm -e is default, one might want to change it to
+# something else
+#	--with-xterm="xterm -e"
 
 %{__make}
 
