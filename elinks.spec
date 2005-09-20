@@ -35,7 +35,7 @@ Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-locale_names.patch
-#Patch3:		%{name}-pl.po-update.patch
+Patch3:		%{name}-pl.po-update.patch
 URL:		http://elinks.or.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -85,6 +85,7 @@ keepalive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 mv -f po/{no,nb}.po
 
