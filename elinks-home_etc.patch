@@ -1,5 +1,21 @@
---- elinks.orig/src/lowlevel/home.c	Sun Oct  5 07:51:20 2003
-+++ elinks/src/lowlevel/home.c	Sun Oct  5 12:25:50 2003
+diff -burN elinks-0.11.0.orig/doc/man/man1/elinks.1.in elinks-0.11.0/doc/man/man1/elinks.1.in
+--- elinks-0.11.0.orig/doc/man/man1/elinks.1.in	2006-01-01 21:59:35.921524250 +0100
++++ elinks-0.11.0/doc/man/man1/elinks.1.in	2006-01-01 22:01:19.884021500 +0100
+@@ -235,6 +235,11 @@
+ The path to the users home directory\&. Used when expanding ~/\&.
+ 
+ .TP
++HOME_ETC
++If set the location of the directory containing configuration files
++is \fI$HOME_ETC/.elinks/\fR instead of \fI~/.elinks/\fR.
++
++.TP
+ WWW_HOME
+ Homepage location (as in lynx(1))
+ 
+diff -burN elinks-0.11.0.orig/src/config/home.c elinks-0.11.0/src/config/home.c
+--- elinks-0.11.0.orig/src/config/home.c	2006-01-01 21:59:35.845519500 +0100
++++ elinks-0.11.0/src/config/home.c	2006-01-01 22:00:36.489309500 +0100
 @@ -109,7 +109,7 @@
  get_home(void)
  {
@@ -7,18 +23,5 @@
 -	unsigned char *envhome = getenv("HOME");
 +	unsigned char *envhome = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
  	unsigned char *home = envhome ? stracpy(envhome)
- 				      : elinks_dirname(path_to_exe);
+ 				      : elinks_dirname(program.path);
  
---- elinks/doc/man/man1/elinks.1.in.orig	Thu Oct 23 13:07:37 2003
-+++ elinks/doc/man/man1/elinks.1.in	Thu Oct 23 13:12:03 2003
-@@ -127,6 +127,10 @@
- The location of the directory containing configuration files.
- If not set the default is \fI~/.elinks/\fR.
- .TP
-+\fB HOME_ETC \fR
-+If set the location of the directory containing configuration files
-+is \fI$HOME_ETC/.elinks/\fR instead of \fI~/.elinks/\fR.
-+.TP
- \fB WWW_HOME \fR
- Homepage location (as in \fBlynx(1)\fR)
- .TP

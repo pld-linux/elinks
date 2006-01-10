@@ -1,78 +1,120 @@
---- elinks-0.10.6/po/pl.po.orig	2005-09-15 01:03:10.000000000 +0200
-+++ elinks-0.10.6/po/pl.po	2005-09-21 00:44:20.814916056 +0200
-@@ -1,7 +1,7 @@
- # Polish ELinks translation.
- # Arkadiusz Sochala <jojoro@priv2.onet.pl>
- # Grzegorz Golawski <grzegol@pld.org.pl>
--# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2004
-+# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2005
+diff -burN elinks-0.11.0.orig/po/pl.po elinks-0.11.0/po/pl.po
+--- elinks-0.11.0.orig/po/pl.po	2006-01-01 21:59:35.889522250 +0100
++++ elinks-0.11.0/po/pl.po	2006-01-01 22:14:34.169661250 +0100
+@@ -4,7 +4,7 @@
+ # Jakub Bogusz <qboosh@pld-linux.org>, 2002-2004
  # Wojtek Bojdo/l <wojboj@lp.net.pl>
  # Witold Filipczyk <witekfl@pld-linux.org>, 2001 - 2004
- # Adam Go³êbiowski <adamg@pld-linux.org>, 2003-2005
-@@ -9,10 +9,10 @@
+-# Adam Go³êbiowski <adamg@pld-linux.org>, 2003-2005
++# Adam Go³êbiowski <adamg@pld-linux.org>, 2003-2006
+ # Miko³aj Machowski <mikmach@wp.pl>, 2003
  #
  msgid ""
- msgstr ""
--"Project-Id-Version: ELinks 0.10.CVS\n"
-+"Project-Id-Version: ELinks 0.10.6\n"
- "POT-Creation-Date: 2005-09-15 01:03+0200\n"
--"PO-Revision-Date: 2005-05-03 23:02+0200\n"
--"Last-Translator: Adam Golebiowski <adamg@pld-linux.org>\n"
-+"PO-Revision-Date: 2005-09-21 00:40+0200\n"
-+"Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
+@@ -13,7 +13,7 @@
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2005-11-27 07:21+0100\n"
+ "PO-Revision-Date: 2005-11-27 21:17+0100\n"
+-"Last-Translator: YOUR NAME <E-MAIL@ADDRESS>\n"
++"Last-Translator: Adam Golebiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=ISO-8859-2\n"
-@@ -671,9 +671,8 @@
- msgstr "Ustawienia"
+@@ -1231,7 +1231,7 @@
  
- #: src/config/cmdline.c:559
--#, fuzzy
+ #: src/config/cmdline.c:568
  msgid "Usage: elinks [OPTION]... [URL]..."
--msgstr "U¿ycie: elinks [OPCJA]... [URL]"
+-msgstr "U¿ycie: elinks [OPCJA]... [URL]..."
 +msgstr "Sk³adnia: elinks [OPCJA]... [URL]..."
  
- #: src/config/cmdline.c:560
+ #: src/config/cmdline.c:569
  msgid "Options"
-@@ -2258,9 +2257,8 @@
- "klawiszy dotycz± pola tekstowego."
+@@ -5488,13 +5488,15 @@
  
- #: src/config/options.inc:194
--#, fuzzy
- msgid "External editor"
--msgstr "Otwórz w zewnêtrznym edytorze"
-+msgstr "Zewnêtrzny edytor"
+ #: src/ecmascript/ecmascript.c:48
+ msgid "Ignore <noscript> content"
+-msgstr ""
++msgstr "Ignoruj zawarto¶æ <noscript>"
  
- #: src/config/options.inc:196
+ #: src/ecmascript/ecmascript.c:50
  msgid ""
-@@ -2271,6 +2269,13 @@
- "variable $EDITOR. If $EDITOR is empty or not set, ELinks will then\n"
- "default to \"vi\"."
+ "Whether to ignore content enclosed by the <noscript> tag\n"
+ " when ECMAScript is enabled."
  msgstr ""
-+"¦cie¿ka do pliku wykonywalnego, który powinien byæ uruchamiany przez\n"
-+"ELinksa, kiedy u¿ytkownik chce modyfikowaæ pole textarea przy u¿yciu\n"
-+"zewnêtrznego edytora.\n"
-+"\n"
-+"Je¶li jest pusta, ELinks u¿yje warto¶ci zmiennej ¶rodowiskowej $EDITOR.\n"
-+"Je¶li $EDITOR jest pusta lub nie ustawiona, ELinks u¿yje warto¶ci\n"
-+"domy¶lnej \"vi\"."
++"Czy ignorowaæ kod zawarty w znaczniku <noscript> w przypadku, gdy\n"
++"ECMAScript jest w³±czony"
+ 
+ #: src/ecmascript/ecmascript.c:53
+ msgid "Maximum execution time"
+@@ -6444,7 +6446,7 @@
+ 
+ #: src/network/state.c:76
+ msgid "Local file access is not allowed in anonymous mode"
+-msgstr ""
++msgstr "Dostêp do lokalnych plików nie jest mo¿liwy w trybie anonimowym"
+ 
+ #: src/network/state.c:79
+ msgid "Bad FTP response"
+@@ -6550,7 +6552,7 @@
+ 
+ #: src/network/state.c:123
+ msgid "The BitTorrent metainfo file contained errors"
+-msgstr ""
++msgstr "Plik metainformacji BitTorrent zawiera b³êdy"
+ 
+ #: src/network/state.c:124
+ msgid "The tracker requesting failed"
+@@ -6969,7 +6971,7 @@
+ 
+ #: src/protocol/bittorrent/dialogs.c:122
+ msgid "Warning: potential malicious path detected"
+-msgstr ""
++msgstr "Uwaga: wykryto potencjalnie niebezpieczn± ¶cie¿kê"
+ 
+ #: src/protocol/bittorrent/dialogs.c:141
+ #, fuzzy
+@@ -6983,23 +6985,20 @@
+ #: src/protocol/bittorrent/dialogs.c:151
+ #, fuzzy
+ msgid "Creation date"
+-msgstr "System konfiguracyjny"
++msgstr "Data utworzenia"
+ 
+ #: src/protocol/bittorrent/dialogs.c:160
+-#, fuzzy
+ msgid "Directory"
+-msgstr "Katalogi:"
++msgstr "Katalog"
+ 
+ #: src/protocol/bittorrent/dialogs.c:170
+-#, fuzzy
+ msgid "Files"
+-msgstr "Pliki:"
++msgstr "Pliki"
  
  #
- #: src/config/options.inc:203
-@@ -2537,14 +2542,12 @@
- 
- #
- #: src/config/options.inc:330
+ #: src/protocol/bittorrent/dialogs.c:183
 -#, fuzzy
- msgid "Missing fragment reporting"
--msgstr "Brakuj±cy fragment"
-+msgstr "Raportowanie brakuj±cych fragmentów"
+ msgid "Comment"
+-msgstr "Komentarze"
++msgstr "Komentarz"
  
- #: src/config/options.inc:332
--#, fuzzy
- msgid "Open a message box when document has no tag with given id."
--msgstr "Czy otwieraæ okienko dialogowe z raportem o b³êdzie skryptu."
-+msgstr "Czy otwieraæ okienko dialogowe kiedy dokument nie ma znacznika o danym id."
+ #: src/protocol/bittorrent/dialogs.c:229 src/session/download.c:363
+ #, c-format
+@@ -7044,7 +7043,7 @@
  
- #: src/config/options.inc:334
- msgid "Number keys select links"
+ #: src/protocol/bittorrent/dialogs.c:311
+ msgid "partial"
+-msgstr ""
++msgstr "czê¶ciowy"
+ 
+ #. Peers:
+ #: src/protocol/bittorrent/dialogs.c:315
+@@ -7053,7 +7052,7 @@
+ msgstr "Licznik"
+ 
+ #: src/protocol/bittorrent/dialogs.c:319
+-#, fuzzy, c-format
++#, c-format
+ msgid "%u connection"
+ msgid_plural "%u connections"
+ msgstr[0] "%d po³±czenie"
