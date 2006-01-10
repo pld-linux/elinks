@@ -123,7 +123,7 @@ keepalive.
 # something else
 #	--with-xterm="xterm -e"
 
-%{__make}
+%{__make} V=1
 
 cd doc
 texi2html elinks-lua.texi
@@ -135,7 +135,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
 
-%{__make} install \
+%{__make} install V=1 \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
