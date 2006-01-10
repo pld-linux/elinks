@@ -1,0 +1,122 @@
+From: Jonas Fonseca <fonseca@diku.dk>
+Date: Sun, 1 Jan 2006 16:22:39 +0000 (+0100)
+Subject:     Fix po/Makefile w.r.t. the new value of $(srcdir) when srcdir == buildir
+X-Git-Tag: elinks-0.11rc0
+X-Git-Url: http://pasky.or.cz/gitweb.cgi?p=elinks.git;a=commitdiff;h=d0745cceda111548b0a5ab73e4adb7f5b0bfcf2b
+
+  Fix po/Makefile w.r.t. the new value of $(srcdir) when srcdir == buildir
+---
+
+--- a/po/Makefile
++++ b/po/Makefile
+@@ -25,7 +25,7 @@ quiet_cmd_gmsgfmt = ' [$(PO_COLOR)GMSGFM
+ 
+ ### The default rule
+ #
+-# Note: Target `all-local' must not depend on target '$(srcdir)/$(PACKAGE).pot',
++# Note: Target `all-local' must not depend on target '$(srcdir)$(PACKAGE).pot',
+ # otherwise packages like GCC can not be built if only parts of the source have
+ # been downloaded.
+ #
+@@ -45,18 +45,18 @@ all-local: $(CATALOGS)
+ # This pulls in _all_ .c and .h files in the src directory. Even files that has
+ # not been added to the git repo. Beware of junk entries!
+ 
+-$(srcdir)/$(POTFILES_ABS_LIST):
++$(srcdir)$(POTFILES_ABS_LIST):
+ 	@( cd $(top_srcdir); \
+ 	  find src/ -type f -name '*.[ch]' -o -name options.inc -o -name 'actions-*.inc' | sort ) \
+-	 > $(srcdir)/$(POTFILES_ABS_LIST)
++	 > $(srcdir)$(POTFILES_ABS_LIST)
+ 
+-$(srcdir)/$(PACKAGE).pot: $(srcdir)/$(POTFILES_ABS_LIST)
++$(srcdir)$(PACKAGE).pot: $(srcdir)$(POTFILES_ABS_LIST)
+ 	$(XGETTEXT) --default-domain=$(PACKAGE) \
+ 		    --directory=$(top_srcdir) \
+ 		    --add-comments --language=C \
+-		    --keyword=_ --keyword=N_ --keyword=n_:1,2 --keyword=N__ -f $(srcdir)/$(POTFILES_ABS_LIST) \
++		    --keyword=_ --keyword=N_ --keyword=n_:1,2 --keyword=N__ -f $(srcdir)$(POTFILES_ABS_LIST) \
+ 	&& test -f $(PACKAGE).po \
+-	&& mv -f $(PACKAGE).po $(srcdir)/$(PACKAGE).pot 
++	&& mv -f $(PACKAGE).po $(srcdir)$(PACKAGE).pot 
+ 
+ 
+ ### Updating po and gmo files
+@@ -66,12 +66,12 @@ $(srcdir)/$(PACKAGE).pot: $(srcdir)/$(PO
+ # It is possible to update only a single .po file by setting the PO variable to
+ # either <lang> or <lang>.po when calling make. Example: make update-po PO=is
+ 
+-update-po: Makefile $(srcdir)/$(PACKAGE).pot
++update-po: Makefile $(srcdir)$(PACKAGE).pot
+ 	@cd $(srcdir)
+ 	@$(foreach lang,$(basename $(if $(strip $(PO)),$(PO),$(GMOFILES))), \
+ 	  echo -n "$(lang): "; \
+-	  if $(MSGMERGE) $(srcdir)/$(lang).po $(srcdir)/$(PACKAGE).pot -o $(lang).new.po; then \
+-	    mv -f $(lang).new.po $(srcdir)/$(lang).po; \
++	  if $(MSGMERGE) $(srcdir)$(lang).po $(srcdir)$(PACKAGE).pot -o $(lang).new.po; then \
++	    mv -f $(lang).new.po $(srcdir)$(lang).po; \
+ 	  else \
+ 	    echo "msgmerge failed!"; \
+ 	    rm -f $(lang).new.po; \
+@@ -89,7 +89,7 @@ update-gmo: Makefile $(GMOFILES)
+ check-po:
+ 	@$(foreach lang,$(basename $(if $(strip $(PO)),$(PO),$(GMOFILES))), \
+ 	  echo -n "$(lang): "; \
+-	  $(GMSGFMT) --check --check-accelerators="~" --verbose --statistics -o /dev/null $(srcdir)/$(lang).po; \
++	  $(GMSGFMT) --check --check-accelerators="~" --verbose --statistics -o /dev/null $(srcdir)$(lang).po; \
+ 	)
+ 
+ ### Installation and distribution
+@@ -104,6 +104,6 @@ install-local: all-local
+ 	)
+ 
+ clean-local:
+-	@rm -f $(PACKAGE).po *.new.po $(srcdir)/$(POTFILES_ABS_LIST)
++	@rm -f $(PACKAGE).po *.new.po $(srcdir)$(POTFILES_ABS_LIST)
+ 
+ include $(top_srcdir)/Makefile.lib
+From: Jonas Fonseca <fonseca@diku.dk>
+Date: Sun, 1 Jan 2006 21:54:44 +0000 (+0100)
+Subject:     Fix more problems when $(srcdir) is empty
+X-Git-Tag: elinks-0.11rc0
+X-Git-Url: http://pasky.or.cz/gitweb.cgi?p=elinks.git;a=commitdiff;h=dabe0816fb3a2f67ad2b48b20d610b015840cac8
+
+  Fix more problems when $(srcdir) is empty
+  
+  Thanks to Kalle Olavi Niemitalo and Adam Golebiowski.
+---
+
+--- a/po/Makefile
++++ b/po/Makefile
+@@ -67,7 +67,7 @@ $(srcdir)$(PACKAGE).pot: $(srcdir)$(POTF
+ # either <lang> or <lang>.po when calling make. Example: make update-po PO=is
+ 
+ update-po: Makefile $(srcdir)$(PACKAGE).pot
+-	@cd $(srcdir)
++	@test -z "$(srcdir)" || cd $(srcdir)
+ 	@$(foreach lang,$(basename $(if $(strip $(PO)),$(PO),$(GMOFILES))), \
+ 	  echo -n "$(lang): "; \
+ 	  if $(MSGMERGE) $(srcdir)$(lang).po $(srcdir)$(PACKAGE).pot -o $(lang).new.po; then \
+--- a/src/intl/gettext/Makefile
++++ b/src/intl/gettext/Makefile
+@@ -25,9 +25,9 @@ OBJS = \
+  textdomain.o
+ 
+ 
+-# $(builddir)/charset.alias: $(srcdir)/config.charset
++# $(builddir)/charset.alias: $(srcdir)config.charset
+ $(builddir)/charset.alias: $(srcdir)config.charset
+-	$(SHELL) $(srcdir)/config.charset '$(host)' > $@.new
++	$(SHELL) $(srcdir)config.charset '$(host)' > $@.new
+ 	mv $@.new $@
+ 
+ # FIXME: Building plural.c from plural.y on the fly doesn't work
+@@ -61,7 +61,7 @@ install-local: $(builddir)/charset.alias
+ 	  $(MKINSTALLDIRS) $(DESTDIR)$(localedir); \
+ 	  test -f $(DESTDIR)$(localedir)/locale.alias \
+ 	    && orig=$(DESTDIR)$(localedir)/locale.alias \
+-	    || orig=$(srcdir)/locale.alias; \
++	    || orig=$(srcdir)locale.alias; \
+ 	  temp=$(DESTDIR)$(localedir)/t-locale.alias; \
+ 	  dest=$(DESTDIR)$(localedir)/locale.alias; \
+ 	  sed -f ref-add.sed $$orig > $$temp; \
