@@ -2,7 +2,9 @@
 # Conditional build:
 %bcond_with	x	# Use the X Windows System
 %bcond_with	gnutls	# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	ruby	# Enable (experimental) Ruby scripting support
 %bcond_without	256	# Disable 256 colors support
+%bcond_without	bittorent # Disable BitTorrent support
 %bcond_without	cgi	# Disable Local CGI support
 %bcond_without	guile	# Disable Guile scripting
 %bcond_without	idn	# Disable Internation Domain Names support
@@ -22,21 +24,21 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.10.6
+Version:	0.11.0
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
-#Source0Download:	http://elinks.or.cz/download.html
-Source0:	http://elinks.or.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	f539c07a7b0e19e8f1c6f35f7d406841
+#Source0Download:	http://www.elinks.cz/download.html
+Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	9154f493f544af31ae31ec1dd203d315
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
-Patch2:		%{name}-locale_names.patch
-Patch3:		%{name}-pl.po-update.patch
-URL:		http://elinks.or.cz/
+Patch2:		%{name}-pl.po-update.patch
+Patch3:		%{name}-srcdir.patch
+URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
@@ -51,6 +53,7 @@ BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
+%{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	zlib-devel
 BuildRequires:	tetex
 Provides:	webclient
@@ -87,19 +90,17 @@ keepalive.
 %patch2 -p1
 %patch3 -p1
 
-mv -f po/{no,nb}.po
-
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
-%{__automake}
 %configure \
 	--disable-no-root \
 	HAVE_SMBCLIENT=yes \
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
+	%{?with_bittorrent:--enable-bittorrent} \
 	%{?with_cgi:--enable-cgi} \
 	--enable-finger \
 	--enable-gopher \
@@ -107,11 +108,13 @@ mv -f po/{no,nb}.po
 	%{?with_256:--enable-256-colors} \
 	--enable-exmode \
 	%{?with_leds:--enable-leds} \
+	--enable-marks \
 	--enable-html-highlight \
 	%{!?with_idn:--without-idn} \
 	%{?with_guile:--with-guile} \
 	%{?with_perl:--with-perl} \
 	%{!?with_lua:--without-lua} \
+	%{?with_ruby:--with-ruby} \
 	%{!?with_js:--without-spidermonkey} \
 	%{?with_gnutls:--with-gnutls} \
 	%{!?with_openssl:--without-openssl} \
@@ -150,7 +153,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/{*.txt,*.html}
+%doc doc/{*.txt,html}
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_desktopdir}/*
