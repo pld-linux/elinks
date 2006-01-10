@@ -1,19 +1,19 @@
 #
 # Conditional build:
-%bcond_with	x	# Use the X Windows System
-%bcond_with	gnutls	# Enable GNUTLS SSL support (disables openssl)
-%bcond_with	ruby	# Enable (experimental) Ruby scripting support
-%bcond_without	256	# Disable 256 colors support
-%bcond_without	bittorent # Disable BitTorrent support
-%bcond_without	cgi	# Disable Local CGI support
-%bcond_without	guile	# Disable Guile scripting
-%bcond_without	idn	# Disable Internation Domain Names support
-%bcond_without	ipv6	# Disable IPv6 support
-%bcond_without	js	# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
-%bcond_without	led	# Disable LEDs
-%bcond_without	lua	# Disable Lua scripting
-%bcond_without	openssl # Disable OpenSSL support
-%bcond_without	perl	# Disable Perl scripting
+%bcond_with	x		# Use the X Windows System
+%bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	ruby		# Enable (experimental) Ruby scripting support
+%bcond_without	256		# Disable 256 colors support
+%bcond_without	bittorrent	# Disable BitTorrent support
+%bcond_without	cgi		# Disable Local CGI support
+%bcond_without	guile		# Disable Guile scripting
+%bcond_without	idn		# Disable Internation Domain Names support
+%bcond_without	ipv6		# Disable IPv6 support
+%bcond_without	js		# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
+%bcond_without	led		# Disable LEDs
+%bcond_without	lua		# Disable Lua scripting
+%bcond_without	openssl		# Disable OpenSSL support
+%bcond_without	perl		# Disable Perl scripting
 # 
 %if %{with gnutls}
 %undefine	with_openssl
