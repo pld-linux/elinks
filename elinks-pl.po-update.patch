@@ -47,3 +47,141 @@ index e3afbdb..81cb829 100644
 
  #: src/config/options.inc:713
  msgid "Options concerning the display of plain text pages."
+--- elinks-0.11.1/po/pl.po.orig	2006-01-30 13:27:26.000000000 +0100
++++ elinks-0.11.1/po/pl.po	2006-01-30 14:48:25.000000000 +0100
+@@ -2297,7 +2297,6 @@
+ msgstr "Zewnêtrzny edytor"
+ 
+ #: src/config/options.inc:195
+-#, fuzzy
+ msgid ""
+ "Path to the executable that ELinks should launch when the user\n"
+ "requests to edit a textarea with an external editor.\n"
+@@ -2306,10 +2305,9 @@
+ "default to \"vi\"."
+ msgstr ""
+ "¦cie¿ka do programu, który ELinks powinien uruchomiæ, gdy\n"
+-"u¿ytkownik zechce edytowaæ pole tekstowe przy u¿yciu\n"
++"u¿ytkownik zechce modyfikowaæ pole tekstowe przy u¿yciu\n"
+ "zewnêtrznego edytora.\n"
+-"\n"
+-"Je¶li nieustawione, ELinks u¿yje warto¶ci zmiennej\n"
++"Je¶li jest nieustawione, ELinks u¿yje warto¶ci zmiennej\n"
+ "¶rodowiskowej $EDITOR. Gdy $EDITOR jest pusty albo\n"
+ "nieustawiony, ELinks u¿yje \"vi\"."
+ 
+@@ -3398,7 +3396,6 @@
+ msgstr "Zasady przekazywania URI do zewnêtrznych poleceñ."
+ 
+ #: src/config/options.inc:730
+-#, fuzzy
+ msgid ""
+ "A rule for passing URI to an external command.\n"
+ "The format is:\n"
+@@ -3410,8 +3407,7 @@
+ "Format:\n"
+ "%c w ³añcuchu oznacza bie¿±cy URL\n"
+ "%% w ³añcuchu oznacza '%'\n"
+-"\n"
+-"Nie dodawaj apostrofów lub cudzys³owiów wokó³ %c."
++"Nie dodawaj apostrofów lub cudzys³owów wokó³ %c."
+ 
+ #. Keep options in alphabetical order.
+ #: src/config/options.inc:740
+@@ -4748,7 +4744,7 @@
+ msgstr "Kopiowanie"
+ 
+ #: src/dialogs/info.c:142
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "ELinks %s\n"
+ "\n"
+@@ -4763,15 +4759,14 @@
+ msgstr ""
+ "ELinks %s\n"
+ "\n"
+-"\n"
+ "(C) 1999 - 2002 Mikulas Patocka\n"
+ "(C) 2001 - 2004 Petr Baudis\n"
+ "(C) 2002 - 2005 Jonas Fonseca\n"
+ "i inni\n"
+ "\n"
+-"Niniejszy program jest oprogramowaniem wolnodostêpnym; mo¿esz go "
++"Niniejszy program jest oprogramowaniem wolnodostêpnym; mo¿na go "
+ "rozprowadzaæ dalej i/lub modyfikowaæ na warunkach GPL GNU, wydanej przez "
+-"Free Software Foundation - wed³ug wersji 2-giej tej Licencji."
++"Free Software Foundation - wed³ug wersji 2. tej Licencji."
+ 
+ #: src/dialogs/info.c:170 src/dialogs/info.c:275
+ msgid "Resources"
+@@ -5492,7 +5487,6 @@
+ msgstr "Ignoruj zawarto¶æ <noscript>"
+ 
+ #: src/ecmascript/ecmascript.c:50
+-#, fuzzy
+ msgid ""
+ "Whether to ignore content enclosed by the <noscript> tag\n"
+ "when ECMAScript is enabled."
+@@ -7120,9 +7114,9 @@
+ #, c-format
+ msgid "%u connection"
+ msgid_plural "%u connections"
+-msgstr[0] "%d po³±czenie"
+-msgstr[1] "%d po³±czenia"
+-msgstr[2] "%d po³±czeñ"
++msgstr[0] "%u po³±czenie"
++msgstr[1] "%u po³±czenia"
++msgstr[2] "%u po³±czeñ"
+ 
+ #: src/protocol/bittorrent/dialogs.c:329 src/protocol/bittorrent/dialogs.c:345
+ #, c-format
+@@ -7136,9 +7130,9 @@
+ #, c-format
+ msgid "%u available"
+ msgid_plural "%u available"
+-msgstr[0] "%d dostêpny"
+-msgstr[1] "%d dostêpne"
+-msgstr[2] "%d dostêpnych"
++msgstr[0] "%u dostêpny"
++msgstr[1] "%u dostêpne"
++msgstr[2] "%u dostêpnych"
+ 
+ #: src/protocol/bittorrent/dialogs.c:340
+ msgid "Swarm info"
+@@ -7360,24 +7354,20 @@
+ 
+ #. name:
+ #: src/protocol/fsp/fsp.c:44 src/protocol/fsp/fsp.c:56
+-#, fuzzy
+ msgid "FSP"
+-msgstr "FTP"
++msgstr "FSP"
+ 
+ #: src/protocol/fsp/fsp.c:46
+-#, fuzzy
+ msgid "FSP specific options."
+-msgstr "Opcje dotycz±ce protoko³u FTP."
++msgstr "Opcje dotycz±ce protoko³u FSP."
+ 
+ #: src/protocol/fsp/fsp.c:48
+-#, fuzzy
+ msgid "Sort entries"
+-msgstr "Inteligentne przedrostki"
++msgstr "Sortowanie wpisów"
+ 
+ #: src/protocol/fsp/fsp.c:50
+-#, fuzzy
+ msgid "Whether to sort entries in directory listings."
+-msgstr "Pokazuj ukryte pliki przy wy¶wietlaniu katalogów"
++msgstr "Czy sortowaæ wpisy przy wy¶wietlaniu katalogów."
+ 
+ #. name:
+ #: src/protocol/ftp/ftp.c:55 src/protocol/ftp/ftp.c:85
+@@ -8526,6 +8516,3 @@
+ #: src/viewer/text/view.c:1289
+ msgid "Error writing to file"
+ msgstr "B³±d zapisu do pliku"
+-
+-#~ msgid "~Clear"
+-#~ msgstr "Wy~czy¶æ"
