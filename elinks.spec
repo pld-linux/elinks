@@ -42,6 +42,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
+BuildRequires:	fsplib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
