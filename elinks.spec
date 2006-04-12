@@ -1,19 +1,19 @@
 #
 # Conditional build:
-%bcond_with	x	# Use the X Windows System
-%bcond_with	gnutls	# Enable GNUTLS SSL support (disables openssl)
-%bcond_with	ruby	# Enable (experimental) Ruby scripting support
-%bcond_without	256	# Disable 256 colors support
-%bcond_without	bittorent # Disable BitTorrent support
-%bcond_without	cgi	# Disable Local CGI support
-%bcond_without	guile	# Disable Guile scripting
-%bcond_without	idn	# Disable Internation Domain Names support
-%bcond_without	ipv6	# Disable IPv6 support
-%bcond_without	js	# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
-%bcond_without	led	# Disable LEDs
-%bcond_without	lua	# Disable Lua scripting
-%bcond_without	openssl # Disable OpenSSL support
-%bcond_without	perl	# Disable Perl scripting
+%bcond_with	x		# Use the X Windows System
+%bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	ruby		# Enable (experimental) Ruby scripting support
+%bcond_without	256		# Disable 256 colors support
+%bcond_without	bittorrent	# Disable BitTorrent support
+%bcond_without	cgi		# Disable Local CGI support
+%bcond_without	guile		# Disable Guile scripting
+%bcond_without	idn		# Disable Internation Domain Names support
+%bcond_without	ipv6		# Disable IPv6 support
+%bcond_without	js		# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
+%bcond_without	led		# Disable LEDs
+%bcond_without	lua		# Disable Lua scripting
+%bcond_without	openssl		# Disable OpenSSL support
+%bcond_without	perl		# Disable Perl scripting
 # 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -24,25 +24,25 @@ Summary(es):	El links es un browser para modo texto, similar a lynx
 Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.11.0
+Version:	0.11.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 #Source0Download:	http://www.elinks.cz/download.html
 Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	9154f493f544af31ae31ec1dd203d315
+# Source0-md5:	db0d62394b03938eec81b749e49dfbbc
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-pl.po-update.patch
-Patch3:		%{name}-srcdir.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
+BuildRequires:	fsplib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
@@ -88,7 +88,6 @@ keepalive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
@@ -107,6 +106,7 @@ keepalive.
 	--enable-nntp \
 	%{?with_256:--enable-256-colors} \
 	--enable-exmode \
+	--enable-fsp \
 	%{?with_leds:--enable-leds} \
 	--enable-marks \
 	--enable-html-highlight \
