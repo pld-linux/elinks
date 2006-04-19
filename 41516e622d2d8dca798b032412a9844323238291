@@ -1,0 +1,2 @@
+- tidying up bcond stuff, (alphabetical order, more readable syntax in
+  configure call in %build)
