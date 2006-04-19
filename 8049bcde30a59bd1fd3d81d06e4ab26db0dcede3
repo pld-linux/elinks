@@ -1,0 +1,3 @@
+- updated to 0.3.0
+- added noreplace flag for /etc/elinks-hooks.lua file
+  STBR
