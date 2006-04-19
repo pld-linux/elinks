@@ -1,0 +1,4 @@
+- added hooks-fix patch (fixes paths in elinks-hooks.lua)
+- s/elinks-bm.lua/bm.lua/ in %{_datadir}/elinks
+- added BR: bzip2-devel and BR: zlib-devel
+- cleanups
