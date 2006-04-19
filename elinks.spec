@@ -14,6 +14,7 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
+%bcond_without	doc		# Don't build texi documentation
 # 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -55,7 +56,7 @@ BuildRequires:	ncurses-devel >= 5.1
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	zlib-devel
-BuildRequires:	tetex
+%{?with_doc:BuildRequires:	tetex}
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -125,9 +126,11 @@ keepalive.
 
 %{__make} V=1
 
+%if %{with doc}
 cd doc
 texi2html elinks-lua.texi
 cd ..
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
