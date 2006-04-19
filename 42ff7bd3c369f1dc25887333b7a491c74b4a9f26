@@ -1,0 +1,8 @@
+- updated to 0.2.3
+- added BR: lua-devel
+- added elinks-configure.patch (now elinks builds with lua)
+- added elinks-lua-config-file.patch (read config from /etc/elinks-hooks.lua)
+- added default lua config file (Source3)
+- added better bookmarking system (Source2) (default off - edit
+  elinks-hooks.lua file)
+  STBR
