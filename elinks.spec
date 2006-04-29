@@ -14,7 +14,6 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
-%bcond_without	doc		# Don't build texi documentation
 # 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -26,7 +25,7 @@ Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
 Summary(pt_BR):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.11.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -56,7 +55,6 @@ BuildRequires:	ncurses-devel >= 5.1
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	zlib-devel
-%{?with_doc:BuildRequires:	tetex}
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -126,12 +124,6 @@ keepalive.
 
 %{__make} V=1
 
-%if %{with doc}
-cd doc
-texi2html elinks-lua.texi
-cd ..
-%endif
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir} \
@@ -156,7 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote}
 %doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/{*.txt,html}
+%doc doc/html/*.html
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_desktopdir}/*
