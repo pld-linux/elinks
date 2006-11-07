@@ -151,6 +151,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/html/*.html
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{?with_lua:%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}}
