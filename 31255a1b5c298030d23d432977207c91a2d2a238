@@ -1,0 +1,2 @@
+- updated to 0.11.2 (fixes CVE-2006-5925)
+  (note: it is 'fixed' by disabling smb support)
