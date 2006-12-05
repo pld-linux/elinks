@@ -1,5 +1,4 @@
 #
-# TODO: typos in pl.po ("tackerem", "Minumalny", "¿adañ")
 # Conditional build:
 %bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
