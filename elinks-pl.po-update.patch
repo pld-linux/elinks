@@ -25,7 +25,7 @@ index b658603..1430ad6 100644
  #: src/bookmarks/dialogs.c:133
  msgid "Delete this bookmark?"
 -msgstr "Czy skasowac t± zak³adkê?"
-+msgstr "Czy skasowaæ t± zak³adkê?"
++msgstr "Czy skasowaæ tê zak³adkê?"
  
  #. clear_all_items_title
  #: src/bookmarks/dialogs.c:135
