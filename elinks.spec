@@ -21,9 +21,9 @@
 %endif
 #
 Summary:	Experimantal Links (text WWW browser)
-Summary(es.UTF-8):   El links es un browser para modo texto, similar a lynx
-Summary(pl.UTF-8):   Eksperymentalny Links (tekstowa przeglądarka WWW)
-Summary(pt_BR.UTF-8):   O links é um browser para modo texto, similar ao lynx
+Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
+Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
+Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.11.2
 Release:	3
