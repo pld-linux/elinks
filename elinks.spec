@@ -21,9 +21,9 @@
 %endif
 #
 Summary:	Experimantal Links (text WWW browser)
-Summary(es):	El links es un browser para modo texto, similar a lynx
-Summary(pl):	Eksperymentalny Links (tekstowa przegl±darka WWW)
-Summary(pt_BR):	O links È um browser para modo texto, similar ao lynx
+Summary(es.UTF-8):   El links es un browser para modo texto, similar a lynx
+Summary(pl.UTF-8):   Eksperymentalny Links (tekstowa przeglƒÖdarka WWW)
+Summary(pt_BR.UTF-8):   O links √© um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.11.2
 Release:	3
@@ -70,18 +70,18 @@ purpose is to make alternative to links, until Mikulas will have some
 time to maintain it, and to test and tune various patches for Mikulas
 to be able to include them in the official links releases.
 
-%description -l es
+%description -l es.UTF-8
 Links es un browser WWW modo texto, similar al Lynx. El links muestra
 tablas, hace baja archivos en segundo plano, y usa conexiones HTTP/1.1
 keepalive.
 
-%description -l pl
-Bogata w opcje i moøliwo∂ci wersja tekstowej przegl±darki WWW - links.
-elinks jednak jest dedykowana g≥Ûwnie do testowania.
+%description -l pl.UTF-8
+Bogata w opcje i mo≈ºliwo≈õci wersja tekstowej przeglƒÖdarki WWW - links.
+elinks jednak jest dedykowana g≈Ç√≥wnie do testowania.
 
-%description -l pt_BR
-Links È um browser WWW modo texto, similar ao Lynx. O Links exibe
-tabelas, baixa arquivos em segundo plano, e usa as conexıes HTTP/1.1
+%description -l pt_BR.UTF-8
+Links √© um browser WWW modo texto, similar ao Lynx. O Links exibe
+tabelas, baixa arquivos em segundo plano, e usa as conex√µes HTTP/1.1
 keepalive.
 
 %prep
