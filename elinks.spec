@@ -1,3 +1,4 @@
+# TODO: consider lua51
 #
 # Conditional build:
 %bcond_with	x		# Use the X Windows System
@@ -25,20 +26,17 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.11.2
-Release:	3
+Version:	0.11.3
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
-#Source0Download:	http://www.elinks.cz/download.html
 Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	5a8f83afb527cf443f58b372136a81fc
+# Source0-md5:	a0eb50e18a2ac8e77d6b0df8f94bb5a6
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
-Patch2:		%{name}-pl.po-update.patch
-Patch3:		%{name}-bug899.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -88,16 +86,14 @@ keepalive.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure \
-	--disable-no-root \
 	HAVE_SMBCLIENT=yes \
+	--disable-no-root \
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
 	%{!?with_ipv6:--disable-ipv6} \
