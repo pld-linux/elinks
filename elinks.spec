@@ -40,6 +40,7 @@ Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-bug517.patch
 Patch3:		%{name}-cgi.patch
 Patch4:		%{name}-date-format.patch
+Patch5:		%{name}-pl.po.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -92,6 +93,7 @@ keepalive.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %{__aclocal}
