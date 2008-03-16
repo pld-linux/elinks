@@ -42,6 +42,7 @@ Patch3:		%{name}-cgi.patch
 Patch4:		%{name}-date-format.patch
 Patch5:		%{name}-pl.po.patch
 Patch6:		%{name}-chunked.patch
+Patch7:		%{name}-mailcap_DISPLAY.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -96,6 +97,7 @@ keepalive.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 %{__aclocal}
