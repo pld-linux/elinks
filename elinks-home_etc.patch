@@ -1,18 +1,19 @@
 diff -burN elinks-0.11.0.orig/doc/man/man1/elinks.1.in elinks-0.11.0/doc/man/man1/elinks.1.in
 --- elinks-0.11.0.orig/doc/man/man1/elinks.1.in	2006-01-01 21:59:35.921524250 +0100
 +++ elinks-0.11.0/doc/man/man1/elinks.1.in	2006-01-01 22:01:19.884021500 +0100
-@@ -235,6 +235,11 @@
- The path to the users home directory\&. Used when expanding ~/\&.
- 
- .TP
+@@ -320,6 +320,12 @@
+ ~/.
+ .RE
+ .PP
 +HOME_ETC
++.RS 4
 +If set the location of the directory containing configuration files
 +is \fI$HOME_ETC/.elinks/\fR instead of \fI~/.elinks/\fR.
-+
-+.TP
++.RE
++.PP
  WWW_HOME
- Homepage location (as in lynx(1))
- 
+ .RS 4
+ Homepage location (as in
 diff -burN elinks-0.11.0.orig/src/config/home.c elinks-0.11.0/src/config/home.c
 --- elinks-0.11.0.orig/src/config/home.c	2006-01-01 21:59:35.845519500 +0100
 +++ elinks-0.11.0/src/config/home.c	2006-01-01 22:00:36.489309500 +0100
