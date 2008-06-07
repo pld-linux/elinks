@@ -60,6 +60,7 @@ BuildRequires:	ncurses-devel >= 5.1
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	zlib-devel
+Suggests:	mailcap
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
