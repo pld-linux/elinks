@@ -4,6 +4,7 @@
 %bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
+%bcond_with	verbose		# verbose build (V=1)
 %bcond_without	256		# Disable 256 colors support
 %bcond_without	bittorrent	# Disable BitTorrent support
 %bcond_without	cgi		# Disable Local CGI support
@@ -21,19 +22,18 @@
 %undefine	with_openssl
 %endif
 #
-%define		pre	rc1
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.11.4
-Release:	0.%{pre}.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://www.elinks.cz/download/%{name}-%{version}%{pre}.tar.bz2
-# Source0-md5:	7fc7c36844be9c528c2ef28dbd4c5e6f
+Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	88036a518ebc4f1150a7e14b29f9d8db
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -89,7 +89,7 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q -n %{name}-%{version}%{pre}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -131,7 +131,7 @@ keepalive.
 # something else
 #	--with-xterm="xterm -e"
 
-%{__make} V=1
+%{__make} %{?with_verbose:V=1}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -139,7 +139,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
 
-%{__make} install V=1 \
+%{__make} install %{?with_verbose:V=1} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
