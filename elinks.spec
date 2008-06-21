@@ -3,6 +3,7 @@
 # Conditional build:
 %bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	python		# Enable Python scripting support
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
 %bcond_with	verbose		# verbose build (V=1)
 %bcond_without	256		# Disable 256 colors support
@@ -122,6 +123,7 @@ keepalive.
 	%{?with_guile:--with-guile} \
 	%{?with_perl:--with-perl} \
 	%{!?with_lua:--without-lua} \
+	%{?with_python:--with-python} \
 	%{?with_ruby:--with-ruby} \
 	%{!?with_js:--without-spidermonkey} \
 	%{?with_gnutls:--with-gnutls} \
