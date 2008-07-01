@@ -1,8 +1,12 @@
 # TODO: consider lua51
+# home_etc.patch needs update.
+# ~/ points to $HOME_ETC instead of $HOME
+# date-format.patch needs update too
 #
 # Conditional build:
 %bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
+%bcond_with	lzma		# Enable lzma support
 %bcond_with	python		# Enable Python scripting support
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
 %bcond_with	verbose		# verbose build (V=1)
@@ -18,31 +22,30 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
+%bcond_without	smb		# Disable smb protocol support (smb requires libsmbclient)
 # 
 %if %{with gnutls}
 %undefine	with_openssl
 %endif
 #
+%define		pre	pre1
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.11.4
-Release:	2
+Version:	0.12.0
+Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	88036a518ebc4f1150a7e14b29f9d8db
+Source0:	http://www.elinks.cz/download/%{name}-0.12%{pre}.tar.bz2
+# Source0-md5:	23f745c33ea91f91ef5b2db385efdfff
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
-Patch2:		%{name}-bug517.patch
-Patch3:		%{name}-date-format.patch
-Patch4:		%{name}-chunked.patch
-Patch5:		%{name}-mailcap_DISPLAY.patch
+Patch2:		%{name}-date-format.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -55,7 +58,9 @@ BuildRequires:	gpm-devel
 %{?with_gnutls:BuildRequires: gnutls-devel >= 1.2.5}
 %{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
 %{?with_idn:BuildRequires:	libidn-devel}
+%{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua50-devel}
+%{?with_lzma:BuildRequires:	lzma-devel}
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
@@ -91,20 +96,17 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n elinks-0.12%{pre}
+#%patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
+#%patch2 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure \
-	HAVE_SMBCLIENT=yes \
+	%{?with_smb:--enable-smb} \
 	--disable-no-root \
 	%{!?debug:--enable-fastmem} \
 	%{?debug:--enable-debug} \
@@ -129,7 +131,8 @@ keepalive.
 	%{!?with_js:--without-spidermonkey} \
 	%{?with_gnutls:--with-gnutls} \
 	%{!?with_openssl:--without-openssl} \
-	--with%{!?with_x:out}-x
+	--with%{!?with_x:out}-x \
+	%{!?with_lzma:--without-lzma}
 # xterm -e is default, one might want to change it to
 # something else
 #	--with-xterm="xterm -e"
