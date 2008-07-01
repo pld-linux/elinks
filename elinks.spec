@@ -1,8 +1,5 @@
 # TODO: consider lua51
-# home_etc.patch needs update.
-# ~/ points to $HOME_ETC instead of $HOME
-# date-format.patch needs update too
-#
+
 # Conditional build:
 %bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
@@ -35,7 +32,7 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.12
-Release:	0.%{pre}.1
+Release:	0.%{pre}.2
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
@@ -97,9 +94,9 @@ keepalive.
 
 %prep
 %setup -q -n %{name}-%{version}%{pre}
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p1
-#%patch2 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
