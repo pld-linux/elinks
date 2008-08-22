@@ -1,12 +1,12 @@
 # TODO: consider lua51
 
 # Conditional build:
-%bcond_with	x		# Use the X Windows System
 %bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
 %bcond_with	lzma		# Enable lzma support
 %bcond_with	python		# Enable Python scripting support
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
 %bcond_with	verbose		# verbose build (V=1)
+%bcond_with	x		# Use the X Windows System
 %bcond_without	256		# Disable 256 colors support
 %bcond_without	bittorrent	# Disable BitTorrent support
 %bcond_without	cgi		# Disable Local CGI support
@@ -43,6 +43,7 @@ Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-date-format.patch
+Patch3:		%{name}-old_incremental.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -97,6 +98,8 @@ keepalive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+# restores old behaviour of type-ahead search
+#%patch3 -p1
 
 %build
 %{__aclocal}
