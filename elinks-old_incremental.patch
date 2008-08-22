@@ -1,0 +1,10 @@
+--- elinks-0.12pre1/src/viewer/text/search.c.orig	2008-07-01 02:11:44.000000000 +0200
++++ elinks-0.12pre1/src/viewer/text/search.c	2008-08-21 23:13:57.000000000 +0200
+@@ -1551,6 +1551,7 @@
+ 		default:
+ 			if (doc_view->document->nlinks) {
+ 				handler = link_typeahead_handler;
++				history = NULL;
+ 				break;
+ 			}
+ 
