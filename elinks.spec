@@ -25,19 +25,19 @@
 %undefine	with_openssl
 %endif
 #
-%define		pre	pre1
+%define		pre	pre2
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.12
-Release:	0.%{pre}.3
+Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.elinks.cz/download/%{name}-%{version}%{pre}.tar.bz2
-# Source0-md5:	23f745c33ea91f91ef5b2db385efdfff
+# Source0-md5:	bfc2a531f633c9e25e108e5ce2d864ea
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
