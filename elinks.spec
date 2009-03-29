@@ -25,25 +25,26 @@
 %undefine	with_openssl
 %endif
 #
-%define		pre	pre2
+%define		pre	pre3
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.12
-Release:	0.%{pre}.2
+Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.elinks.cz/download/%{name}-%{version}%{pre}.tar.bz2
-# Source0-md5:	bfc2a531f633c9e25e108e5ce2d864ea
+# Source0-md5:	1ea76f04fb5d2e7d6d6a2c82ca310088
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-date-format.patch
 Patch3:		%{name}-old_incremental.patch
+Patch4:		%{name}-fbterm.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -64,6 +65,7 @@ BuildRequires:	ncurses-devel >= 5.1
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_python:BuildRequires:	python-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
+BuildRequires:	tre-devel
 BuildRequires:	zlib-devel
 Suggests:	mailcap
 Provides:	webclient
@@ -100,6 +102,7 @@ keepalive.
 %patch2 -p1
 # restores old behaviour of type-ahead search
 #%patch3 -p1
+%patch4 -p1
 
 %build
 %{__aclocal}
