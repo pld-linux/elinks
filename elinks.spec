@@ -5,6 +5,8 @@
 %bcond_with	lzma		# Enable lzma support
 %bcond_with	python		# Enable Python scripting support
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
+%bcond_with	smb		# Enable smb protocol support (smb requires libsmbclient)
+#The latest libsmbclient is GPLv3, while ELinks is GPL v2 only.
 %bcond_with	verbose		# verbose build (V=1)
 %bcond_with	x		# Use the X Windows System
 %bcond_without	256		# Disable 256 colors support
@@ -19,7 +21,6 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
-%bcond_without	smb		# Disable smb protocol support (smb requires libsmbclient)
 # 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -34,7 +35,7 @@ Name:		elinks
 Version:	0.12
 Release:	0.%{pre}.1
 Epoch:		1
-License:	GPL
+License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.elinks.cz/download/%{name}-%{version}%{pre}.tar.bz2
 # Source0-md5:	0b7eb0edc5f72c9a05d78f2f71e21414
