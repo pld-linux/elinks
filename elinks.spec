@@ -64,9 +64,11 @@ BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
+BuildRequires:	pkgconfig
 %{?with_python:BuildRequires:	python-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	tre-devel
+BuildRequires:	which
 BuildRequires:	zlib-devel
 Suggests:	mailcap
 Provides:	webclient
