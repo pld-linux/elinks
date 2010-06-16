@@ -28,13 +28,13 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.11.4
-Release:	2
+Version:	0.11.7
+Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.elinks.cz/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	88036a518ebc4f1150a7e14b29f9d8db
+# Source0-md5:	fcd087a6d2415cd4c6fd1db53dceb646
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -44,7 +44,7 @@ Patch3:		%{name}-date-format.patch
 Patch4:		%{name}-chunked.patch
 Patch5:		%{name}-mailcap_DISPLAY.patch
 URL:		http://www.elinks.cz/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
@@ -61,6 +61,7 @@ BuildRequires:	ncurses-devel >= 5.1
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_python:BuildRequires:	python-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
+BuildRequires:	which
 BuildRequires:	zlib-devel
 Suggests:	mailcap
 Provides:	webclient
@@ -157,12 +158,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote}
-%doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/html/*.html
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man*/*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
-%{?with_lua:%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}}
+%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO doc/html/*.html
+%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh}
+%attr(755,root,root) %{_bindir}/elinks
+%{_mandir}/man1/elinks.1*
+%{_mandir}/man5/elinks.conf.5*
+%{_mandir}/man5/elinkskeys.5*
+%{_desktopdir}/elinks.desktop
+%{_pixmapsdir}/elinks.png
+%if %{with lua}
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.lua
+%endif

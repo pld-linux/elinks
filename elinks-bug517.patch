@@ -138,11 +138,9 @@ index 0291a39..c33b88e 100644
  }
  
  static unsigned char *bzip2_extensions[] = { ".bz2", ".tbz", NULL };
-diff --git a/src/protocol/http/http.c b/src/protocol/http/http.c
-index 87d468d..6f7469f 100644
---- a/src/protocol/http/http.c
-+++ b/src/protocol/http/http.c
-@@ -720,20 +720,13 @@ http_send_header(struct socket *socket)
+--- elinks-0.11.7/src/protocol/http/http.c.orig	2009-08-22 13:15:08.000000000 +0200
++++ elinks-0.11.7/src/protocol/http/http.c	2010-06-16 09:21:27.899440584 +0200
+@@ -745,20 +745,13 @@
  #if defined(CONFIG_GZIP) || defined(CONFIG_BZIP2)
  	add_to_string(&header, "Accept-Encoding: ");
  
@@ -163,14 +161,14 @@ index 87d468d..6f7469f 100644
  	add_to_string(&header, "gzip");
  #endif
  	add_crlf_to_string(&header);
-@@ -1810,13 +1803,11 @@ #ifdef CONFIG_GZIP
- 		    && (!strcasecmp(d, "gzip") || !strcasecmp(d, "x-gzip")))
+@@ -1838,13 +1831,11 @@
+ 		    && (!c_strcasecmp(d, "gzip") || !c_strcasecmp(d, "x-gzip")))
  		    	conn->content_encoding = ENCODING_GZIP;
  #endif
 -#ifdef BUG_517
  #ifdef CONFIG_BZIP2
  		if (file_encoding != ENCODING_BZIP2
- 		    && (!strcasecmp(d, "bzip2") || !strcasecmp(d, "x-bzip2")))
+ 		    && (!c_strcasecmp(d, "bzip2") || !c_strcasecmp(d, "x-bzip2")))
  			conn->content_encoding = ENCODING_BZIP2;
  #endif
 -#endif
