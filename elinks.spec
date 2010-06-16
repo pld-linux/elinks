@@ -8,7 +8,7 @@
 %bcond_with	smb		# Enable smb protocol support (smb requires libsmbclient)
 #The latest libsmbclient is GPLv3, while ELinks is GPL v2 only.
 %bcond_with	verbose		# verbose build (V=1)
-%bcond_with	x		# Use the X Windows System
+%bcond_with	x		# Use the X Window System
 %bcond_without	256		# Disable 256 colors support
 %bcond_without	bittorrent	# Disable BitTorrent support
 %bcond_without	cgi		# Disable Local CGI support
@@ -47,7 +47,7 @@ Patch2:		%{name}-date-format.patch
 Patch3:		%{name}-old_incremental.patch
 Patch4:		%{name}-fbterm.patch
 URL:		http://www.elinks.cz/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
@@ -166,12 +166,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote}
-%doc contrib/conv/{*awk,*.pl,*.sh}
-%doc doc/html/*.html
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man*/*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
-%{?with_lua:%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}}
+%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO doc/html/*.html
+%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh}
+%attr(755,root,root) %{_bindir}/elinks
+%{_mandir}/man1/elinks.1*
+%{_mandir}/man5/elinks.conf.5*
+%{_mandir}/man5/elinkskeys.5*
+%{_desktopdir}/elinks.desktop
+%{_pixmapsdir}/elinks.png
+%if %{with lua}
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.lua
+%endif
