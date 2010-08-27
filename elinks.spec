@@ -27,7 +27,7 @@
 %endif
 
 %define		subver	pre5
-%define		rel		4
+%define		rel		5
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
