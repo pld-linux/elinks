@@ -21,23 +21,24 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
-# 
+
 %if %{with gnutls}
 %undefine	with_openssl
 %endif
-#
-%define		pre	pre5
+
+%define		subver	pre5
+%define		rel		4
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.12
-Release:	0.%{pre}.4
+Release:	0.%{subver}.%{rel}
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
-Source0:	http://www.elinks.cz/download/%{name}-%{version}%{pre}.tar.bz2
+Source0:	http://www.elinks.cz/download/%{name}-%{version}%{subver}.tar.bz2
 # Source0-md5:	92790144290131ac5e63b44548b45e08
 Source1:	%{name}.desktop
 Source2:	links.png
@@ -53,9 +54,9 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
 BuildRequires:	gettext-devel
+%{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
-%{?with_gnutls:BuildRequires: gnutls-devel >= 1.2.5}
 %{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
@@ -75,7 +76,7 @@ Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/elinks
-%define		specflags_ia32	-fomit-frame-pointer 
+%define		specflags_ia32	-fomit-frame-pointer
 
 %description
 This is the elinks tree - intended to provide feature-rich version of
@@ -99,7 +100,7 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q -n %{name}-%{version}%{pre}
+%setup -q -n %{name}-%{version}%{subver}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -154,8 +155,10 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 %{__make} install %{?with_verbose:V=1} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+rm $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
+
+cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
 
