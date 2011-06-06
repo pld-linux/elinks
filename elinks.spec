@@ -21,6 +21,7 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
+%bcond_with	olderisbetter	# variuos pre-0.10.0 behaviour rules (typeahead and esc-esc)
 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -45,18 +46,22 @@ Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-date-format.patch
-Patch3:		%{name}-old_incremental.patch
-Patch4:		%{name}-fbterm.patch
+Patch3:		%{name}-fbterm.patch
+Patch4:		%{name}-old_incremental.patch
+Patch5:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
+Patch6:		%{name}-double-esc.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
+#BuildRequires:	gc-devel
 BuildRequires:	gettext-devel
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
+#BuildRequires:	heimdal-devel
 %{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
@@ -104,9 +109,12 @@ keepalive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-# restores old behaviour of type-ahead search
-#%patch3 -p1
+%patch3 -p1
+%if %{with olderisbetter}
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%endif
 
 %build
 %{__aclocal}
@@ -123,7 +131,9 @@ keepalive.
 	--enable-finger \
 	--enable-gopher \
 	--enable-nntp \
+	--enable-88-colors \
 	%{?with_256:--enable-256-colors} \
+	--enable-true-color \
 	--enable-exmode \
 	%{?with_fsp:--enable-fsp} \
 	%{?with_leds:--enable-leds} \

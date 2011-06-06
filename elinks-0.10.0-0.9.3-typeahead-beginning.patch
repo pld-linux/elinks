@@ -1,0 +1,12 @@
+diff -urp elinks-0.10.0/src/viewer/text/search.c elinks-0.10.0a/src/viewer/text/search.c
+--- elinks-0.10.0/src/viewer/text/search.c	2004-12-17 17:19:08.000000000 +0100
++++ elinks-0.10.0a/src/viewer/text/search.c	2011-06-06 00:42:15.000000000 +0200
+@@ -1107,7 +1107,7 @@ search_link_text(struct document *docume
+ 		int match_offset = match_link_text(link, text, textlen,
+ 						   case_sensitive);
+ 
+-		if (match_offset >= 0) {
++		if (match_offset == 0) {
+ 			*offset = match_offset;
+ 			return i;
+ 		}
