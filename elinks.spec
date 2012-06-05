@@ -115,11 +115,11 @@ keepalive.
 %endif
 
 %build
-%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure \
+	--with-gc=no \
 	%{?with_smb:--enable-smb} \
 	--disable-no-root \
 	%{!?debug:--enable-fastmem} \
