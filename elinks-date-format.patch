@@ -1,5 +1,5 @@
---- elinks-0.11.3/src/util/file.c.orig	2007-12-02 01:03:26.631355000 +0100
-+++ elinks-0.11.3/src/util/file.c	2007-12-02 01:19:06.416911036 +0100
+--- elinks-0.11.3/src/util/file.h.orig	2007-12-02 01:03:26.631355000 +0100
++++ elinks-0.11.3/src/util/file.h	2007-12-02 01:19:06.416911036 +0100
 @@ -461,16 +461,16 @@ stat_date(struct string *string, struct 
  
  		if (current_time > when + 6L * 30L * 24L * 60L * 60L

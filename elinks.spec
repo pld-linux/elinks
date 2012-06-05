@@ -27,29 +27,26 @@
 %undefine	with_openssl
 %endif
 
-%define		subver	pre5
-%define		rel		7
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.12
-Release:	0.%{subver}.%{rel}
+Version:	0.13
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
-Source0:	http://www.elinks.cz/download/%{name}-%{version}%{subver}.tar.bz2
-# Source0-md5:	92790144290131ac5e63b44548b45e08
+Source0:	http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
+# Source0-md5:	efc9918d90cb03a4d1c4d36ef1c36101
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-lua40.patch
 Patch2:		%{name}-date-format.patch
-Patch3:		%{name}-fbterm.patch
-Patch4:		%{name}-old_incremental.patch
-Patch5:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
-Patch6:		%{name}-double-esc.patch
+Patch3:		%{name}-old_incremental.patch
+Patch4:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
+Patch5:		%{name}-double-esc.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -62,7 +59,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
-%{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
+%{?with_js:BuildRequires:	js185-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua50-devel}
@@ -105,15 +102,14 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q -n %{name}-%{version}%{subver}
+%setup -q -n %{name}-%{version}-20120604
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 %if %{with olderisbetter}
+%patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 %endif
 
 %build
