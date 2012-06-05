@@ -37,7 +37,9 @@ Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
-Source0:	http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
+# github gives different archive on each download
+# http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
+Source0:	%{name}-current-%{version}.tar.bz2
 # Source0-md5:	efc9918d90cb03a4d1c4d36ef1c36101
 Source1:	%{name}.desktop
 Source2:	links.png
