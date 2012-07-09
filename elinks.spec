@@ -21,6 +21,7 @@
 %bcond_without	lua		# Disable Lua scripting
 %bcond_without	openssl		# Disable OpenSSL support
 %bcond_without	perl		# Disable Perl scripting
+%bcond_without	truecolor	# Disable true color
 %bcond_with	olderisbetter	# variuos pre-0.10.0 behaviour rules (typeahead and esc-esc)
 
 %if %{with gnutls}
@@ -132,7 +133,7 @@ keepalive.
 	--enable-nntp \
 	--enable-88-colors \
 	%{?with_256:--enable-256-colors} \
-	--enable-true-color \
+	%{?with_truecolor:--enable-true-color} \
 	--enable-exmode \
 	%{?with_fsp:--enable-fsp} \
 	%{?with_leds:--enable-leds} \
