@@ -5,9 +5,9 @@
 %bcond_with	lzma		# Enable lzma support
 %bcond_with	python		# Enable Python scripting support
 %bcond_with	ruby		# Enable (experimental) Ruby scripting support
-%bcond_with	smb		# Enable smb protocol support (smb requires libsmbclient)
-#The latest libsmbclient is GPLv3, while ELinks is GPL v2 only.
-%bcond_with	verbose		# verbose build (V=1)
+%bcond_with	smb		# Enable smb protocol support (requires libsmbclient)
+#				# Note: the latest libsmbclient is GPLv3, while ELinks is GPL v2 only.
+%bcond_without	verbose		# verbose build (V=1)
 %bcond_with	x		# Use the X Window System
 %bcond_without	256		# Disable 256 colors support
 %bcond_without	bittorrent	# Disable BitTorrent support
@@ -27,8 +27,8 @@
 %undefine	with_openssl
 %endif
 
-%define		subver	pre5
-%define		rel		7
+%define		subver	pre6
+%define		rel	1
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
@@ -40,7 +40,7 @@ Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.elinks.cz/download/%{name}-%{version}%{subver}.tar.bz2
-# Source0-md5:	92790144290131ac5e63b44548b45e08
+# Source0-md5:	3d0962f4b65fb039342fefd3ada050a9
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -50,6 +50,7 @@ Patch3:		%{name}-fbterm.patch
 Patch4:		%{name}-old_incremental.patch
 Patch5:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
 Patch6:		%{name}-double-esc.patch
+Patch7:		%{name}-gc.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -63,6 +64,7 @@ BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
 %{?with_js:BuildRequires:	js-devel >= 1.5-0.rc6a.1}
+%{?with_js:BuildRequires:	js-devel < 2:1.8.5}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua50-devel}
@@ -110,6 +112,7 @@ keepalive.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch7 -p1
 %if %{with olderisbetter}
 %patch4 -p1
 %patch5 -p1
