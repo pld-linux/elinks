@@ -1,34 +1,38 @@
 # TODO: consider lua51
 
 # Conditional build:
-%bcond_with	gnutls		# Enable GNUTLS SSL support (disables openssl)
-%bcond_with	lzma		# Enable lzma support
-%bcond_with	python		# Enable Python scripting support
-%bcond_with	ruby		# Enable (experimental) Ruby scripting support
-%bcond_with	smb		# Enable smb protocol support (requires libsmbclient)
-#				# Note: the latest libsmbclient is GPLv3, while ELinks is GPL v2 only.
-%bcond_without	verbose		# verbose build (V=1)
-%bcond_with	x		# Use the X Window System
+# - protocols
+%bcond_without	bittorrent	# BitTorrent protocol support
+%bcond_without	fsp		# FSP support
+%bcond_without	idn		# Internation Domain Names support
+%bcond_without	ipv6		# IPv6 support
+%bcond_with	smb		# smb protocol support (non-distib: recent libsmbclient is GPL v3)
+%bcond_with	gnutls		# GNUTLS-based SSL support (instead of openssl)
+%bcond_without	openssl		# OpenSSL-based SSL support
+# - content
+%bcond_without	cgi		# Local CGI support
+%bcond_without	js		# experimental (yet quite usable) JavaScript support (using SpiderMonkey)
+%bcond_with	lzma		# LZMA support (old API, incompatible with xz-libs)
+# - scripting
+%bcond_with	guile		# Guile scripting support (non-distrib: guile 2 is LGPL v3+)
+%bcond_without	lua		# Lua scripting
+%bcond_without	perl		# Perl scripting
+%bcond_with	python		# Python scripting support
+%bcond_with	ruby		# (experimental) Ruby scripting support
+# - display and UI
 %bcond_without	256		# Disable 256 colors support
-%bcond_without	bittorrent	# Disable BitTorrent support
-%bcond_without	cgi		# Disable Local CGI support
-%bcond_without	fsp		# Disable FSP support
-%bcond_without	guile		# Disable Guile scripting
-%bcond_without	idn		# Disable Internation Domain Names support
-%bcond_without	ipv6		# Disable IPv6 support
-%bcond_without	js		# Disable experimental (yet quite usable) JavaScript support (using SpiderMonkey)
 %bcond_without	led		# Disable LEDs
-%bcond_without	lua		# Disable Lua scripting
-%bcond_without	openssl		# Disable OpenSSL support
-%bcond_without	perl		# Disable Perl scripting
 %bcond_with	olderisbetter	# variuos pre-0.10.0 behaviour rules (typeahead and esc-esc)
+%bcond_with	x		# Use the X Window System
+# - misc
+%bcond_without	verbose		# verbose build (V=1)
 
 %if %{with gnutls}
 %undefine	with_openssl
 %endif
 
 %define		subver	pre6
-%define		rel	1
+%define		rel	2
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
@@ -50,14 +54,12 @@ Patch3:		%{name}-fbterm.patch
 Patch4:		%{name}-old_incremental.patch
 Patch5:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
 Patch6:		%{name}-double-esc.patch
-Patch7:		%{name}-gc.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
-#BuildRequires:	gc-devel
 BuildRequires:	gettext-devel
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
@@ -112,7 +114,6 @@ keepalive.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch7 -p1
 %if %{with olderisbetter}
 %patch4 -p1
 %patch5 -p1
@@ -124,37 +125,37 @@ keepalive.
 %{__autoconf}
 %{__autoheader}
 %configure \
-	%{?with_smb:--enable-smb} \
 	--disable-no-root \
-	%{!?debug:--enable-fastmem} \
-	%{?debug:--enable-debug} \
-	%{!?with_ipv6:--disable-ipv6} \
 	%{?with_bittorrent:--enable-bittorrent} \
 	%{?with_cgi:--enable-cgi} \
-	--enable-finger \
-	--enable-gopher \
-	--enable-nntp \
 	--enable-88-colors \
 	%{?with_256:--enable-256-colors} \
 	--enable-true-color \
 	--enable-exmode \
+	%{?debug:--enable-debug} \
+	%{!?debug:--enable-fastmem} \
+	--enable-finger \
 	%{?with_fsp:--enable-fsp} \
+	--enable-gopher \
+	--enable-html-highlight \
+	%{!?with_ipv6:--disable-ipv6} \
 	%{?with_leds:--enable-leds} \
 	--enable-marks \
-	--enable-html-highlight \
-	%{!?with_idn:--without-idn} \
+	--enable-nntp \
+	%{?with_smb:--enable-smb} \
+	--without-gc \
+	%{?with_gnutls:--with-gnutls} \
 	%{?with_guile:--with-guile} \
-	%{?with_perl:--with-perl} \
+	%{!?with_idn:--without-idn} \
 	%{!?with_lua:--without-lua} \
+	%{?with_lzma:--with-lzma} \
+	%{!?with_openssl:--without-openssl} \
+	%{?with_perl:--with-perl} \
 	%{?with_python:--with-python} \
 	%{?with_ruby:--with-ruby} \
 	%{!?with_js:--without-spidermonkey} \
-	%{?with_gnutls:--with-gnutls} \
-	%{!?with_openssl:--without-openssl} \
-	--with%{!?with_x:out}-x \
-	%{!?with_lzma:--without-lzma}
-# xterm -e is default, one might want to change it to
-# something else
+	--with-x%{!?with_x:=no}
+# xterm -e is default, one might want to change it to something else:
 #	--with-xterm="xterm -e"
 
 %{__make} %{?with_verbose:V=1}
@@ -168,7 +169,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir} \
 %{__make} install %{?with_verbose:V=1} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 
 cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
