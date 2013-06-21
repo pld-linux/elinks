@@ -20,8 +20,8 @@
 %bcond_with	python		# Python scripting support
 %bcond_with	ruby		# (experimental) Ruby scripting support
 # - display and UI
-%bcond_without	256		# Disable 256 colors support
-%bcond_without	led		# Disable LEDs
+%bcond_without	256		# 256 colors support
+%bcond_without	led		# LEDs
 %bcond_with	olderisbetter	# variuos pre-0.10.0 behaviour rules (typeahead and esc-esc)
 %bcond_with	x		# Use the X Window System
 # - misc
@@ -125,7 +125,6 @@ keepalive.
 %{__autoconf}
 %{__autoheader}
 %configure \
-	--disable-no-root \
 	%{?with_bittorrent:--enable-bittorrent} \
 	%{?with_cgi:--enable-cgi} \
 	--enable-88-colors \
@@ -142,6 +141,7 @@ keepalive.
 	%{?with_leds:--enable-leds} \
 	--enable-marks \
 	--enable-nntp \
+	--disable-no-root \
 	%{?with_smb:--enable-smb} \
 	--without-gc \
 	%{?with_gnutls:--with-gnutls} \
