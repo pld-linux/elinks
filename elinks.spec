@@ -1,5 +1,4 @@
-# TODO: consider lua51
-
+#
 # Conditional build:
 # - protocols
 %bcond_without	bittorrent	# BitTorrent protocol support
@@ -38,15 +37,15 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
-%define	snap	20120604
-Release:	4.%{snap}.2
+%define	snap	20141101
+Release:	4.%{snap}.1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 # github gives different archive on each download
 # http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
-Source0:	%{name}-current-%{version}.tar.bz2
-# Source0-md5:	efc9918d90cb03a4d1c4d36ef1c36101
+Source0:	http://elinks.cz/download/elinks-current-%{version}.tar.bz2
+# Source0-md5:	e200b14f240ea7e5a2e43e4dedd457d5
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -69,7 +68,7 @@ BuildRequires:	gpm-devel
 %{?with_js:BuildRequires:	js185-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
-%{?with_lua:BuildRequires:	lua50-devel}
+%{?with_lua:BuildRequires:	lua51-devel >= 5.1}
 %{?with_lzma:BuildRequires:	lzma-devel}
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
