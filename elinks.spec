@@ -60,7 +60,7 @@ BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
