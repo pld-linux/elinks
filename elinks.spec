@@ -65,7 +65,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
-%{?with_js:BuildRequires:	js185-devel}
+%{?with_js:BuildRequires:	js187-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua51-devel >= 5.1}
