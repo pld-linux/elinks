@@ -31,6 +31,7 @@
 %undefine	with_openssl
 %endif
 
+%define	rel	3
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
@@ -38,7 +39,7 @@ Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
 %define	snap	20141101
-Release:	4.%{snap}.2
+Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
