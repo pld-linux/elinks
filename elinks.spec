@@ -10,6 +10,7 @@
 %bcond_without	openssl		# OpenSSL-based SSL support
 # - content
 %bcond_without	cgi		# Local CGI support
+%bcond_without	brotli		# Brotli compression support
 %bcond_without	js		# experimental (yet quite usable) JavaScript support (using SpiderMonkey)
 %bcond_with	lzma		# LZMA support (old API, incompatible with xz-libs)
 # - scripting
@@ -31,14 +32,14 @@
 %undefine	with_openssl
 %endif
 
-%define	rel	3
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
-%define	snap	20141101
+%define	snap	20151228
+%define	rel	1
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
@@ -46,7 +47,7 @@ Group:		Applications/Networking
 # github gives different archive on each download
 # http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
 Source0:	http://elinks.cz/download/elinks-current-%{version}.tar.bz2
-# Source0-md5:	e200b14f240ea7e5a2e43e4dedd457d5
+# Source0-md5:	c8e0588124c127f5d025cb1cafe5d9d3
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -67,6 +68,7 @@ BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
 %{?with_js:BuildRequires:	js187-devel}
+%{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua51-devel >= 5.1}
@@ -142,6 +144,7 @@ keepalive.
 	--enable-nntp \
 	--disable-no-root \
 	%{?with_smb:--enable-smb} \
+	%{?with_brotli:--with-brotli} \
 	--without-gc \
 	%{?with_gnutls:--with-gnutls} \
 	%{?with_guile:--with-guile} \
