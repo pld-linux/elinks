@@ -10,7 +10,7 @@
 %bcond_without	openssl		# OpenSSL-based SSL support
 # - content
 %bcond_without	cgi		# Local CGI support
-%bcond_without	brotli		# Brotli compression support
+%bcond_with	brotli		# Brotli compression support
 %bcond_without	js		# experimental (yet quite usable) JavaScript support (using SpiderMonkey)
 %bcond_with	lzma		# LZMA support (old API, incompatible with xz-libs)
 # - scripting
@@ -39,7 +39,7 @@ Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
 %define	snap	20151228
-%define	rel	2
+%define	rel	3
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
