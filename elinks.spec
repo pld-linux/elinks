@@ -68,7 +68,7 @@ BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
 %{?with_js:BuildRequires:	js187-devel}
-%{?with_brotli:BuildRequires:	libbrotli-devel}
+%{?with_brotli:BuildRequires:	libbrotli-devel < 0.3}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua51-devel >= 5.1}
@@ -144,13 +144,13 @@ keepalive.
 	--enable-nntp \
 	--disable-no-root \
 	%{?with_smb:--enable-smb} \
-	%{?with_brotli:--with-brotli} \
+	%{!?with_brotli:--without-brotli} \
 	--without-gc \
 	%{?with_gnutls:--with-gnutls} \
 	%{?with_guile:--with-guile} \
 	%{!?with_idn:--without-idn} \
 	%{!?with_lua:--without-lua} \
-	%{?with_lzma:--with-lzma} \
+	%{!?with_lzma:--without-lzma} \
 	%{!?with_openssl:--without-openssl} \
 	%{?with_perl:--with-perl} \
 	%{?with_python:--with-python} \
