@@ -38,8 +38,8 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
-%define	snap	20151228
-%define	rel	8
+%define	snap	20180901
+%define	rel	1
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
@@ -47,7 +47,7 @@ Group:		Applications/Networking
 # github gives different archive on each download
 # http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
 Source0:	http://elinks.cz/download/elinks-current-%{version}.tar.bz2
-# Source0-md5:	c8e0588124c127f5d025cb1cafe5d9d3
+# Source0-md5:	6e45361ed14855ad02d3ae9b7a6ad809
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
@@ -67,8 +67,8 @@ BuildRequires:	gettext-tools
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
-%{?with_js:BuildRequires:	js187-devel}
-%{?with_brotli:BuildRequires:	libbrotli-devel < 0.3}
+%{?with_js:BuildRequires:	js185-devel}
+%{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua51-devel >= 5.1}
