@@ -39,7 +39,7 @@ Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
 %define	snap	20180901
-%define	rel	1
+%define	rel	2
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
