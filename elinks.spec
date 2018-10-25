@@ -39,7 +39,7 @@ Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
 %define	snap	20180901
-%define	rel	2
+%define	rel	3
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
@@ -56,6 +56,7 @@ Patch2:		%{name}-date-format.patch
 Patch3:		%{name}-old_incremental.patch
 Patch4:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
 Patch5:		%{name}-double-esc.patch
+Patch6:		js187.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -67,7 +68,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 #BuildRequires:	heimdal-devel
-%{?with_js:BuildRequires:	js185-devel}
+%{?with_js:BuildRequires:	js187-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
@@ -120,6 +121,7 @@ keepalive.
 %patch4 -p1
 %patch5 -p1
 %endif
+%patch6 -p1
 
 %build
 %{__aclocal}

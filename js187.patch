@@ -1,0 +1,11 @@
+--- elinks-0.13-20180901/configure.in~	2017-07-23 19:50:15.000000000 +0200
++++ elinks-0.13-20180901/configure.in	2018-10-25 07:28:57.966732829 +0200
+@@ -612,7 +612,7 @@
+ # and therefore is less likely to be a newer incompatible version.
+ # (This configure script rejects older incompatible versions
+ # but can let newer ones through.)
+-for package in mozjs185 mozilla-js; do
++for package in mozjs187 mozilla-js; do
+ 	if test -n "$CONFIG_SPIDERMONKEY"; then
+ 		break
+ 	else
