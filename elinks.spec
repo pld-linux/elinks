@@ -124,6 +124,7 @@ keepalive.
 %patch6 -p1
 
 %build
+cp -f /usr/share/automake/config.sub config
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
