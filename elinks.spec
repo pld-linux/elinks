@@ -39,7 +39,7 @@ Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.13
 %define	snap	20180901
-%define	rel	6
+%define	rel	7
 Release:	4.%{snap}.%{rel}
 Epoch:		1
 License:	GPL v2
@@ -51,7 +51,7 @@ Source0:	http://elinks.cz/download/elinks-current-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	links.png
 Patch0:		%{name}-home_etc.patch
-Patch1:		%{name}-lua40.patch
+Patch1:		lua53.patch
 Patch2:		%{name}-date-format.patch
 Patch3:		%{name}-old_incremental.patch
 Patch4:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
@@ -72,7 +72,7 @@ BuildRequires:	gpm-devel
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
-%{?with_lua:BuildRequires:	lua51-devel >= 5.1}
+%{?with_lua:BuildRequires:	lua-devel >= 5.3}
 %{?with_lzma:BuildRequires:	lzma-devel}
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
