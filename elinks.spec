@@ -10,20 +10,20 @@
 %bcond_without	openssl		# OpenSSL-based SSL support
 # - content
 %bcond_without	cgi		# Local CGI support
-%bcond_with	brotli		# Brotli compression support
-%bcond_without	js		# experimental (yet quite usable) JavaScript support (using SpiderMonkey)
+%bcond_without	brotli		# Brotli compression support
+%bcond_without	js		# experimental (yet quite usable) JavaScript support (using quickjs)
 %bcond_with	lzma		# LZMA support (old API, incompatible with xz-libs)
+%bcond_without	zstd	# zstd compression support
 # - scripting
 %bcond_with	guile		# Guile scripting support (non-distrib: guile 2 is LGPL v3+)
 %bcond_without	lua		# Lua scripting
-%bcond_without	perl		# Perl scripting
+%bcond_with	perl		# Perl scripting
 %bcond_with	python		# Python scripting support
 %bcond_with	ruby		# (experimental) Ruby scripting support
 # - display and UI
 %bcond_without	256		# 256 colors support
 %bcond_without	led		# LEDs
 %bcond_without	truecolor	# true color
-%bcond_with	olderisbetter	# variuos pre-0.10.0 behaviour rules (typeahead and esc-esc)
 %bcond_with	x		# Use the X Window System
 # - misc
 %bcond_without	verbose		# verbose build (V=1)
@@ -37,26 +37,15 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.13
-%define	snap	20180901
-%define	rel	8
-Release:	4.%{snap}.%{rel}
+Version:	0.15.0
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
-# github gives different archive on each download
-# http://www.elinks.cz/download/%{name}-current-%{version}.tar.bz2
-Source0:	http://elinks.cz/download/elinks-current-%{version}.tar.bz2
-# Source0-md5:	6e45361ed14855ad02d3ae9b7a6ad809
+Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	8fe2e81d2cea75f57cd3cf9bdda6821b
 Source1:	%{name}.desktop
 Source2:	links.png
-Patch0:		%{name}-home_etc.patch
-Patch1:		lua53.patch
-Patch2:		%{name}-date-format.patch
-Patch3:		%{name}-old_incremental.patch
-Patch4:		%{name}-0.10.0-0.9.3-typeahead-beginning.patch
-Patch5:		%{name}-double-esc.patch
-Patch6:		js187.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -67,22 +56,26 @@ BuildRequires:	gettext-tools
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
-#BuildRequires:	heimdal-devel
-%{?with_js:BuildRequires:	js187-devel}
+%{?with_js:BuildRequires:	libxml++5-devel >= 5.0.1-2}
+%{?with_js:BuildRequires:	quickjs-devel >= 20210327-2}
+%{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
-%{?with_lua:BuildRequires:	lua-devel >= 5.3}
+%{?with_lua:BuildRequires:	lua53-devel}
 %{?with_lzma:BuildRequires:	lzma-devel}
+BuildRequires:	meson
 BuildRequires:	ncurses-devel >= 5.1
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
-%{?with_python:BuildRequires:	python-devel}
+%{?with_python:BuildRequires:	python3-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
+BuildRequires:	sed
 BuildRequires:	tre-devel
 BuildRequires:	which
 BuildRequires:	zlib-devel
+%{?with_zstd:BuildRequires:	zstd-devel}
 Suggests:	mailcap
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -112,74 +105,59 @@ tabelas, baixa arquivos em segundo plano, e usa as conexões HTTP/1.1
 keepalive.
 
 %prep
-%setup -q -n %{name}-%{version}-%{snap}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%if %{with olderisbetter}
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%endif
-%patch6 -p1
+%setup -q
 
 %build
-cp -f /usr/share/automake/config.sub config
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%configure \
-	%{?with_bittorrent:--enable-bittorrent} \
-	%{?with_cgi:--enable-cgi} \
-	--enable-88-colors \
-	%{?with_256:--enable-256-colors} \
-	%{?with_truecolor:--enable-true-color} \
-	--enable-exmode \
-	%{?debug:--enable-debug} \
-	%{!?debug:--enable-fastmem} \
-	--enable-finger \
-	%{?with_fsp:--enable-fsp} \
-	--enable-gopher \
-	--enable-html-highlight \
-	%{!?with_ipv6:--disable-ipv6} \
-	%{?with_leds:--enable-leds} \
-	--enable-marks \
-	--enable-nntp \
-	--disable-no-root \
-	%{?with_smb:--enable-smb} \
-	%{!?with_brotli:--without-brotli} \
-	--without-gc \
-	%{?with_gnutls:--with-gnutls} \
-	%{?with_guile:--with-guile} \
-	%{!?with_idn:--without-idn} \
-	%{!?with_lua:--without-lua} \
-	%{!?with_lzma:--without-lzma} \
-	%{!?with_openssl:--without-openssl} \
-	%{?with_perl:--with-perl} \
-	%{?with_python:--with-python} \
-	%{?with_ruby:--with-ruby} \
-	%{!?with_js:--without-spidermonkey} \
-	--with-x%{!?with_x:=no}
-# xterm -e is default, one might want to change it to something else:
-#	--with-xterm="xterm -e"
+%meson build \
+	%{?with_bittorrent:-Dbittorrent=true} \
+	%{?with_cgi:-Dcgi=true} \
+	-D88-colors=true \
+	%{?with_256:-D256-colors=true} \
+	%{?with_truecolor:-Dtrue-color=true} \
+	-Dexmode=true \
+	%{?debug:-Ddebug=true} \
+	%{!?debug:-Dfastmem=true} \
+	-Dfinger=true \
+	%{?with_fsp:-Dfsp=true} \
+	-Dgemini=true \
+	-Dgettext=true \
+	-Dgopher=true \
+	-Dhtml-highlight=true \
+	%{!?with_ipv6:-Dipv6=false} \
+	%{?with_leds:-Dleds=true} \
+	-Dmarks=true \
+	-Dnntp=true \
+	-Dno-root=false \
+	%{?with_smb:-Dsmb=true} \
+	%{?with_brotli:-Dbrotli=true} \
+	%{?with_zstd:-Dzstd=true} \
+	%{?with_gnutls:-Dgnutls=true} \
+	%{?with_guile:-Dguile=true} \
+	%{!?with_idn:-Didn=false} \
+	%{?with_lua:-Dluapkg=lua5.3} \
+	%{?with_lzma:-Dlzma=true} \
+	%{?with_openssl:-Dopenssl=true} \
+	%{?with_perl:-Dperl=true} \
+	%{?with_python:-Dpython=true} \
+	%{?with_ruby:-Druby=true} \
+	%{?with_js:-Dquickjs=true} \
+	%{?with_x:-Dx=true}
 
-%{__make} %{?with_verbose:V=1}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+%ninja_install -C build
+
 install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	$RPM_BUILD_ROOT{%{_sysconfdir},%{_pixmapsdir}}
-
-%{__make} install %{?with_verbose:V=1} \
-	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 
 cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
+sed -i -e 's|bin/lua|bin/lua5.3|g' $RPM_BUILD_ROOT%{_sysconfdir}/*lua
 
 %find_lang %{name}
 
@@ -188,7 +166,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO doc/html/*.html
+%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
 %doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh}
 %attr(755,root,root) %{_bindir}/elinks
 %{_mandir}/man1/elinks.1*
