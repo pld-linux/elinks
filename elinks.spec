@@ -74,8 +74,10 @@ BuildRequires:	pkgconfig
 %{?with_python:BuildRequires:	python3-devel}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	sed
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	tre-devel
 BuildRequires:	which
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 %{?with_zstd:BuildRequires:	zstd-devel}
 Suggests:	mailcap
