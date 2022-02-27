@@ -122,7 +122,7 @@ keepalive.
 	%{?debug:-Ddebug=true} \
 	%{!?debug:-Dfastmem=true} \
 	-Dfinger=true \
-	%{?with_fsp:-Dfsp=true} \
+	-Dfsp=%{__true_false fsp} \
 	-Dgemini=true \
 	-Dgettext=true \
 	-Dgopher=true \
