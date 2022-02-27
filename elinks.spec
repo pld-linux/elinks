@@ -57,7 +57,9 @@ BuildRequires:	gettext-tools
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 %{?with_js:BuildRequires:	libxml++5-devel >= 5.0.1-2}
+BuildRequires:	ninja
 %{?with_js:BuildRequires:	quickjs-devel >= 20210327-4}
+BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
