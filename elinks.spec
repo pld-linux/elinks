@@ -56,9 +56,8 @@ BuildRequires:	gettext-tools
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
+BuildRequires:	libstdc++-devel
 %{?with_js:BuildRequires:	libxml++5-devel >= 5.0.1-2}
-BuildRequires:	ninja
-%{?with_js:BuildRequires:	quickjs-devel >= 20210327-4}
 BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
@@ -68,10 +67,12 @@ BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_lzma:BuildRequires:	lzma-devel}
 BuildRequires:	meson
 BuildRequires:	ncurses-devel >= 5.1
+BuildRequires:	ninja >= 1.5
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 %{?with_python:BuildRequires:	python3-devel}
+%{?with_js:BuildRequires:	quickjs-devel >= 20210327-4}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	sed
 BuildRequires:	tar >= 1:1.22
