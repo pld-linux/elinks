@@ -27,6 +27,7 @@
 %bcond_with	x		# Use the X Window System
 # - misc
 %bcond_without	verbose		# verbose build (V=1)
+%bcond_without	libevent	# build without libevent
 
 %if %{with gnutls}
 %undefine	with_openssl
@@ -38,7 +39,7 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.15.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
@@ -61,6 +62,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
+%{?with_libevent:BuildRequires:	libevent-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua53-devel}
@@ -146,7 +148,8 @@ keepalive.
 	%{?with_python:-Dpython=true} \
 	%{?with_ruby:-Druby=true} \
 	%{?with_js:-Dquickjs=true} \
-	%{?with_x:-Dx=true}
+	%{?with_x:-Dx=true} \
+	%{?with_libevent:-Dlibevent=true}
 
 %ninja_build -C build
 
