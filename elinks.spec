@@ -54,6 +54,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
 BuildRequires:	gettext-tools
+BuildRequires:	git-core
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
