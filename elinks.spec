@@ -38,13 +38,13 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.15.1
+Version:	0.16.0
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	9bf8aad8d480139b9420c19f18ae9a4e
+# Source0-md5:	911ea8b4e29c7fc638eb688a5b48ce57
 Source1:	%{name}.desktop
 Source2:	links.png
 URL:		http://www.elinks.cz/
