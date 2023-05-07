@@ -38,13 +38,13 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.16.0
+Version:	0.16.1.1
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	911ea8b4e29c7fc638eb688a5b48ce57
+# Source0-md5:	09ba9bf3f222da893a830f6e27a6cc3d
 Source1:	%{name}.desktop
 Source2:	links.png
 URL:		http://www.elinks.cz/
@@ -81,6 +81,7 @@ BuildRequires:	sed
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	tre-devel
 BuildRequires:	which
+BuildRequires:	xmlto
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 %{?with_zstd:BuildRequires:	zstd-devel}
@@ -117,6 +118,10 @@ keepalive.
 
 %build
 %meson build \
+	-Dapidoc=false \
+	-Dhtmldoc=true \
+	-Dpdfdoc=false \
+	-Ddocdir=%{_docdir}/%{name}-%{version} \
 	%{?with_bittorrent:-Dbittorrent=true} \
 	%{?with_cgi:-Dcgi=true} \
 	-D88-colors=true \
@@ -168,6 +173,9 @@ cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 %{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
 sed -i -e 's|bin/lua|bin/lua5.3|g' $RPM_BUILD_ROOT%{_sysconfdir}/*lua
 
+install AUTHORS BUGS ChangeLog NEWS README SITES TODO $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh} $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+
 %find_lang %{name}
 
 %clean
@@ -175,8 +183,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README SITES TODO
-%doc contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh}
+%{_docdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/elinks
 %{_mandir}/man1/elinks.1*
 %{_mandir}/man5/elinks.conf.5*
