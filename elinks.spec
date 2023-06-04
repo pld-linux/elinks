@@ -48,8 +48,6 @@ Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%
 Source1:	%{name}.desktop
 Source2:	links.png
 URL:		http://www.elinks.cz/
-BuildRequires:	autoconf >= 2.61
-BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
