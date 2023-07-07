@@ -1,0 +1,19 @@
+commit 3ff58b17e4272c18139db62af298ea3cc2450b7a
+Author: Witold Filipczyk <witekfl@poczta.onet.pl>
+Date:   Tue Jun 27 16:06:58 2023 +0200
+
+    [gemini] Missing LIs. Refs #242
+
+diff --git a/src/document/gemini/renderer.c b/src/document/gemini/renderer.c
+index 7fbaf5a1..2702c235 100644
+--- a/src/document/gemini/renderer.c
++++ b/src/document/gemini/renderer.c
+@@ -180,6 +180,8 @@ render_gemini_document(struct cache_entry *cached, struct document *document,
+ 							in_list = 1;
+ 							add_to_string(&html, "<ul>\n");
+ 							add_string_to_string(&html, &html_line);
++						} else {
++							add_string_to_string(&html, &html_line);
+ 						}
+ 					} else if (in_list) {
+ 						in_list = 0;

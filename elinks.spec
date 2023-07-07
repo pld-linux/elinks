@@ -39,7 +39,7 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.16.1.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
@@ -47,6 +47,7 @@ Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%
 # Source0-md5:	09ba9bf3f222da893a830f6e27a6cc3d
 Source1:	%{name}.desktop
 Source2:	links.png
+Patch0:		gemini.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
 BuildRequires:	expat-devel
@@ -113,6 +114,7 @@ keepalive.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build \
