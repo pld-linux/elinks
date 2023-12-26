@@ -35,8 +35,8 @@
 %undefine	with_openssl
 %endif
 
-%if %{with js}
-%define		with_libcss	1
+%if %{without libcss}
+%undefine	with_js
 %endif
 
 Summary:	Experimantal Links (text WWW browser)
