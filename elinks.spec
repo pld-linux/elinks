@@ -25,6 +25,7 @@
 # - display and UI
 %bcond_without	256		# 256 colors support
 %bcond_without	led		# LEDs
+%bcond_without	sixel		# image display support in SIXEL capable terminals
 %bcond_without	truecolor	# true color
 %bcond_with	x		# Use the X Window System
 # - misc
@@ -73,6 +74,7 @@ BuildRequires:	libdom-devel >= 0.4.1
 %endif
 %{?with_libevent:BuildRequires:	libevent-devel}
 %{?with_idn:BuildRequires:	libidn2-devel}
+%{?with_sixel:BuildRequires:	libsixel-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua53-devel}
 %{?with_lzma:BuildRequires:	lzma-devel}
@@ -154,6 +156,7 @@ keepalive.
 	-Dhtml-highlight=true \
 	%{!?with_ipv6:-Dipv6=false} \
 	%{?with_leds:-Dleds=true} \
+	-Dlibsixel=%{__true_false sixel} \
 	-Dmarks=true \
 	-Dnntp=true \
 	-Dno-root=false \
