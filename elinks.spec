@@ -2,6 +2,7 @@
 # Conditional build:
 # - protocols
 %bcond_without	bittorrent	# BitTorrent protocol support
+%bcond_without	curl		# FTPes, SFTP, HTTP/2, etc.
 %bcond_without	fsp		# FSP support
 %bcond_without	idn		# Internation Domain Names support
 %bcond_without	ipv6		# IPv6 support
@@ -12,6 +13,7 @@
 %bcond_without	cgi		# Local CGI support
 %bcond_without	brotli		# Brotli compression support
 %bcond_without	js		# experimental (yet quite usable) JavaScript support (using quickjs)
+%bcond_without	libcss		# libcss support
 %bcond_with	lzma		# LZMA support (old API, incompatible with xz-libs)
 %bcond_without	zstd	# zstd compression support
 # - scripting
@@ -33,23 +35,27 @@
 %undefine	with_openssl
 %endif
 
+%if %{with js}
+%define		with_libcss	1
+%endif
+
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.16.1.1
-Release:	2
+Version:	0.17.0
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	09ba9bf3f222da893a830f6e27a6cc3d
+# Source0-md5:	6bb43cd9037ad83cded1df85d95dbd73
 Source1:	%{name}.desktop
 Source2:	links.png
-Patch0:		gemini.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
+%{?with_curl:BuildRequires:	curl-devel}
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
 BuildRequires:	gettext-tools
@@ -57,11 +63,12 @@ BuildRequires:	git-core
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
+%{?with_libcss:BuildRequires:	libCSS-devel >= 0.9.1}
 BuildRequires:	libstdc++-devel
-%{?with_js:BuildRequires:	libxml++5-devel >= 5.0.1-2}
 BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
+%{?with_js:BuildRequires:	libdom-devel >= 0.4.1}
 %{?with_libevent:BuildRequires:	libevent-devel}
 %{?with_idn:BuildRequires:	libidn-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
@@ -114,7 +121,6 @@ keepalive.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %meson build \
@@ -155,7 +161,9 @@ keepalive.
 	%{?with_ruby:-Druby=true} \
 	%{?with_js:-Dquickjs=true} \
 	%{?with_x:-Dx=true} \
-	%{?with_libevent:-Dlibevent=true}
+	%{?with_libevent:-Dlibevent=true} \
+	%{!?with_curl:-Dlibcurl=false} \
+	%{!?with_libcss:-Dlibcss=false}
 
 %ninja_build -C build
 
@@ -173,7 +181,7 @@ cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 %{?with_lua:install contrib/lua/*.lua $RPM_BUILD_ROOT%{_sysconfdir}}
 sed -i -e 's|bin/lua|bin/lua5.3|g' $RPM_BUILD_ROOT%{_sysconfdir}/*lua
 
-install AUTHORS BUGS ChangeLog NEWS README SITES TODO $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install AUTHORS BUGS ChangeLog NEWS README.md SITES TODO $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 install contrib/{keybind*,wipe-out-ssl*,lua/elinks-remote} contrib/conv/{*awk,*.pl,*.sh} $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %find_lang %{name}
