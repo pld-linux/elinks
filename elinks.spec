@@ -68,7 +68,9 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
-%{?with_js:BuildRequires:	libdom-devel >= 0.4.1}
+%if %{with js} || %{with libcss}
+BuildRequires:	libdom-devel >= 0.4.1
+%endif
 %{?with_libevent:BuildRequires:	libevent-devel}
 %{?with_idn:BuildRequires:	libidn2-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
@@ -93,7 +95,9 @@ BuildRequires:	zlib-devel
 %{?with_zstd:BuildRequires:	zstd-devel}
 %{?with_gnutls:Requires:	gnutls-libs >= 1.2.5}
 %{?with_libcss:Requires:	libCSS >= 0.9.1}
-%{?with_js:Requires:	libdom >= 0.4.1}
+%if %{with js} || %{with libcss}
+Requires:	libdom >= 0.4.1
+%endif
 Requires:	ncurses >= 5.1
 %{?with_openssl:Requires:	openssl >= 0.9.7d}
 %{?with_js:Requires:	quickjs >= 20210327-4}
