@@ -70,7 +70,7 @@ BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %{?with_js:BuildRequires:	libdom-devel >= 0.4.1}
 %{?with_libevent:BuildRequires:	libevent-devel}
-%{?with_idn:BuildRequires:	libidn-devel}
+%{?with_idn:BuildRequires:	libidn2-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua53-devel}
 %{?with_lzma:BuildRequires:	lzma-devel}
