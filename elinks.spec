@@ -46,7 +46,7 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.17.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
@@ -54,6 +54,8 @@ Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%
 # Source0-md5:	6bb43cd9037ad83cded1df85d95dbd73
 Source1:	%{name}.desktop
 Source2:	links.png
+Patch0:		libcss-0.9.2.patch
+Patch1:		crlf.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
 %{?with_curl:BuildRequires:	curl-devel}
@@ -64,13 +66,13 @@ BuildRequires:	git-core
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
-%{?with_libcss:BuildRequires:	libCSS-devel >= 0.9.1}
+%{?with_libcss:BuildRequires:	libCSS-devel >= 0.9.2}
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.736
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %if %{with js} || %{with libcss}
-BuildRequires:	libdom-devel >= 0.4.1
+BuildRequires:	libdom-devel >= 0.4.2
 %endif
 %{?with_libevent:BuildRequires:	libevent-devel}
 %{?with_idn:BuildRequires:	libidn2-devel}
@@ -96,9 +98,9 @@ BuildRequires:	xz
 BuildRequires:	zlib-devel
 %{?with_zstd:BuildRequires:	zstd-devel}
 %{?with_gnutls:Requires:	gnutls-libs >= 1.2.5}
-%{?with_libcss:Requires:	libCSS >= 0.9.1}
+%{?with_libcss:Requires:	libCSS >= 0.9.2}
 %if %{with js} || %{with libcss}
-Requires:	libdom >= 0.4.1
+Requires:	libdom >= 0.4.2
 %endif
 Requires:	ncurses >= 5.1
 %{?with_openssl:Requires:	openssl >= 0.9.7d}
@@ -133,6 +135,8 @@ keepalive.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %meson build \
