@@ -65,8 +65,11 @@ BuildRequires:	git-core
 BuildRequires:	gpm-devel
 %{?with_guile:BuildRequires: guile-devel}
 %{?with_libcss:BuildRequires:	libCSS-devel >= 0.9.2}
+%ifnarch %{arch_with_atomics64}
+BuildRequires:	libatomic-devel
+%endif
 BuildRequires:	libstdc++-devel
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.025
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %if %{with js} || %{with libcss}
