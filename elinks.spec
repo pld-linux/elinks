@@ -56,7 +56,7 @@ Source1:	%{name}.desktop
 Source2:	links.png
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
-%{?with_curl:BuildRequires:	curl-devel}
+%{?with_curl:BuildRequires:	curl-devel >= 7.66.0}
 BuildRequires:	expat-devel
 %{?with_fsp:BuildRequires:	fsplib-devel}
 BuildRequires:	gettext-tools
@@ -68,7 +68,7 @@ BuildRequires:	gpm-devel
 %ifnarch %{arch_with_atomics64}
 BuildRequires:	libatomic-devel
 %endif
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	rpmbuild(macros) >= 2.025
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
@@ -81,7 +81,7 @@ BuildRequires:	libdom-devel >= 0.4.2
 %{?with_smb:BuildRequires:	libsmbclient-devel}
 %{?with_lua:BuildRequires:	lua53-devel}
 %{?with_lzma:BuildRequires:	lzma-devel}
-BuildRequires:	meson
+BuildRequires:	meson >= 1.0.1
 BuildRequires:	ncurses-devel >= 5.1
 BuildRequires:	ninja >= 1.5
 %{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
@@ -95,9 +95,11 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	tre-devel
 BuildRequires:	which
 BuildRequires:	xmlto
+%{?with_js:BuildRequires:	xxd}
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 %{?with_zstd:BuildRequires:	zstd-devel}
+%{?with_curl:Requires:	curl-libs >= 7.66.0}
 %{?with_gnutls:Requires:	gnutls-libs >= 1.2.5}
 %{?with_libcss:Requires:	libCSS >= 0.9.2}
 %if %{with js} || %{with libcss}
