@@ -46,7 +46,7 @@ Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
 Version:	0.18.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
@@ -54,6 +54,7 @@ Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%
 # Source0-md5:	43ac5edc5735117317827550607e9035
 Source1:	%{name}.desktop
 Source2:	links.png
+Patch0:		quickjs.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
 %{?with_curl:BuildRequires:	curl-devel >= 7.66.0}
@@ -69,7 +70,7 @@ BuildRequires:	gpm-devel
 BuildRequires:	libatomic-devel
 %endif
 BuildRequires:	libstdc++-devel >= 6:8
-BuildRequires:	rpmbuild(macros) >= 2.025
+BuildRequires:	rpmbuild(macros) >= 2.042
 %{?with_js:BuildRequires:	sqlite3-devel}
 %{?with_brotli:BuildRequires:	libbrotli-devel}
 %if %{with js} || %{with libcss}
@@ -88,7 +89,7 @@ BuildRequires:	ninja >= 1.5
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 %{?with_python:BuildRequires:	python3-devel}
-%{?with_js:BuildRequires:	quickjs-devel >= 20210327-4}
+%{?with_js:BuildRequires:	quickjs-devel >= 20250426}
 %{?with_ruby:BuildRequires:	ruby-devel}
 BuildRequires:	sed
 BuildRequires:	tar >= 1:1.22
@@ -138,9 +139,10 @@ keepalive.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
-%meson build \
+%meson \
 	-Dapidoc=false \
 	-Dhtmldoc=true \
 	-Dpdfdoc=false \
@@ -183,11 +185,11 @@ keepalive.
 	%{!?with_curl:-Dlibcurl=false} \
 	%{!?with_libcss:-Dlibcss=false}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%ninja_install -C build
+%meson_install
 
 install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name} \

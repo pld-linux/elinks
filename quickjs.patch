@@ -1,0 +1,21 @@
+commit 5cc976da218e72ae268ac3e3a310c14700b8b513
+Author: Witold Filipczyk <witekfl@poczta.onet.pl>
+Date:   Fri May 16 15:07:28 2025 +0200
+
+    [quickjs] Compilation fix for quickjs-2025-04-26
+
+diff --git a/src/js/quickjs.h b/src/js/quickjs.h
+index 749af098a..34425de8f 100644
+--- a/src/js/quickjs.h
++++ b/src/js/quickjs.h
+@@ -14,6 +14,10 @@ inline int operator<(JSValueConst a, JSValueConst b)
+ extern "C" {
+ #endif
+ 
++#ifndef JS_VALUE_GET_STRING
++#define JS_VALUE_GET_STRING(v) ((JSString *)JS_VALUE_GET_PTR(v))
++#endif
++
+ #ifdef ECMASCRIPT_DEBUG
+ 
+ #define RETURN_JS(obj) \
