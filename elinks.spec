@@ -108,7 +108,6 @@ Requires:	libdom >= 0.4.2
 %endif
 Requires:	ncurses >= 5.1
 %{?with_openssl:Requires:	openssl >= 0.9.7d}
-%{?with_js:Requires:	quickjs >= 20210327-4}
 Suggests:	mailcap
 Provides:	webclient
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
