@@ -25,7 +25,10 @@
 # - display and UI
 %bcond_without	256		# 256 colors support
 %bcond_without	led		# LEDs
+%bcond_without	kitty		# kitty image protocol support
 %bcond_without	sixel		# image display support in SIXEL capable terminals
+%bcond_without	webp		# webp image support (requires kitty or sixel)
+%bcond_without	avif		# avif image support (requires kitty or sixel)
 %bcond_without	truecolor	# true color
 %bcond_with	x		# Use the X Window System
 # - misc
@@ -45,21 +48,19 @@ Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
 Summary(pt_BR.UTF-8):	O links é um browser para modo texto, similar ao lynx
 Name:		elinks
-Version:	0.18.0
-Release:	2
+Version:	0.19.0
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/rkd77/elinks/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	43ac5edc5735117317827550607e9035
+# Source0-md5:	e8d5064498c59c104b570462c31a038b
 Source1:	%{name}.desktop
 Source2:	links.png
-Patch0:		quickjs.patch
 URL:		http://www.elinks.cz/
 BuildRequires:	bzip2-devel
 %{?with_curl:BuildRequires:	curl-devel >= 7.66.0}
 BuildRequires:	expat-devel
-%{?with_fsp:BuildRequires:	fsplib-devel}
 BuildRequires:	gettext-tools
 BuildRequires:	git-core
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
@@ -69,6 +70,7 @@ BuildRequires:	gpm-devel
 %ifnarch %{arch_with_atomics64}
 BuildRequires:	libatomic-devel
 %endif
+%{?with_avif:BuildRequires:	libavif-devel}
 BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	rpmbuild(macros) >= 2.042
 %{?with_js:BuildRequires:	sqlite3-devel}
@@ -80,6 +82,7 @@ BuildRequires:	libdom-devel >= 0.4.2
 %{?with_idn:BuildRequires:	libidn2-devel}
 %{?with_sixel:BuildRequires:	libsixel-devel}
 %{?with_smb:BuildRequires:	libsmbclient-devel}
+%{?with_webp:BuildRequires:	libwebp-devel}
 %{?with_lua:BuildRequires:	lua53-devel}
 %{?with_lzma:BuildRequires:	lzma-devel}
 BuildRequires:	meson >= 1.0.1
@@ -138,7 +141,6 @@ keepalive.
 
 %prep
 %setup -q
-%patch -P0 -p1
 
 %build
 %meson \
@@ -155,13 +157,17 @@ keepalive.
 	%{?debug:-Ddebug=true} \
 	%{!?debug:-Dfastmem=true} \
 	-Dfinger=true \
-	-Dfsp=%{__true_false fsp} \
+	-Dfsp=false \
+	-Dfsp2=%{__true_false fsp} \
 	-Dgemini=true \
 	-Dgettext=true \
 	-Dgopher=true \
 	-Dhtml-highlight=true \
 	%{!?with_ipv6:-Dipv6=false} \
 	%{?with_leds:-Dleds=true} \
+	%{?with_avif:-Dlibavif=true} \
+	%{?with_webp:-Dlibwebp=true} \
+	-Dkitty=%{__true_false kitty} \
 	-Dlibsixel=%{__true_false sixel} \
 	-Dmarks=true \
 	-Dnntp=true \
