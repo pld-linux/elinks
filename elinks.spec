@@ -43,6 +43,11 @@
 %undefine	with_js
 %endif
 
+%if %{without kitty} && %{without sixel}
+%undefine	with_avif
+%undefine	with_webp
+%endif
+
 Summary:	Experimantal Links (text WWW browser)
 Summary(es.UTF-8):	El links es un browser para modo texto, similar a lynx
 Summary(pl.UTF-8):	Eksperymentalny Links (tekstowa przeglądarka WWW)
